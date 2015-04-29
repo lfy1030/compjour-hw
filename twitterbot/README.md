@@ -1,11 +1,12 @@
 # Pitch
 
-Anyone who tweets at my bot with the hashtag #discoverAnime with a query term will be tweeted back with the title of the anime that best matches the search term in the Hummingbird Database, a cover picture for the anime and the Hummingbird link to the anime.
+Anyone who tweets at my bot with the hashtag #GiveMeAnime with a query term will be tweeted back with the hashtag #Anime4U, the title of a randomly selected anime from the results of the query search in the Hummingbird Database and the Hummingbird link to the anime.
 
 In the event that the search term returned no results, a completely randomly selected anime will be tweeted. In the event that there is no query term behind the hashtag, a randomly selected anime will also be tweeted back. 
 
-e.g. @discoverAnimeBot #searchAnime [query]
-response: @user [COVER PICTURE] How about [Title]? https://hummingbird.me/anime/[best-match-slug]
+e.g. @HummingbirdDB #GiveMeAnime [query]
+
+response: @user #Anime4U How about [Title]? https://hummingbird.me/anime/[best-match-slug]
 
 # The Steps
 1. Bot checks Twitter API endpoint of statuses/mentiones timeline
@@ -16,6 +17,6 @@ response: @user [COVER PICTURE] How about [Title]? https://hummingbird.me/anime/
 	..*If there were no search results
 	..*Use a random number generator to generate a random number as the ID of the title to return
 
-Otherwise get the top result of the query results and GET its title and the cover image. 
+Otherwise get a random anime from the query results and GET its title and url. 
 
-5. Construct the tweet and tweet back using the POST upload/media and POST statuses/update
+5. Construct the tweet and tweet back 

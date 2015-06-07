@@ -1,0 +1,3872 @@
+<!DOCTYPE html>          
+  
+<html><!---->
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="放射能測定,市民測定所,市民放射能測定所,市民測定室,測定,放射能,食品測定,セシウム,食品,測定結果" />
+  <meta name="description" content="" />
+  <title>Minna no Data Site | Combined Database of Independent Radioactivity Measurement Labs</title> 
+<!-- Bootstrap Core CSS -->
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<!-- Custom Fonts -->
+<link href="../font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<!-- Original css -->
+<link href="../add_style.css" rel="stylesheet">
+<!-- bxSlider CSS file -->
+<link href="../jquery-bxslider/jquery.bxslider.css" rel="stylesheet" />
+<link href="../css/custom.css" rel="stylesheet" type="text/css">
+<!-- Select2 CSS file-->
+<link href="../select2-3.5.1/select2.css" rel="stylesheet" />
+<link href="../select2-3.5.1/select2-bootstrap.css" rel="stylesheet" />
+<!-- Trango ACMS CSS file -->
+<link href="../css/custom.css" rel="stylesheet" />
+<!-- Script area --> 
+<!-- jQuery Version 1.11.0 --> 
+<script src="../js/jquery-1.11.0.js"></script> 
+<!-- Bootstrap Core JavaScript --> 
+<script src="../js/bootstrap.min.js"></script> 
+<!-- jQuery library (served from Google) --> 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script> 
+<!-- bxSlider Javascript file --> 
+<script src="../jquery-bxslider/jquery.bxslider.min.js"></script> 
+<!-- Select2 JavaScript -->
+<script src="../select2-3.5.1/select2.min.js"></script> 
+
+<!-- owl carousel  -->
+<link rel="stylesheet" href="../css/owl.carousel.css">
+<link rel="stylesheet" href="../css/owl.theme.css">
+<script type="text/javascript" src="../js/owl.carousel.js"></script>
+
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+</head>
+
+<body class="ctmrdatafoodloc">
+<script src="../js/stupidtable.min.js"></script>
+<script>
+// 年月日でソート
+var stpt_sort_date = function(a,b) {
+  var re = new RegExp('^([0-9]{4})-([0-9]{2})-([0-9]{2})');
+  var reA = re.exec(a);
+  var reB = re.exec(b);
+  if (!reA) return 0;
+  if (!reB) return 0;          
+  // 年の比較
+  if (reA[0] > reB[0]){
+    return 1;
+  }else if( reA[0] < reB[0]) {
+    return -1;
+  }
+  // 月の比較
+  if ( reA[1] > reB[1] ) {
+    return 1;
+  }else if( reA[1] < reB[1] ){
+    return -1;
+  }
+  // 日の比較
+  return reA[2] > reB[2] ? 1 : ( reA[2] < reB[2] ? -1 : 0);
+};
+//
+var stpt_beforetablesort = function (event, data) {
+  // Apply a "disabled" look to the table while sorting.
+  $("table").addClass("disabled");
+}
+// ソート項目名に矢印表示
+var stpt_aftertablesort  = function (event, data) {
+  // Reset loading message.
+  $("table").removeClass("disabled");
+  var th = $(this).find("th");
+  th.find(".arrow").remove();
+  var dir = $.fn.stupidtable.dir;
+  var arrow = data.direction === dir.ASC ? "&uarr;" : "&darr;";
+  th.eq(data.column).append('<span class="arrow">' + arrow +'</span>');
+}
+</script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var table = $('#resulttable').stupidtable({ "date":stpt_sort_date });
+  table.on("beforetablesort", stpt_beforetablesort);
+  table.on("aftertablesort" , stpt_aftertablesort);
+});
+</script>
+<script>
+  function show_other_info(id) {
+    var obj = $('#'+id);
+    var re = /_\d+$/;
+    var title = 'ID' + id.match(re);
+    alert(title + "\n" + obj.text());
+  }
+</script>
+<!-- Header -->
+<div class="container">
+	<div class="row header-bar">
+		<div class="col-lg-5 col-sm-6"><a href="../"><img class="img-responsive img-hover" src="../img/eng/common/logo.png" alt="Minna no Data Site"></a></div>
+		<div class="col-lg-4 col-sm-6 header-item">
+			<div class="header-databox">
+
+			</div>
+		</div>
+	<div class="col-lg-2 col-sm-6 header-item">
+			<ul class="header-linkbox clear-link">
+				<li><a href="../contact"><img src="../img/common/icon_arrow.png">Contact</a></li>
+				<li><a href="http://www.minnanods.net"><img src="../img/common/icon_arrow.png">Japanese Site</a></li>
+				<li><a href="http://minnanodatasite.blogspot.jp/" target="_blank"><img src="../img/common/icon_arrow.png">Blog(jp)</a></li>
+			</ul>
+		</div>
+
+	</div>
+	<!-- /.row header-bar --> 
+</div>
+<!-- /.container --> 
+
+<!-- Navigation -->
+<nav class="navbar navbar-default" role="navigation">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span> <span class="icon-bar"></span><span class="icon-bar"></span></button>
+		</div>
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav navbar-default-bg">
+				<li class="dropdown"><a href="../MDS/about.html" class="dropdown-toggle" data-toggle="dropdown">About MDS<b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li> <a href="../">Home</a> </li>					
+						<li> <a href="../MDS">About Minna no Data Site</a> </li>					
+						<li> <a href="../MDS/beginning.html">Why and how did MDS begin?</a> </li>					
+						<li> <a href="../MDS/organization.html">Organization</a> </li>
+						<li> <a href="../MDS/objectives.html">objectives of MDS</a> </li>
+						<li> <a href="../MDS/concept.html">Concept</a> </li>
+						<li> <a href="../MDS/accuracy.html">Accuracy of the data</a> </li>
+						<li><a href="../MDS/howto.html">How to use</a></li>
+						<li> <a href="../MDS/data.html">Data Usage</a> </li>
+					</ul>
+				</li>
+
+
+				<li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Searching Food Data<b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="../#mds_indx_srch">Food Search TOP</a> </li>
+						<li><a href="../seasonal">Search by Seasonal Food</a> </li>
+						<li><a href="../mrdatafoodcat/">Search by Category</a></li>
+						<li><a href="../mrdatafoodloc/">Search by Place</a></li>
+						<li><a href="../mrdatafoodymd/">Search by Date</a></li>
+						<li><a href="../food/foodsearch.html">How to Search the MDS </a></li>
+					</ul>
+				</li>
+
+				<li><a href="../soil">East Japan Soil Measurement Project</a></li>
+
+				<li><a href="../labs/">Lab Info</a></li>
+
+				<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Rad Info<b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="../radinfo/rad_qa.html">Q&amp;A</a></li>
+				<!--		<li><a href="#">判断基準値</a></li>   -->
+				<!--		<li><a href="#">データ分析、解説</a></li>   -->
+				<!--		<li><a href="#">書籍案内</a></li>        -->
+				<!--		<li><a href="#">リンク集</a></li>   -->
+					</ul>
+				</li>
+
+
+				<li class="dropdown"><a href="../support" class="dropdown-toggle" data-toggle="dropdown">Support Us<b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="../support/5supportsway.html">How can I support MDS?</a></li>
+						<li><a href="../support/supportourproject.html">Support Our Site and Project!</a></li>
+					</ul>
+				</li>
+
+				
+				
+				<li class="sp-list">
+					<p><a href="../contact">Contact</a></p>
+					<p><a href="http://minnanods.net/">Japanese Site</a></p>
+					<p><a href="http://minnanodatasite.blogspot.jp/" target="_blank">Blog(jp)</a></p>
+				</li>
+			</ul>
+		</div>
+		<!-- /.navbar-collapse --> 
+	</div>
+	<!-- /.container --> 
+</nav>
+  <div id="page_content">  <div class="container"><p><span style="color: #ff0000;"><strong><span style="font-size: medium;">&nbsp;</span></strong></span></p>  </div><div class="container">
+<ul id="topicpath">
+  <li><a href="../">toppage</a>&gt;&nbsp;</li>        <li>  <a href="../mrdatafoodloc">search by place</a>
+&gt;&nbsp;</li>
+          <li></li>
+    </ul><!-- #topicPath -->
+</div>
+<div class="container">
+<div id="google_translate_element"></div><script>
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'ja',
+    layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+  }, 'google_translate_element');
+}
+</script><script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</div>    <div class="container">
+      <h4> File Made：2015-06-05 15:00:08</h4>
+      <!-- mrdata -->
+      <div class="mrdata item-box table-responsive">
+        
+Filter by Lab
+<select id="selected_sokuteisyo" name="selected_sokuteisyo" onchange="filterSokuteisyo($('#selected_sokuteisyo').val()); return false;">
+  <option value="0">All</option>
+  <option value="1">NPO Fukushima 30-Years Project</option>
+  <option value="10">Kodomomirai Radiation Measurement Station for Children and Future (Kodomira RMS)</option>
+  <option value="11">Small Flowers Independent Radioaction Measurement Room</option>
+  <option value="12">Hakaru-Sapporo Citizens' Station for Measuring Radioactivity in Sapporo</option>
+  <option value="13">Chikurin Radioactivity Monitoring Center for Citizens (Chikurin RMCC)</option>
+  <option value="15">Albireo West-Tokyo Radioactivity Measuring Station by Citizens</option>
+  <option value="18">NPO Asunaro Radiation Measurement Room (Asunaro Lab)</option>
+  <option value="19">Takagi Jinzaburo Memorial Chofu Citizens' Center for Radioactivity Measurement</option>
+  <option value="20">JCF-Team Metoba</option>
+  <option value="21">Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)</option>
+  <option value="23">Machida Citizens’ Radioactivity Measuring Office Hakaroom</option>
+  <option value="24">MINAMI-HUKUZAKI-TOCHI Co., Ltd. Radioactivity Measuring Room</option>
+  <option value="25">Radioactivity Measurement Request Place in Onomichi</option>
+  <option value="26">SAVE CHILD Iwate Citizens' Station for Measuring Radioactivity</option>
+  <option value="27">Zama Radioactivity Measuring Station</option>
+  <option value="28">Higashirinkan Radioactivity Measuring Chamber</option>
+  <option value="29">Citizens' Radioactivity Measuring Station Tsukuba</option>
+  <option value="30">Mori-no-Sokuteishitsu Namegawa</option>
+  <option value="31">Hanshin Citizens' Radioactivity Measuring Center</option>
+  <option value="32">HAKARUCHA，Toyama Radioactivity Measuring Civic Organization,</option>
+  <option value="33">=In Preparation=Citizens' Radiation Measurement Laboratory Kyushu (Q Bq)</option>
+  <option value="34">Citizens' Radioactivity Measuring Station KYOTO</option>
+  <option value="35">KANEGASAKI radioactivity citizen measurement room</option>
+  <option value="36">Kakuda Citizens Radioactivity Measurement Lab</option>
+  <option value="37">Teto Teto</option>
+  <option value="38">Citizen's Radioactivity Measuring Station in Nara</option>
+  <option value="39">kyoto.kussunn lab</option>
+</select>
+Filter by Inst.
+  <select id="selected_inst" name="selected_inst" onchange="filterInst($('#selected_inst').val()); return false;">
+  <option value="0">All</option>
+    <option value="11" >LB200</option>
+    <option value="15" >AT1320A</option>
+    <option value="19" >HpGe</option>
+    <option value="26" >FNF-401</option>
+    <option value="27" >AT1320C</option>
+    <option value="31" >CSK3i</option>
+    <option value="32" >ALOKA  CAN-OSP-NAI</option>
+    <option value="33" >PGT-N</option>
+    <option value="35" >PGT-P</option>
+    <option value="36" >InterWiner</option>
+    <option value="41" >EMF211</option>
+    <option value="68" >CSK-3i-X</option>
+    <option value="74" >FNF-401</option>
+</select>
+
+<script type="text/javascript" >
+//![CDATA[
+  var gl_tableid = 0;
+  var gl_sokuteisyoid = 0;
+  var gl_instid = 0;
+  var gl_prefid = 0;
+
+  // SELECTに選択肢追加
+  function add_option2select(selectid, value, name) {
+     var exist_flg = 0;
+     var id = '#'+selectid;
+     $(id+' option').each(
+       function (index) {
+         if ($(this).val() == value) {
+            exist_flg = 1 ;
+         }
+       }
+     );
+     if (!exist_flg) {
+       var option = '<option value="'+value+'">'+name+'</option>';
+       $(id).append(option);
+     }
+  }
+  // 産地(テーブル)の表示制御
+  function filterTable(tableid) {
+    gl_tableid = tableid;
+  　table_display_filter();
+  }
+  // 測定所による表示制御
+  function filterSokuteisyo(sokuteisyoid) {
+    gl_sokuteisyoid = sokuteisyoid;
+    line_display_filter();
+  }
+  // 測定器による表示制御
+  function filterInst(instid) {
+    gl_instid = instid;
+    line_display_filter();
+  }
+  // 県による表示制御
+  function filterPref(prefid) {
+    gl_prefid = prefid;
+    line_display_filter();
+  }
+  // 産地(テーブル)の表示非表示
+  function table_display_filter() {
+    var tableid = 'mrdata_table_' + gl_tableid;
+    $('.resulttable').each( function( index ) {
+      var obj = $(this);
+      if ( obj.attr('id') == tableid) {
+        obj.css("display", "");
+      }else if ( gl_tableid == '0' ) {
+        obj.css("display", "");
+      }else{
+        obj.css("display", "none");
+      }
+      // 表示する行がひとつもない
+      if (!is_display_line(obj)){
+        obj.css("display", "none");
+      }         
+    });
+  }
+  // 一行の表示非表示
+  function line_display_filter() {
+    $('.mrdata_line').each( function( index ) {
+      var obj = $(this);
+      if (is_display_sokuteisyo(obj) && is_display_inst(obj) && is_display_pref(obj)) {
+        obj.css("display", "");
+      }else{
+        obj.css("display", "none");
+      }
+    });
+    table_display_filter();  
+  }
+  // 表示非表示チェック
+  function is_display_line(tbl) {
+    var display = 0;
+    tbl.find('.mrdata_line').each( function(index) {
+      var obj = $(this);
+      if (obj.css('display') != "none") {
+        display = 1;
+      }
+    });
+    return display;
+  }
+  // 表示非表示チェック(測定所)
+  function is_display_sokuteisyo (parent) {
+    var obj = parent.find('.sokuteisyo');
+    if (gl_sokuteisyoid == 0 || obj.attr('value') == gl_sokuteisyoid) {
+      return 1;
+    }else{
+      return 0;
+    }
+  }
+  // 表示非表示チェック(測定器)
+  function is_display_inst (parent) {
+    var obj = parent.find('.inst');
+    if (gl_instid < 0) {
+      var id = gl_instid * -1;
+      if (obj.attr('value') == id) {
+        return 0;
+      }else{
+        return 1;
+      }
+    }else if (gl_instid == 0 || obj.attr('value') == gl_instid) {
+      return 1;
+    }else{
+      return 0;
+    }
+  }
+  // 表示非表示チェック(県)
+  function is_display_pref (parent) {
+    var obj = parent.find('.pref');
+    if (gl_prefid == 0 || obj.attr('value') == gl_prefid) {
+      return 1;
+    }else{
+      return 0;
+    }
+  }
+  // i131の表示
+  function filter_i131 (elm) {
+    var msg = "I131の数値について：\n\n"
+                 + "・天然放射性核種　Pb214のガンマ線（351.92kev)の寄与である可能性がある。\n\n"
+                 + "・1460.80keV(K40)の後方散乱が低エネルギ側のI131の領域に少し掛かり、あたかも I-131が存在するような結果出力になることがある。";
+    var status = $(elm).attr('status');
+    if (status == 'display_none') 
+        alert(msg);
+    $('.i131').each( function( index ) {
+            var obj = $(this);
+            if ( status == 'display_none' ) {
+                obj.css("display", "");
+            }else{
+                obj.css("display", "none");
+            }
+        });
+    if ( status == 'display_none')
+        status = 'display';
+    else
+        status = 'display_none';
+    $(elm).attr('status', status );
+  }
+//]]
+</script>
+<br />
+        <p>If you click column header (bold row),data will be sorted.</p>
+       <table id="resulttable"  class="table table-striped table-bordered">
+
+               <thead>
+        <tr>
+          <th data-sort="int"></th>
+          <th data-sort="string">Name</th>
+          <th data-sort="string">Place</th>
+          <th data-sort="float">Cs-134<br>(MDA)</th>
+          <th data-sort="float">Cs-137<br>(MDA)</th>
+          <th data-sort="date">Date</th>
+          <th data-sort="int">Time</th>
+          <th data-sort="string">Instrument</th>
+          <th>misc.</th>
+        </tr>
+      </thead>
+                        <tr id="mrdata_44834" class="mrdata_line">
+          <td>1</td>
+          <td><a href="../mrdatafoodget/mds_eng/44834" taget="_blank">白米</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(0.83)</td>
+          <td data-sort-value="0.00">ND<br/>(0.90)</td>
+          <td>2014-07-24</td>
+          <td class="mrtime" value="64000">64000</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_44834');" /><br/>
+           <span style="display:none" id="other_info_44834" >lab:Mori-no-Sokuteishitsu Namegawa
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:980.00
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_39192" class="mrdata_line">
+          <td>2</td>
+          <td><a href="../mrdatafoodget/mds_eng/39192" taget="_blank">ひとめぼれ</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(0.60)</td>
+          <td data-sort-value="0.00">ND<br/>(0.50)</td>
+          <td>2014-02-17</td>
+          <td class="mrtime" value="10800">10800</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_39192');" /><br/>
+           <span style="display:none" id="other_info_39192" >lab:Hanshin Citizens' Radioactivity Measuring Center
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:933.00
+remarks:</span>
+                      <a href="http://hanshinshs.web.fc2.com/201402kekka/660hakumai.pdf" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_3607" class="mrdata_line">
+          <td>3</td>
+          <td><a href="../mrdatafoodget/mds_eng/3607" taget="_blank">精白米(流通品「いわて純情米」/がんばろう日本)</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(2.10)</td>
+          <td data-sort-value="0.00">ND<br/>(2.30)</td>
+          <td>2012-07-27</td>
+          <td class="mrtime" value="6015">6015</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_3607');" /><br/>
+           <span style="display:none" id="other_info_3607" >lab:Kodomomirai Radiation Measurement Station for Children and Future (Kodomira RMS)
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:908.00
+remarks:</span>
+                      <a href="http://kodomira.com/measured/food/0727-6-6015.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_3207" class="mrdata_line">
+          <td>4</td>
+          <td><a href="../mrdatafoodget/mds_eng/3207" taget="_blank">精白米</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(4.30)</td>
+          <td data-sort-value="0.00">ND<br/>(4.70)</td>
+          <td>2011-12-28</td>
+          <td class="mrtime" value="1800">1800</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_3207');" /><br/>
+           <span style="display:none" id="other_info_3207" >lab:Kodomomirai Radiation Measurement Station for Children and Future (Kodomira RMS)
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:864.00
+remarks:</span>
+                      <a href="http://kodomira.com/measured/food/1228-7-1800.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_30110" class="mrdata_line">
+          <td>5</td>
+          <td><a href="../mrdatafoodget/mds_eng/30110" taget="_blank">白米・岩手県（2013年）あきたこまち・イオン株式会社西神戸店</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td>2013-11-24</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_30110');" /><br/>
+           <span style="display:none" id="other_info_30110" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:988.10
+remarks:http://onomichi-labo.blogspot.jp/2013/12/2013_31.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/12/2013_31.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_46495" class="mrdata_line">
+          <td>6</td>
+          <td><a href="../mrdatafoodget/mds_eng/46495" taget="_blank">いわて純情米</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(0.60)</td>
+          <td data-sort-value="0.00">ND<br/>(0.60)</td>
+          <td>2015-03-07</td>
+          <td class="mrtime" value="10800">10800</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_46495');" /><br/>
+           <span style="display:none" id="other_info_46495" >lab:Hanshin Citizens' Radioactivity Measuring Center
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:956.00
+remarks:岩手県産ひとめぼれ100％、平成26年度産、精米年月日：2015/02/27</span>
+                      <a href="http://hanshinshs.web.fc2.com/201503kekka/1607hakumai_iwate.pdf" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_3488" class="mrdata_line">
+          <td>7</td>
+          <td><a href="../mrdatafoodget/mds_eng/3488" taget="_blank">精白米</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(3.70)</td>
+          <td data-sort-value="0.00">ND<br/>(4.00)</td>
+          <td>2012-10-20</td>
+          <td class="mrtime" value="1800">1800</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_3488');" /><br/>
+           <span style="display:none" id="other_info_3488" >lab:Kodomomirai Radiation Measurement Station for Children and Future (Kodomira RMS)
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:904.00
+remarks:</span>
+                      <a href="http://kodomira.com/measured/food/1020-1-1800.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_47086" class="mrdata_line">
+          <td>8</td>
+          <td><a href="../mrdatafoodget/mds_eng/47086" taget="_blank">いわて純情米（ひとめぼれ）・岩手県（2014年）ライスフレンド株式会社</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td>2015-03-19</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_47086');" /><br/>
+           <span style="display:none" id="other_info_47086" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:952.60
+remarks:ゲルマニウム半導体検出器によるクロスチェックの結果有り</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2015/05/2014_17.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_45431" class="mrdata_line">
+          <td>9</td>
+          <td><a href="../mrdatafoodget/mds_eng/45431" taget="_blank">もち米_こがねもち_2012年産</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.93">0.93±0.52<br/>(0.84)</td>
+          <td data-sort-value="1.67">1.67±0.66<br/>(0.92)</td>
+          <td>2012-12-24</td>
+          <td class="mrtime" value="64000">64000</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_45431');" /><br/>
+           <span style="display:none" id="other_info_45431" >lab:Mori-no-Sokuteishitsu Namegawa
+category:Cereals&gt;Rice and processed products of rice&gt;Glutinous rice
+weight:978.00
+remarks:12.14精米   生活クラブ</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_7618" class="mrdata_line">
+          <td>10</td>
+          <td><a href="../mrdatafoodget/mds_eng/7618" taget="_blank">精白米(もち米)</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(4.40)</td>
+          <td data-sort-value="0.00">ND<br/>(4.70)</td>
+          <td>2012-06-08</td>
+          <td class="mrtime" value="1800">1800</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_7618');" /><br/>
+           <span style="display:none" id="other_info_7618" >lab:Kodomomirai Radiation Measurement Station for Children and Future (Kodomira RMS)
+category:Cereals&gt;Rice and processed products of rice&gt;Glutinous rice
+weight:889.00
+remarks:</span>
+                      <a href="http://kodomira.com/measured/food/0608-9-1800.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_29855" class="mrdata_line">
+          <td>11</td>
+          <td><a href="../mrdatafoodget/mds_eng/29855" taget="_blank">南部小麦・岩手県産（2013年）</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(0.60)</td>
+          <td data-sort-value="0.00">ND<br/>(0.70)</td>
+          <td>2013-10-06</td>
+          <td class="mrtime" value="10800">10800</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_29855');" /><br/>
+           <span style="display:none" id="other_info_29855" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Cereals&gt;Wheat and processed products of wheat&gt;Wheat
+weight:1002.50
+remarks:http://onomichi-labo.blogspot.jp/2013/10/2013_28.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/10/2013_28.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_7510" class="mrdata_line">
+          <td>12</td>
+          <td><a href="../mrdatafoodget/mds_eng/7510" taget="_blank">小麦粉(「完全粉」オーサワジャパン/121228期限)</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="2.50">2.50±1.60<br/>(2.50)</td>
+          <td data-sort-value="2.90">2.90±1.80<br/>(2.70)</td>
+          <td>2012-08-08</td>
+          <td class="mrtime" value="11000">11000</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_7510');" /><br/>
+           <span style="display:none" id="other_info_7510" >lab:Kodomomirai Radiation Measurement Station for Children and Future (Kodomira RMS)
+category:Cereals&gt;Wheat and processed products of wheat&gt;Flours
+weight:659.00
+remarks:</span>
+                      <a href="http://kodomira.com/measured/food/0808-4-11000.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_43088" class="mrdata_line">
+          <td>13</td>
+          <td><a href="../mrdatafoodget/mds_eng/43088" taget="_blank">全粒粉3B・岩手県（2014年）東日本産業株式会社</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td>2014-07-20</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_43088');" /><br/>
+           <span style="display:none" id="other_info_43088" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Cereals&gt;Wheat and processed products of wheat&gt;Flours
+weight:933.40
+remarks:</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2014/09/3b2014.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_43112" class="mrdata_line">
+          <td>14</td>
+          <td><a href="../mrdatafoodget/mds_eng/43112" taget="_blank">測定品：全粒粉・岩手県（2014年）東日本産業株式会社</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td>2014-07-21</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_43112');" /><br/>
+           <span style="display:none" id="other_info_43112" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Cereals&gt;Wheat and processed products of wheat&gt;Flours
+weight:892.40
+remarks:</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2014/09/2014_8.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_3611" class="mrdata_line">
+          <td>15</td>
+          <td><a href="../mrdatafoodget/mds_eng/3611" taget="_blank">天然酵母パン(南部地粉使用)</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="2.30">2.30±1.00<br/>(1.50)</td>
+          <td data-sort-value="3.00">3.00±1.20<br/>(1.60)</td>
+          <td>2012-07-25</td>
+          <td class="mrtime" value="65000">65000</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_3611');" /><br/>
+           <span style="display:none" id="other_info_3611" >lab:Kodomomirai Radiation Measurement Station for Children and Future (Kodomira RMS)
+category:Cereals&gt;Wheat and processed products of wheat&gt;Bread (except the sweet pastry)
+weight:583.00
+remarks:</span>
+                      <a href="http://kodomira.com/measured/food/0725-6-65000.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_45044" class="mrdata_line">
+          <td>16</td>
+          <td><a href="../mrdatafoodget/mds_eng/45044" taget="_blank">雑穀_白六穀</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(0.85)</td>
+          <td data-sort-value="0.00">ND<br/>(0.93)</td>
+          <td>2013-12-13</td>
+          <td class="mrtime" value="64000">64000</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_45044');" /><br/>
+           <span style="display:none" id="other_info_45044" >lab:Mori-no-Sokuteishitsu Namegawa
+category:Cereals&gt;&gt;Other processed products of wheat
+weight:967.00
+remarks:生活クラブ</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_40283" class="mrdata_line">
+          <td>17</td>
+          <td><a href="../mrdatafoodget/mds_eng/40283" taget="_blank">味噌</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(0.70)</td>
+          <td data-sort-value="0.00">ND<br/>(0.60)</td>
+          <td>2013-08-01</td>
+          <td class="mrtime" value="7200">7200</td>
+          <td class="inst" value="41">EMF211</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_40283');" /><br/>
+           <span style="display:none" id="other_info_40283" >lab:Machida Citizens’ Radioactivity Measuring Office Hakaroom
+category:Beans&gt;Processed products of soybean&gt;Edamame/Green soybeans
+weight:983.20
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_40198" class="mrdata_line">
+          <td>18</td>
+          <td><a href="../mrdatafoodget/mds_eng/40198" taget="_blank">キャベツ</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(1.30)</td>
+          <td data-sort-value="0.00">ND<br/>(1.37)</td>
+          <td>2014-07-11</td>
+          <td class="mrtime" value="10800">10800</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_40198');" /><br/>
+           <span style="display:none" id="other_info_40198" >lab:Zama Radioactivity Measuring Station
+category:Vegetables&gt;Leaf vegetables&gt;Cabbage
+weight:944.00
+remarks:水洗い、脱水後、フードプロセッサーにてみじん切り。
+944gを1Lマリネリ容器に充填。</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_39664" class="mrdata_line">
+          <td>19</td>
+          <td><a href="../mrdatafoodget/mds_eng/39664" taget="_blank">椎茸</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(2.65)</td>
+          <td data-sort-value="1.84">1.84±0.77<br/>(1.38)</td>
+          <td>2014-04-19</td>
+          <td class="mrtime" value="48000">48000</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_39664');" /><br/>
+           <span style="display:none" id="other_info_39664" >lab:Takagi Jinzaburo Memorial Chofu Citizens' Center for Radioactivity Measurement
+category:Mushrooms&gt;Mushrooms&gt;Shiitake mushroom
+weight:590.00
+remarks:深大寺東町カネマンで購、入5ミリ角、測定者・藤川</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_45234" class="mrdata_line">
+          <td>20</td>
+          <td><a href="../mrdatafoodget/mds_eng/45234" taget="_blank">生わかめ</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(6.66)</td>
+          <td data-sort-value="0.00">ND<br/>(7.27)</td>
+          <td>2013-07-12</td>
+          <td class="mrtime" value="1800">1800</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_45234');" /><br/>
+           <span style="display:none" id="other_info_45234" >lab:Mori-no-Sokuteishitsu Namegawa
+category:Seaweed&gt;Seaweed&gt;Brown seaweed
+weight:555.00
+remarks:（株）伊勢正</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_45888" class="mrdata_line">
+          <td>21</td>
+          <td><a href="../mrdatafoodget/mds_eng/45888" taget="_blank">岩蔵わかめ</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(3.56)</td>
+          <td data-sort-value="0.00">ND<br/>(3.14)</td>
+          <td>2014-12-04</td>
+          <td class="mrtime" value="54000">54000</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_45888');" /><br/>
+           <span style="display:none" id="other_info_45888" >lab:JCF-Team Metoba
+category:Seaweed&gt;Seaweed&gt;Brown seaweed
+weight:411.00
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_40358" class="mrdata_line">
+          <td>22</td>
+          <td><a href="../mrdatafoodget/mds_eng/40358" taget="_blank">ワカメ</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(1.70)</td>
+          <td data-sort-value="0.00">ND<br/>(1.40)</td>
+          <td>2013-09-12</td>
+          <td class="mrtime" value="3600">3600</td>
+          <td class="inst" value="41">EMF211</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_40358');" /><br/>
+           <span style="display:none" id="other_info_40358" >lab:Machida Citizens’ Radioactivity Measuring Office Hakaroom
+category:Seaweed&gt;Seaweed&gt;Brown seaweed
+weight:451.40
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_29343" class="mrdata_line">
+          <td>23</td>
+          <td><a href="../mrdatafoodget/mds_eng/29343" taget="_blank">サンマの腸</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(5.11)</td>
+          <td data-sort-value="0.00">ND<br/>(4.54)</td>
+          <td>2012-10-18</td>
+          <td class="mrtime" value="57600">57600</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_29343');" /><br/>
+           <span style="display:none" id="other_info_29343" >lab:JCF-Team Metoba
+category:Seafood&gt;Raw seafood (sea water)&gt;Saury
+weight:322.00
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_47222" class="mrdata_line">
+          <td>24</td>
+          <td><a href="../mrdatafoodget/mds_eng/47222" taget="_blank">開きサンマ</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(4.30)</td>
+          <td data-sort-value="0.00">ND<br/>(3.90)</td>
+          <td>2014-11-14</td>
+          <td class="mrtime" value="5400">5400</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_47222');" /><br/>
+           <span style="display:none" id="other_info_47222" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Seafood&gt;Raw seafood (sea water)&gt;Saury
+weight:954.60
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_47226" class="mrdata_line">
+          <td>25</td>
+          <td><a href="../mrdatafoodget/mds_eng/47226" taget="_blank">サンマ</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(2.70)</td>
+          <td data-sort-value="0.00">ND<br/>(2.50)</td>
+          <td>2014-11-21</td>
+          <td class="mrtime" value="14400">14400</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_47226');" /><br/>
+           <span style="display:none" id="other_info_47226" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Seafood&gt;Raw seafood (sea water)&gt;Saury
+weight:873.80
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_34086" class="mrdata_line">
+          <td>26</td>
+          <td><a href="../mrdatafoodget/mds_eng/34086" taget="_blank">南部とりモモ肉・岩手県（2014年）株式会社丸久</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.20)</td>
+          <td>2014-01-27</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_34086');" /><br/>
+           <span style="display:none" id="other_info_34086" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Meats&gt;Poultry&gt;Chicken meat
+weight:1155.60
+remarks:http://onomichi-labo.blogspot.jp/2014/03/2014.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2014/03/2014.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_3753" class="mrdata_line">
+          <td>27</td>
+          <td><a href="../mrdatafoodget/mds_eng/3753" taget="_blank">赤ワイン</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(1.30)</td>
+          <td data-sort-value="0.00">ND<br/>(1.40)</td>
+          <td>2012-01-05</td>
+          <td class="mrtime" value="40000">40000</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_3753');" /><br/>
+           <span style="display:none" id="other_info_3753" >lab:Kodomomirai Radiation Measurement Station for Children and Future (Kodomira RMS)
+category:Beverage&gt;Alcoholic beverage&gt;Other fruits wines
+weight:844.00
+remarks:</span>
+                      <a href="http://kodomira.com/measured/food/0105-2-3-40000.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_3199" class="mrdata_line">
+          <td>28</td>
+          <td><a href="../mrdatafoodget/mds_eng/3199" taget="_blank">ブドウワイン(頂き物)</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(3.60)</td>
+          <td data-sort-value="0.00">ND<br/>(4.00)</td>
+          <td>2012-01-05</td>
+          <td class="mrtime" value="2700">2700</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_3199');" /><br/>
+           <span style="display:none" id="other_info_3199" >lab:Kodomomirai Radiation Measurement Station for Children and Future (Kodomira RMS)
+category:Beverage&gt;Alcoholic beverage&gt;Other alcoholic beverages
+weight:844.00
+remarks:</span>
+                      <a href="http://kodomira.com/measured/food/0105-2-2700.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_43285" class="mrdata_line">
+          <td>29</td>
+          <td><a href="../mrdatafoodget/mds_eng/43285" taget="_blank">灰</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="125.00">125.00±25.00<br/>(3.51)</td>
+          <td data-sort-value="190.00">190.00±38.00<br/>(3.83)</td>
+          <td>2014-01-07</td>
+          <td class="mrtime" value="3600">3600</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_43285');" /><br/>
+           <span style="display:none" id="other_info_43285" >lab:Citizens' Radioactivity Measuring Station Tsukuba
+category:Environment&gt;Ash&gt;Incineration ash
+weight:705.00
+remarks:火鉢の灰</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_45683" class="mrdata_line">
+          <td>30</td>
+          <td><a href="../mrdatafoodget/mds_eng/45683" taget="_blank">白米(ひとめぼれ)</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(0.88)</td>
+          <td data-sort-value="0.00">ND<br/>(0.96)</td>
+          <td>2014-10-23</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_45683');" /><br/>
+           <span style="display:none" id="other_info_45683" >lab:Hakaru-Sapporo Citizens' Station for Measuring Radioactivity in Sapporo
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:937.00
+remarks:Marinelli-1l</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_47078" class="mrdata_line">
+          <td>31</td>
+          <td><a href="../mrdatafoodget/mds_eng/47078" taget="_blank">アマランサス</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(1.70)</td>
+          <td data-sort-value="0.00">ND<br/>(1.50)</td>
+          <td>2014-10-15</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_47078');" /><br/>
+           <span style="display:none" id="other_info_47078" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Cereals&gt;&gt;Other processed products of wheat
+weight:864.10
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_41251" class="mrdata_line">
+          <td>32</td>
+          <td><a href="../mrdatafoodget/mds_eng/41251" taget="_blank">小麦粉（全粒粉）　オーサワジャパン石臼挽き完全粉</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(1.60)</td>
+          <td data-sort-value="0.00">ND<br/>(1.80)</td>
+          <td>2014-08-07</td>
+          <td class="mrtime" value="10800">10800</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_41251');" /><br/>
+           <span style="display:none" id="other_info_41251" >lab:Hakaru-Sapporo Citizens' Station for Measuring Radioactivity in Sapporo
+category:Cereals&gt;Wheat and processed products of wheat&gt;Flours
+weight:858.00
+remarks:Marinelli-1l</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_46310" class="mrdata_line">
+          <td>33</td>
+          <td><a href="../mrdatafoodget/mds_eng/46310" taget="_blank">長芋</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(0.50)</td>
+          <td data-sort-value="0.00">ND<br/>(0.50)</td>
+          <td>2015-02-22</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_46310');" /><br/>
+           <span style="display:none" id="other_info_46310" >lab:Hanshin Citizens' Radioactivity Measuring Center
+category:Potatoes&gt;Processed products of potatoes&gt;Yam potatoes, Yamatoimo
+weight:879.00
+remarks:</span>
+                      <a href="http://hanshinshs.web.fc2.com/201502kekka/1575nagaimo_iwate.pdf" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_46288" class="mrdata_line">
+          <td>34</td>
+          <td><a href="../mrdatafoodget/mds_eng/46288" taget="_blank">胚芽精米</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td data-sort-value="2.09">2.09±0.81<br/>(0.40)</td>
+          <td>2015-01-31</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_46288');" /><br/>
+           <span style="display:none" id="other_info_46288" >lab:Hanshin Citizens' Radioactivity Measuring Center
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:869.00
+remarks:</span>
+                      <a href="http://hanshinshs.web.fc2.com/201502kekka/1530haigaseimai_iwte.pdf" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_45929" class="mrdata_line">
+          <td>35</td>
+          <td><a href="../mrdatafoodget/mds_eng/45929" taget="_blank">メビウス・たばこ</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(2.10)</td>
+          <td data-sort-value="0.00">ND<br/>(2.10)</td>
+          <td>2014-11-08</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_45929');" /><br/>
+           <span style="display:none" id="other_info_45929" >lab:Hanshin Citizens' Radioactivity Measuring Center
+category:Others&gt;Others&gt;Others
+weight:
+remarks:タバコ葉主要産地・岩手・青森</span>
+                      <a href="http://hanshinshs.web.fc2.com/201411kekka/1319tabaco_mevius.pdf" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_47035" class="mrdata_line">
+          <td>36</td>
+          <td><a href="../mrdatafoodget/mds_eng/47035" taget="_blank">2015年産原木生しいたけ</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(1.10)</td>
+          <td data-sort-value="6.10">6.10±2.37<br/>(1.10)</td>
+          <td>2015-04-12</td>
+          <td class="mrtime" value="21600">21600</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_47035');" /><br/>
+           <span style="display:none" id="other_info_47035" >lab:KANEGASAKI radioactivity citizen measurement room
+category:Mushrooms&gt;Mushrooms&gt;Shiitake mushroom
+weight:331.00
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_47040" class="mrdata_line">
+          <td>37</td>
+          <td><a href="../mrdatafoodget/mds_eng/47040" taget="_blank">2015年産ふるさとモーちゃん</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td>2015-05-06</td>
+          <td class="mrtime" value="21600">21600</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_47040');" /><br/>
+           <span style="display:none" id="other_info_47040" >lab:KANEGASAKI radioactivity citizen measurement room
+category:Dairy products&gt;Milk and dairy products&gt;Milk
+weight:1032.00
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_47039" class="mrdata_line">
+          <td>38</td>
+          <td><a href="../mrdatafoodget/mds_eng/47039" taget="_blank">2015年産成分無調整湯田牛乳</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td>2015-05-05</td>
+          <td class="mrtime" value="21600">21600</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_47039');" /><br/>
+           <span style="display:none" id="other_info_47039" >lab:KANEGASAKI radioactivity citizen measurement room
+category:Dairy products&gt;Milk and dairy products&gt;Milk
+weight:1019.00
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_46475" class="mrdata_line">
+          <td>39</td>
+          <td><a href="../mrdatafoodget/mds_eng/46475" taget="_blank">マダラ</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(1.80)</td>
+          <td data-sort-value="0.00">ND<br/>(1.70)</td>
+          <td>2015-02-04</td>
+          <td class="mrtime" value="3600">3600</td>
+          <td class="inst" value="68">CSK-3i-X</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_46475');" /><br/>
+           <span style="display:none" id="other_info_46475" >lab:HAKARUCHA，Toyama Radioactivity Measuring Civic Organization,
+category:Seafood&gt;Raw seafood (sea water)&gt;Cod
+weight:915.50
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_33203" class="mrdata_line">
+          <td>40</td>
+          <td><a href="../mrdatafoodget/mds_eng/33203" taget="_blank">岩手産　ひとめぼれ　２３年産</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(2.50)</td>
+          <td data-sort-value="0.00">ND<br/>(2.70)</td>
+          <td>2012-07-09</td>
+          <td class="mrtime" value="3600">3600</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_33203');" /><br/>
+           <span style="display:none" id="other_info_33203" >lab:Hakaru-Sapporo Citizens' Station for Measuring Radioactivity in Sapporo
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:1010.00
+remarks:Marinelli-1l</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_39499" class="mrdata_line">
+          <td>41</td>
+          <td><a href="../mrdatafoodget/mds_eng/39499" taget="_blank">米ぬか</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(3.87)</td>
+          <td data-sort-value="0.00">ND<br/>(3.35)</td>
+          <td>2013-11-23</td>
+          <td class="mrtime" value="36000">36000</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_39499');" /><br/>
+           <span style="display:none" id="other_info_39499" >lab:Takagi Jinzaburo Memorial Chofu Citizens' Center for Radioactivity Measurement
+category:Cereals&gt;Rice and processed products of rice&gt;Rice bran
+weight:490.00
+remarks:在来種「さわのはな」、測定者・藤川</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_2395" class="mrdata_line">
+          <td>42</td>
+          <td><a href="../mrdatafoodget/mds_eng/2395" taget="_blank">小麦粉</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(2.90)</td>
+          <td data-sort-value="0.00">ND<br/>(2.70)</td>
+          <td>2012-09-27</td>
+          <td class="mrtime" value="18000">18000</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_2395');" /><br/>
+           <span style="display:none" id="other_info_2395" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Cereals&gt;Wheat and processed products of wheat&gt;Flours
+weight:829.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_39448" class="mrdata_line">
+          <td>43</td>
+          <td><a href="../mrdatafoodget/mds_eng/39448" taget="_blank">小麦粉類</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(2.67)</td>
+          <td data-sort-value="0.00">ND<br/>(2.36)</td>
+          <td>2013-07-10</td>
+          <td class="mrtime" value="48000">48000</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_39448');" /><br/>
+           <span style="display:none" id="other_info_39448" >lab:Takagi Jinzaburo Memorial Chofu Citizens' Center for Radioactivity Measurement
+category:Cereals&gt;Wheat and processed products of wheat&gt;Flours
+weight:648.00
+remarks:測定者・藤川</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_1450" class="mrdata_line">
+          <td>44</td>
+          <td><a href="../mrdatafoodget/mds_eng/1450" taget="_blank">小麦粉</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(9.70)</td>
+          <td data-sort-value="0.00">ND<br/>(9.40)</td>
+          <td>2011-10-13</td>
+          <td class="mrtime" value="6000">6000</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_1450');" /><br/>
+           <span style="display:none" id="other_info_1450" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Cereals&gt;Wheat and processed products of wheat&gt;Flours
+weight:794.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_39449" class="mrdata_line">
+          <td>45</td>
+          <td><a href="../mrdatafoodget/mds_eng/39449" taget="_blank">小麦粉類</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(2.55)</td>
+          <td data-sort-value="0.00">ND<br/>(2.24)</td>
+          <td>2013-07-10</td>
+          <td class="mrtime" value="48000">48000</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_39449');" /><br/>
+           <span style="display:none" id="other_info_39449" >lab:Takagi Jinzaburo Memorial Chofu Citizens' Center for Radioactivity Measurement
+category:Cereals&gt;Wheat and processed products of wheat&gt;Flours
+weight:720.00
+remarks:測定者・藤川</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_39450" class="mrdata_line">
+          <td>46</td>
+          <td><a href="../mrdatafoodget/mds_eng/39450" taget="_blank">小麦粉類</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(2.27)</td>
+          <td data-sort-value="0.00">ND<br/>(2.00)</td>
+          <td>2013-07-11</td>
+          <td class="mrtime" value="60000">60000</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_39450');" /><br/>
+           <span style="display:none" id="other_info_39450" >lab:Takagi Jinzaburo Memorial Chofu Citizens' Center for Radioactivity Measurement
+category:Cereals&gt;Wheat and processed products of wheat&gt;Flours
+weight:720.00
+remarks:測定者・藤川</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_2453" class="mrdata_line">
+          <td>47</td>
+          <td><a href="../mrdatafoodget/mds_eng/2453" taget="_blank">小麦粉</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(3.90)</td>
+          <td data-sort-value="0.00">ND<br/>(3.60)</td>
+          <td>2012-10-18</td>
+          <td class="mrtime" value="8400">8400</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_2453');" /><br/>
+           <span style="display:none" id="other_info_2453" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Cereals&gt;Wheat and processed products of wheat&gt;Flours
+weight:783.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_2231" class="mrdata_line">
+          <td>48</td>
+          <td><a href="../mrdatafoodget/mds_eng/2231" taget="_blank">小麦粉</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(3.80)</td>
+          <td data-sort-value="0.00">ND<br/>(3.50)</td>
+          <td>2012-07-05</td>
+          <td class="mrtime" value="15000">15000</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_2231');" /><br/>
+           <span style="display:none" id="other_info_2231" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Cereals&gt;Wheat and processed products of wheat&gt;Flours
+weight:728.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_1959" class="mrdata_line">
+          <td>49</td>
+          <td><a href="../mrdatafoodget/mds_eng/1959" taget="_blank">小麦粉</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(4.50)</td>
+          <td data-sort-value="0.00">ND<br/>(4.10)</td>
+          <td>2012-04-20</td>
+          <td class="mrtime" value="12600">12600</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_1959');" /><br/>
+           <span style="display:none" id="other_info_1959" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Cereals&gt;Wheat and processed products of wheat&gt;Flours
+weight:749.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_2148" class="mrdata_line">
+          <td>50</td>
+          <td><a href="../mrdatafoodget/mds_eng/2148" taget="_blank">小麦粉</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(2.80)</td>
+          <td data-sort-value="0.00">ND<br/>(2.50)</td>
+          <td>2012-06-12</td>
+          <td class="mrtime" value="27000">27000</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_2148');" /><br/>
+           <span style="display:none" id="other_info_2148" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Cereals&gt;Wheat and processed products of wheat&gt;Flours
+weight:856.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_1815" class="mrdata_line">
+          <td>51</td>
+          <td><a href="../mrdatafoodget/mds_eng/1815" taget="_blank">小麦粉</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(10.00)</td>
+          <td data-sort-value="0.00">ND<br/>(9.10)</td>
+          <td>2012-03-01</td>
+          <td class="mrtime" value="7800">7800</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_1815');" /><br/>
+           <span style="display:none" id="other_info_1815" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Cereals&gt;Wheat and processed products of wheat&gt;Flours
+weight:705.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_2171" class="mrdata_line">
+          <td>52</td>
+          <td><a href="../mrdatafoodget/mds_eng/2171" taget="_blank">小麦粉</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(3.40)</td>
+          <td data-sort-value="3.30">3.30±1.20<br/>(1.70)</td>
+          <td>2012-06-18</td>
+          <td class="mrtime" value="18000">18000</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_2171');" /><br/>
+           <span style="display:none" id="other_info_2171" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Cereals&gt;Wheat and processed products of wheat&gt;Flours
+weight:886.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_2391" class="mrdata_line">
+          <td>53</td>
+          <td><a href="../mrdatafoodget/mds_eng/2391" taget="_blank">小麦粉</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(2.10)</td>
+          <td data-sort-value="0.00">ND<br/>(1.90)</td>
+          <td>2012-09-26</td>
+          <td class="mrtime" value="36000">36000</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_2391');" /><br/>
+           <span style="display:none" id="other_info_2391" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Cereals&gt;Wheat and processed products of wheat&gt;Flours
+weight:708.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_2031" class="mrdata_line">
+          <td>54</td>
+          <td><a href="../mrdatafoodget/mds_eng/2031" taget="_blank">ひえ</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(4.70)</td>
+          <td data-sort-value="0.00">ND<br/>(4.30)</td>
+          <td>2012-05-15</td>
+          <td class="mrtime" value="9000">9000</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_2031');" /><br/>
+           <span style="display:none" id="other_info_2031" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Cereals&gt;&gt;Other processed products of wheat
+weight:915.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_1405" class="mrdata_line">
+          <td>55</td>
+          <td><a href="../mrdatafoodget/mds_eng/1405" taget="_blank">りんご</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(9.40)</td>
+          <td data-sort-value="0.00">ND<br/>(9.10)</td>
+          <td>2011-09-21</td>
+          <td class="mrtime" value="5400">5400</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_1405');" /><br/>
+           <span style="display:none" id="other_info_1405" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Fruits&gt;Fresh fruits&gt;Apple
+weight:853.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_2728" class="mrdata_line">
+          <td>56</td>
+          <td><a href="../mrdatafoodget/mds_eng/2728" taget="_blank">菌床生しいたけ（Ｃラボ市場調査）</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="2.10">2.10±0.65<br/>(1.60)</td>
+          <td data-sort-value="4.20">4.20±0.93<br/>(0.90)</td>
+          <td>2013-02-28</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_2728');" /><br/>
+           <span style="display:none" id="other_info_2728" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Mushrooms&gt;Mushrooms&gt;Shiitake mushroom
+weight:849.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_2359" class="mrdata_line">
+          <td>57</td>
+          <td><a href="../mrdatafoodget/mds_eng/2359" taget="_blank">干ししいたけ(菌生）</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="59.00">59.00±11.00<br/>(7.80)</td>
+          <td data-sort-value="91.00">91.00±17.00<br/>(4.10)</td>
+          <td>2012-09-11</td>
+          <td class="mrtime" value="36000">36000</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_2359');" /><br/>
+           <span style="display:none" id="other_info_2359" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Mushrooms&gt;Processed products of Mushrooms&gt;Shiitake mushrooms (dried)
+weight:235.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_2977" class="mrdata_line">
+          <td>58</td>
+          <td><a href="../mrdatafoodget/mds_eng/2977" taget="_blank">するめいか</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(2.50)</td>
+          <td data-sort-value="0.00">ND<br/>(2.20)</td>
+          <td>2013-08-28</td>
+          <td class="mrtime" value="14400">14400</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_2977');" /><br/>
+           <span style="display:none" id="other_info_2977" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Seafood&gt;Raw seafood (sea water)&gt;Squid
+weight:1030.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_2972" class="mrdata_line">
+          <td>59</td>
+          <td><a href="../mrdatafoodget/mds_eng/2972" taget="_blank">かつお（刺身用）</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(2.90)</td>
+          <td data-sort-value="0.00">ND<br/>(2.60)</td>
+          <td>2013-08-22</td>
+          <td class="mrtime" value="16200">16200</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_2972');" /><br/>
+           <span style="display:none" id="other_info_2972" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Seafood&gt;Raw seafood (sea water)&gt;Bonito
+weight:810.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_2969" class="mrdata_line">
+          <td>60</td>
+          <td><a href="../mrdatafoodget/mds_eng/2969" taget="_blank">生とびうお</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(2.90)</td>
+          <td data-sort-value="0.00">ND<br/>(2.60)</td>
+          <td>2013-08-21</td>
+          <td class="mrtime" value="14400">14400</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_2969');" /><br/>
+           <span style="display:none" id="other_info_2969" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Seafood&gt;Raw seafood (sea water)&gt;Other raw seafood (seawater)
+weight:876.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_1307" class="mrdata_line">
+          <td>61</td>
+          <td><a href="../mrdatafoodget/mds_eng/1307" taget="_blank">牛乳</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(12.00)</td>
+          <td data-sort-value="0.00">ND<br/>(12.00)</td>
+          <td>2011-08-25</td>
+          <td class="mrtime" value="3600">3600</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_1307');" /><br/>
+           <span style="display:none" id="other_info_1307" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Dairy products&gt;Milk and dairy products&gt;Milk
+weight:839.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_1274" class="mrdata_line">
+          <td>62</td>
+          <td><a href="../mrdatafoodget/mds_eng/1274" taget="_blank">はちみつ</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(13.00)</td>
+          <td data-sort-value="0.00">ND<br/>(12.00)</td>
+          <td>2011-08-08</td>
+          <td class="mrtime" value="2400">2400</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_1274');" /><br/>
+           <span style="display:none" id="other_info_1274" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Seasonings and spices&gt;Sugar and sweeteners&gt;Honey
+weight:968.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_1275" class="mrdata_line">
+          <td>63</td>
+          <td><a href="../mrdatafoodget/mds_eng/1275" taget="_blank">はちみつ アカシア</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(13.00)</td>
+          <td data-sort-value="0.00">ND<br/>(13.00)</td>
+          <td>2011-08-08</td>
+          <td class="mrtime" value="2400">2400</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_1275');" /><br/>
+           <span style="display:none" id="other_info_1275" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Seasonings and spices&gt;Sugar and sweeteners&gt;Honey
+weight:970.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_1689" class="mrdata_line">
+          <td>64</td>
+          <td><a href="../mrdatafoodget/mds_eng/1689" taget="_blank">経腸栄養剤ラコール</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(4.60)</td>
+          <td data-sort-value="0.00">ND<br/>(4.50)</td>
+          <td>2011-12-29</td>
+          <td class="mrtime" value="18000">18000</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_1689');" /><br/>
+           <span style="display:none" id="other_info_1689" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Others&gt;Others&gt;Others
+weight:939.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_45195" class="mrdata_line">
+          <td>65</td>
+          <td><a href="../mrdatafoodget/mds_eng/45195" taget="_blank">石灰_有機_カキガラ</a></td>
+          <td>岩手県(南三陸海岸)</td>
+          <td data-sort-value="6.05">6.05±2.13<br/>(2.68)</td>
+          <td data-sort-value="4.21">4.21±2.20<br/>(2.91)</td>
+          <td>2013-08-09</td>
+          <td class="mrtime" value="3600">3600</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_45195');" /><br/>
+           <span style="display:none" id="other_info_45195" >lab:Mori-no-Sokuteishitsu Namegawa
+category:Environment&gt;Agricultural materials&gt;Compost
+weight:952.00
+remarks:コメリ</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_1826" class="mrdata_line">
+          <td>66</td>
+          <td><a href="../mrdatafoodget/mds_eng/1826" taget="_blank">菌床生しいたけ</a></td>
+          <td>岩手県ＪＡ　大船渡</td>
+          <td data-sort-value="0.00">ND<br/>(11.00)</td>
+          <td data-sort-value="0.00">ND<br/>(9.60)</td>
+          <td>2012-03-08</td>
+          <td class="mrtime" value="21600">21600</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_1826');" /><br/>
+           <span style="display:none" id="other_info_1826" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Mushrooms&gt;Mushrooms&gt;Shiitake mushroom
+weight:852.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_3220" class="mrdata_line">
+          <td>67</td>
+          <td><a href="../mrdatafoodget/mds_eng/3220" taget="_blank">ブルーベリー(縁故品)</a></td>
+          <td>岩手県一関</td>
+          <td data-sort-value="0.00">ND<br/>(3.90)</td>
+          <td data-sort-value="0.00">ND<br/>(4.30)</td>
+          <td>2013-07-20</td>
+          <td class="mrtime" value="3700">3700</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_3220');" /><br/>
+           <span style="display:none" id="other_info_3220" >lab:Kodomomirai Radiation Measurement Station for Children and Future (Kodomira RMS)
+category:Fruits&gt;Fresh fruits&gt;Blueberry
+weight:603.00
+remarks:</span>
+                      <a href="http://kodomira.com/measured/food/130720-5-3700.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_3544" class="mrdata_line">
+          <td>68</td>
+          <td><a href="../mrdatafoodget/mds_eng/3544" taget="_blank">玄米(縁故米/H24年産)</a></td>
+          <td>岩手県一関市</td>
+          <td data-sort-value="2.90">2.90±1.10<br/>(1.50)</td>
+          <td data-sort-value="6.50">6.50±1.70<br/>(1.70)</td>
+          <td>2012-09-20</td>
+          <td class="mrtime" value="10800">10800</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_3544');" /><br/>
+           <span style="display:none" id="other_info_3544" >lab:Kodomomirai Radiation Measurement Station for Children and Future (Kodomira RMS)
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:932.00
+remarks:</span>
+                      <a href="http://kodomira.com/measured/food/0920-1-10800.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_3054" class="mrdata_line">
+          <td>69</td>
+          <td><a href="../mrdatafoodget/mds_eng/3054" taget="_blank">玄米(自家消費米)</a></td>
+          <td>岩手県一関市</td>
+          <td data-sort-value="3.60">3.60±0.94<br/>(0.93)</td>
+          <td data-sort-value="6.10">6.10±1.40<br/>(1.00)</td>
+          <td>2012-04-15</td>
+          <td class="mrtime" value="65000">65000</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_3054');" /><br/>
+           <span style="display:none" id="other_info_3054" >lab:Kodomomirai Radiation Measurement Station for Children and Future (Kodomira RMS)
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:900.00
+remarks:</span>
+                      <a href="http://kodomira.com/measured/food/0415-3-65000.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_3191" class="mrdata_line">
+          <td>70</td>
+          <td><a href="../mrdatafoodget/mds_eng/3191" taget="_blank">精白米(23年産)</a></td>
+          <td>岩手県一関市</td>
+          <td data-sort-value="0.00">ND<br/>(1.00)</td>
+          <td data-sort-value="1.10">1.10±0.68<br/>(1.10)</td>
+          <td>2012-01-10</td>
+          <td class="mrtime" value="60000">60000</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_3191');" /><br/>
+           <span style="display:none" id="other_info_3191" >lab:Kodomomirai Radiation Measurement Station for Children and Future (Kodomira RMS)
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:860.00
+remarks:</span>
+                      <a href="http://kodomira.com/measured/food/0110-1-60000.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_21121" class="mrdata_line">
+          <td>71</td>
+          <td><a href="../mrdatafoodget/mds_eng/21121" taget="_blank">玄米(23年産自家消費米)</a></td>
+          <td>岩手県一関市</td>
+          <td data-sort-value="0.00">ND<br/>(3.80)</td>
+          <td data-sort-value="0.00">ND<br/>(4.10)</td>
+          <td>2012-01-28</td>
+          <td class="mrtime" value="2610">2610</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_21121');" /><br/>
+           <span style="display:none" id="other_info_21121" >lab:Kodomomirai Radiation Measurement Station for Children and Future (Kodomira RMS)
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:859.00
+remarks:</span>
+                      <a href="http://kodomira.com/measured/food/0128-C-2610.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_44589" class="mrdata_line">
+          <td>72</td>
+          <td><a href="../mrdatafoodget/mds_eng/44589" taget="_blank">白米</a></td>
+          <td>岩手県一関市</td>
+          <td data-sort-value="0.00">ND<br/>(1.50)</td>
+          <td data-sort-value="0.00">ND<br/>(1.60)</td>
+          <td>2014-08-26</td>
+          <td class="mrtime" value="10800">10800</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_44589');" /><br/>
+           <span style="display:none" id="other_info_44589" >lab:Hakaru-Sapporo Citizens' Station for Measuring Radioactivity in Sapporo
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:948.00
+remarks:Marinelli-1l</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_45896" class="mrdata_line">
+          <td>73</td>
+          <td><a href="../mrdatafoodget/mds_eng/45896" taget="_blank">玄米</a></td>
+          <td>岩手県一関市</td>
+          <td data-sort-value="0.00">ND<br/>(1.48)</td>
+          <td data-sort-value="0.00">ND<br/>(1.61)</td>
+          <td>2014-11-28</td>
+          <td class="mrtime" value="10800">10800</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_45896');" /><br/>
+           <span style="display:none" id="other_info_45896" >lab:Hakaru-Sapporo Citizens' Station for Measuring Radioactivity in Sapporo
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:935.00
+remarks:Marinelli-1l</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_42067" class="mrdata_line">
+          <td>74</td>
+          <td><a href="../mrdatafoodget/mds_eng/42067" taget="_blank">玄米</a></td>
+          <td>岩手県一関市</td>
+          <td data-sort-value="0.00">ND<br/>(2.40)</td>
+          <td data-sort-value="0.00">ND<br/>(1.30)</td>
+          <td>2012-12-07</td>
+          <td class="mrtime" value="1800">1800</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_42067');" /><br/>
+           <span style="display:none" id="other_info_42067" >lab:Small Flowers Independent Radioaction Measurement Room
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:1000.00
+remarks:2012産</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_42630" class="mrdata_line">
+          <td>75</td>
+          <td><a href="../mrdatafoodget/mds_eng/42630" taget="_blank">セロリ</a></td>
+          <td>岩手県一関市</td>
+          <td data-sort-value="0.00">ND<br/>(5.80)</td>
+          <td data-sort-value="0.00">ND<br/>(3.20)</td>
+          <td>2012-11-14</td>
+          <td class="mrtime" value="639">639</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_42630');" /><br/>
+           <span style="display:none" id="other_info_42630" >lab:Small Flowers Independent Radioaction Measurement Room
+category:Vegetables&gt;Leaf vegetables&gt;Other | eafy vegetables
+weight:750.00
+remarks:露地　無農薬</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_42365" class="mrdata_line">
+          <td>76</td>
+          <td><a href="../mrdatafoodget/mds_eng/42365" taget="_blank">ブルーベリー2h</a></td>
+          <td>岩手県一関市</td>
+          <td data-sort-value="0.00">ND<br/>(1.20)</td>
+          <td data-sort-value="0.00">ND<br/>(1.60)</td>
+          <td>2013-08-19</td>
+          <td class="mrtime" value="7200">7200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_42365');" /><br/>
+           <span style="display:none" id="other_info_42365" >lab:Small Flowers Independent Radioaction Measurement Room
+category:Fruits&gt;Fresh fruits&gt;Blueberry
+weight:793.00
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_42154" class="mrdata_line">
+          <td>77</td>
+          <td><a href="../mrdatafoodget/mds_eng/42154" taget="_blank">ブルーベリー1h</a></td>
+          <td>岩手県一関市</td>
+          <td data-sort-value="0.00">ND<br/>(1.90)</td>
+          <td data-sort-value="0.00">ND<br/>(1.20)</td>
+          <td>2013-08-19</td>
+          <td class="mrtime" value="3600">3600</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_42154');" /><br/>
+           <span style="display:none" id="other_info_42154" >lab:Small Flowers Independent Radioaction Measurement Room
+category:Fruits&gt;Fresh fruits&gt;Blueberry
+weight:793.00
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_21120" class="mrdata_line">
+          <td>78</td>
+          <td><a href="../mrdatafoodget/mds_eng/21120" taget="_blank">リンゴ(流通品)</a></td>
+          <td>岩手県一関市</td>
+          <td data-sort-value="0.00">ND<br/>(4.30)</td>
+          <td data-sort-value="8.70">8.70±3.70<br/>(4.70)</td>
+          <td>2012-01-28</td>
+          <td class="mrtime" value="1800">1800</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_21120');" /><br/>
+           <span style="display:none" id="other_info_21120" >lab:Kodomomirai Radiation Measurement Station for Children and Future (Kodomira RMS)
+category:Fruits&gt;Fresh fruits&gt;Apple
+weight:859.00
+remarks:</span>
+                      <a href="http://kodomira.com/measured/food/0128-D-1800.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_42797" class="mrdata_line">
+          <td>79</td>
+          <td><a href="../mrdatafoodget/mds_eng/42797" taget="_blank">リンゴ　皮付き</a></td>
+          <td>岩手県一関市</td>
+          <td data-sort-value="0.00">ND<br/>(1.00)</td>
+          <td data-sort-value="2.87">2.87±1.87<br/>(1.30)</td>
+          <td>2013-03-03</td>
+          <td class="mrtime" value="3600">3600</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_42797');" /><br/>
+           <span style="display:none" id="other_info_42797" >lab:Small Flowers Independent Radioaction Measurement Room
+category:Fruits&gt;Fresh fruits&gt;Apple
+weight:1004.00
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_41964" class="mrdata_line">
+          <td>80</td>
+          <td><a href="../mrdatafoodget/mds_eng/41964" taget="_blank">なし</a></td>
+          <td>岩手県一関市</td>
+          <td data-sort-value="0.00">ND<br/>(6.00)</td>
+          <td data-sort-value="0.00">ND<br/>(3.00)</td>
+          <td>2012-09-05</td>
+          <td class="mrtime" value="472">472</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_41964');" /><br/>
+           <span style="display:none" id="other_info_41964" >lab:Small Flowers Independent Radioaction Measurement Room
+category:Fruits&gt;Fresh fruits&gt;Japanese pear
+weight:1022.00
+remarks:露地</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_42629" class="mrdata_line">
+          <td>81</td>
+          <td><a href="../mrdatafoodget/mds_eng/42629" taget="_blank">キューイ</a></td>
+          <td>岩手県一関市</td>
+          <td data-sort-value="4.30">4.30±3.10<br/>(2.80)</td>
+          <td data-sort-value="4.50">4.50±2.20<br/>(1.60)</td>
+          <td>2012-11-14</td>
+          <td class="mrtime" value="1800">1800</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_42629');" /><br/>
+           <span style="display:none" id="other_info_42629" >lab:Small Flowers Independent Radioaction Measurement Room
+category:Fruits&gt;Jam&gt;Kiwi jam
+weight:909.00
+remarks:無農薬</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_21200" class="mrdata_line">
+          <td>82</td>
+          <td><a href="../mrdatafoodget/mds_eng/21200" taget="_blank">りんごジュース</a></td>
+          <td>岩手県一関市</td>
+          <td data-sort-value="0.00">ND<br/>(2.90)</td>
+          <td data-sort-value="0.00">ND<br/>(3.10)</td>
+          <td>2011-12-28</td>
+          <td class="mrtime" value="3200">3200</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_21200');" /><br/>
+           <span style="display:none" id="other_info_21200" >lab:Kodomomirai Radiation Measurement Station for Children and Future (Kodomira RMS)
+category:Fruits&gt;Fruit juice, fruit drinks&gt;Apple juice
+weight:977.00
+remarks:</span>
+                      <a href="http://kodomira.com/measured/food/1228-3-3200.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_42935" class="mrdata_line">
+          <td>83</td>
+          <td><a href="../mrdatafoodget/mds_eng/42935" taget="_blank">堆肥　1ｈ</a></td>
+          <td>岩手県一関市</td>
+          <td data-sort-value="5.53">5.53±2.81<br/>(1.60)</td>
+          <td data-sort-value="18.80">18.80±6.44<br/>(2.40)</td>
+          <td>2014-03-28</td>
+          <td class="mrtime" value="10800">10800</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_42935');" /><br/>
+           <span style="display:none" id="other_info_42935" >lab:Small Flowers Independent Radioaction Measurement Room
+category:Environment&gt;Agricultural materials&gt;Compost
+weight:698.00
+remarks:岩手ウエスタン乗馬クラブ　馬糞堆肥</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_40120" class="mrdata_line">
+          <td>84</td>
+          <td><a href="../mrdatafoodget/mds_eng/40120" taget="_blank">しいたけ(菌床)</a></td>
+          <td>岩手県一関市</td>
+          <td data-sort-value="0.00">ND<br/>(1.10)</td>
+          <td data-sort-value="0.00">ND<br/>(1.40)</td>
+          <td>2014-04-18</td>
+          <td class="mrtime" value="3600">3600</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_40120');" /><br/>
+           <span style="display:none" id="other_info_40120" >lab:Small Flowers Independent Radioaction Measurement Room
+category:Mushrooms&gt;Mushrooms&gt;Shiitake mushroom
+weight:943.00
+remarks:購入店：イオンスーパーセンター 鈎取店   広範囲測定プロジェクト</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_39333" class="mrdata_line">
+          <td>85</td>
+          <td><a href="../mrdatafoodget/mds_eng/39333" taget="_blank">菌床栽培生しいたけ</a></td>
+          <td>岩手県遠野市</td>
+          <td data-sort-value="1.75">1.75±0.20<br/>(0.47)</td>
+          <td data-sort-value="4.87">4.87±0.31<br/>(0.50)</td>
+          <td>2014-04-17</td>
+          <td class="mrtime" value="10800">10800</td>
+          <td class="inst" value="19">HpGe</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_39333');" /><br/>
+           <span style="display:none" id="other_info_39333" >lab:NPO Fukushima 30-Years Project
+category:Mushrooms&gt;Mushrooms&gt;Shiitake mushroom
+weight:836.50
+remarks:購入店：イトーヨーカドー 福島店   広範囲測定プロジェクト</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_47083" class="mrdata_line">
+          <td>86</td>
+          <td><a href="../mrdatafoodget/mds_eng/47083" taget="_blank">2014年産白米</a></td>
+          <td>岩手県奥州市</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td>2015-05-13</td>
+          <td class="mrtime" value="21600">21600</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_47083');" /><br/>
+           <span style="display:none" id="other_info_47083" >lab:KANEGASAKI radioactivity citizen measurement room
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:1045.00
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_41999" class="mrdata_line">
+          <td>87</td>
+          <td><a href="../mrdatafoodget/mds_eng/41999" taget="_blank">ジャガイモ</a></td>
+          <td>岩手県奥州市</td>
+          <td data-sort-value="0.00">ND<br/>(3.20)</td>
+          <td data-sort-value="0.00">ND<br/>(1.80)</td>
+          <td>2012-10-05</td>
+          <td class="mrtime" value="1800">1800</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_41999');" /><br/>
+           <span style="display:none" id="other_info_41999" >lab:Small Flowers Independent Radioaction Measurement Room
+category:Potatoes&gt;Processed products of potatoes&gt;Potatoes
+weight:806.00
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_42000" class="mrdata_line">
+          <td>88</td>
+          <td><a href="../mrdatafoodget/mds_eng/42000" taget="_blank">カボチャ</a></td>
+          <td>岩手県奥州市</td>
+          <td data-sort-value="0.00">ND<br/>(2.90)</td>
+          <td data-sort-value="0.00">ND<br/>(1.60)</td>
+          <td>2012-10-05</td>
+          <td class="mrtime" value="1800">1800</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_42000');" /><br/>
+           <span style="display:none" id="other_info_42000" >lab:Small Flowers Independent Radioaction Measurement Room
+category:Vegetables&gt;Fruit vegetable&gt;Pumpkin
+weight:904.00
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_42081" class="mrdata_line">
+          <td>89</td>
+          <td><a href="../mrdatafoodget/mds_eng/42081" taget="_blank">リンゴ</a></td>
+          <td>岩手県奥州市</td>
+          <td data-sort-value="0.00">ND<br/>(3.30)</td>
+          <td data-sort-value="0.00">ND<br/>(1.80)</td>
+          <td>2012-12-24</td>
+          <td class="mrtime" value="1800">1800</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_42081');" /><br/>
+           <span style="display:none" id="other_info_42081" >lab:Small Flowers Independent Radioaction Measurement Room
+category:Fruits&gt;Fresh fruits&gt;Apple
+weight:708.00
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_42299" class="mrdata_line">
+          <td>90</td>
+          <td><a href="../mrdatafoodget/mds_eng/42299" taget="_blank">タラノメ</a></td>
+          <td>岩手県奥州市</td>
+          <td data-sort-value="306.40">306.40±69.50<br/>(3.70)</td>
+          <td data-sort-value="580.50">580.50±129.00<br/>(12.40)</td>
+          <td>2013-05-15</td>
+          <td class="mrtime" value="1800">1800</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_42299');" /><br/>
+           <span style="display:none" id="other_info_42299" >lab:Small Flowers Independent Radioaction Measurement Room
+category:Edible wild plants&gt;Edible wild plants&gt;Taranome/Fatsia sprouts (Aralia elataï¼
+weight:727.00
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_42309" class="mrdata_line">
+          <td>91</td>
+          <td><a href="../mrdatafoodget/mds_eng/42309" taget="_blank">コシアブラ</a></td>
+          <td>岩手県奥州市</td>
+          <td data-sort-value="6697.20">6697.20±1474.60<br/>(53.10)</td>
+          <td data-sort-value="12712.30">12712.30±2760.50<br/>(209.30)</td>
+          <td>2013-05-22</td>
+          <td class="mrtime" value="1800">1800</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_42309');" /><br/>
+           <span style="display:none" id="other_info_42309" >lab:Small Flowers Independent Radioaction Measurement Room
+category:Edible wild plants&gt;Edible wild plants&gt;Koshiabura ï¼Acanthopanax sciadophylloidesï¼
+weight:56.00
+remarks:乾燥検体　2013春採取</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_42831" class="mrdata_line">
+          <td>92</td>
+          <td><a href="../mrdatafoodget/mds_eng/42831" taget="_blank">ワラビ</a></td>
+          <td>岩手県奥州市</td>
+          <td data-sort-value="26.40">26.40±7.90<br/>(2.30)</td>
+          <td data-sort-value="56.60">56.60±15.20<br/>(4.00)</td>
+          <td>2013-05-15</td>
+          <td class="mrtime" value="1800">1800</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_42831');" /><br/>
+           <span style="display:none" id="other_info_42831" >lab:Small Flowers Independent Radioaction Measurement Room
+category:Edible wild plants&gt;Edible wild plants&gt;Warabi/Bracken ï¼Pteridium aquilinumï¼
+weight:913.00
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_47038" class="mrdata_line">
+          <td>93</td>
+          <td><a href="../mrdatafoodget/mds_eng/47038" taget="_blank">2014年産未検査玄米</a></td>
+          <td>岩手県奥州市</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td>2015-04-30</td>
+          <td class="mrtime" value="21600">21600</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_47038');" /><br/>
+           <span style="display:none" id="other_info_47038" >lab:KANEGASAKI radioactivity citizen measurement room
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:1146.00
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_1834" class="mrdata_line">
+          <td>94</td>
+          <td><a href="../mrdatafoodget/mds_eng/1834" taget="_blank">玄米</a></td>
+          <td>岩手県奥州市</td>
+          <td data-sort-value="0.00">ND<br/>(4.10)</td>
+          <td data-sort-value="3.60">3.60±1.60<br/>(2.90)</td>
+          <td>2012-03-10</td>
+          <td class="mrtime" value="25200">25200</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_1834');" /><br/>
+           <span style="display:none" id="other_info_1834" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:780.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_39451" class="mrdata_line">
+          <td>95</td>
+          <td><a href="../mrdatafoodget/mds_eng/39451" taget="_blank">じゃがいも</a></td>
+          <td>岩手県奥州市</td>
+          <td data-sort-value="0.00">ND<br/>(3.75)</td>
+          <td data-sort-value="0.00">ND<br/>(3.32)</td>
+          <td>2013-08-06</td>
+          <td class="mrtime" value="18000">18000</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_39451');" /><br/>
+           <span style="display:none" id="other_info_39451" >lab:Takagi Jinzaburo Memorial Chofu Citizens' Center for Radioactivity Measurement
+category:Potatoes&gt;Processed products of potatoes&gt;Potatoes
+weight:800.00
+remarks:測定者・藤川</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_39452" class="mrdata_line">
+          <td>96</td>
+          <td><a href="../mrdatafoodget/mds_eng/39452" taget="_blank">じゃがいも</a></td>
+          <td>岩手県奥州市</td>
+          <td data-sort-value="0.00">ND<br/>(2.64)</td>
+          <td data-sort-value="0.00">ND<br/>(2.33)</td>
+          <td>2013-08-06</td>
+          <td class="mrtime" value="36000">36000</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_39452');" /><br/>
+           <span style="display:none" id="other_info_39452" >lab:Takagi Jinzaburo Memorial Chofu Citizens' Center for Radioactivity Measurement
+category:Potatoes&gt;Processed products of potatoes&gt;Potatoes
+weight:800.00
+remarks:測定者・藤川</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_2372" class="mrdata_line">
+          <td>97</td>
+          <td><a href="../mrdatafoodget/mds_eng/2372" taget="_blank">りんご</a></td>
+          <td>岩手県奥州市</td>
+          <td data-sort-value="1.90">1.90±1.70<br/>(1.70)</td>
+          <td data-sort-value="3.10">3.10±1.20<br/>(1.70)</td>
+          <td>2012-09-15</td>
+          <td class="mrtime" value="8400">8400</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_2372');" /><br/>
+           <span style="display:none" id="other_info_2372" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Fruits&gt;Fresh fruits&gt;Apple
+weight:977.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_46192" class="mrdata_line">
+          <td>98</td>
+          <td><a href="../mrdatafoodget/mds_eng/46192" taget="_blank">2014年産白米</a></td>
+          <td>岩手県奥州市江刺区</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td data-sort-value="1.16">1.16±0.62<br/>(0.40)</td>
+          <td>2015-02-21</td>
+          <td class="mrtime" value="21600">21600</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_46192');" /><br/>
+           <span style="display:none" id="other_info_46192" >lab:KANEGASAKI radioactivity citizen measurement room
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:1008.00
+remarks:Cs134:0.39Bq　※2σ
+2015/01/23　Ge(E)　Cs137:1.2Bq　Cs134:0.3　K40:17.9Bq　※1σ(U-8容器*200000sec)</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_42784" class="mrdata_line">
+          <td>99</td>
+          <td><a href="../mrdatafoodget/mds_eng/42784" taget="_blank">白米</a></td>
+          <td>岩手県奥州市水沢区</td>
+          <td data-sort-value="0.00">ND<br/>(2.00)</td>
+          <td data-sort-value="0.00">ND<br/>(2.10)</td>
+          <td>2012-12-24</td>
+          <td class="mrtime" value="1800">1800</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_42784');" /><br/>
+           <span style="display:none" id="other_info_42784" >lab:Small Flowers Independent Radioaction Measurement Room
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:1000.00
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_47034" class="mrdata_line">
+          <td>100</td>
+          <td><a href="../mrdatafoodget/mds_eng/47034" taget="_blank">2010年産天日乾燥しいたけ</a></td>
+          <td>岩手県下閉伊郡山田町</td>
+          <td data-sort-value="0.00">ND<br/>(5.10)</td>
+          <td data-sort-value="256.00">256.00±61.40<br/>(4.60)</td>
+          <td>2015-04-11</td>
+          <td class="mrtime" value="3600">3600</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_47034');" /><br/>
+           <span style="display:none" id="other_info_47034" >lab:KANEGASAKI radioactivity citizen measurement room
+category:Mushrooms&gt;Processed products of Mushrooms&gt;Shiitake mushrooms (dried)
+weight:190.00
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_40150" class="mrdata_line">
+          <td>101</td>
+          <td><a href="../mrdatafoodget/mds_eng/40150" taget="_blank">菌床生しいたけ</a></td>
+          <td>岩手県下閉伊郡田野畑村</td>
+          <td data-sort-value="0.00">ND<br/>(0.65)</td>
+          <td data-sort-value="1.24">1.24±0.20<br/>(0.50)</td>
+          <td>2014-07-12</td>
+          <td class="mrtime" value="10800">10800</td>
+          <td class="inst" value="19">HpGe</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_40150');" /><br/>
+           <span style="display:none" id="other_info_40150" >lab:NPO Fukushima 30-Years Project
+category:Mushrooms&gt;Mushrooms&gt;Shiitake mushroom
+weight:842.00
+remarks:製造：(株)サンマッシュ田野畑   購入店：コープマート 新町店   広範囲測定プロジェクト</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_39802" class="mrdata_line">
+          <td>102</td>
+          <td><a href="../mrdatafoodget/mds_eng/39802" taget="_blank">たのはたにこにこしいたけ(菌床)</a></td>
+          <td>岩手県下閉伊郡田野畑村</td>
+          <td data-sort-value="0.00">ND<br/>(0.69)</td>
+          <td data-sort-value="1.07">1.07±0.23<br/>(0.63)</td>
+          <td>2014-06-01</td>
+          <td class="mrtime" value="10800">10800</td>
+          <td class="inst" value="19">HpGe</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_39802');" /><br/>
+           <span style="display:none" id="other_info_39802" >lab:NPO Fukushima 30-Years Project
+category:Mushrooms&gt;Mushrooms&gt;Shiitake mushroom
+weight:435.00
+remarks:名称：岩手県産生しいたけ(菌床)   製造：(株)サンマッシュ田野畑   販売：JA新いわて   加工者：株式会社 RAG仙台   購入店：ローソン 福島泉店   500mlマリネリ容器測定   広範囲測定プロジェクト</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_35718" class="mrdata_line">
+          <td>103</td>
+          <td><a href="../mrdatafoodget/mds_eng/35718" taget="_blank">すき昆布 賞味期限2014.01.22</a></td>
+          <td>岩手県下閉伊郡普代村</td>
+          <td data-sort-value="0.00">ND<br/>(3.77)</td>
+          <td data-sort-value="0.00">ND<br/>(5.21)</td>
+          <td>2013-02-26</td>
+          <td class="mrtime" value="165240">165240</td>
+          <td class="inst" value="19">HpGe</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_35718');" /><br/>
+           <span style="display:none" id="other_info_35718" >lab:NPO Fukushima 30-Years Project
+category:Seaweed&gt;Seaweed&gt;Kelp
+weight:14.60
+remarks:Bi-214 6.24±1.79 名称：すき昆布 原材料名：干昆布(岩手県普代村産) 加工者：(株) 礒ヤ海産 70ml容器測定</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_47032" class="mrdata_line">
+          <td>104</td>
+          <td><a href="../mrdatafoodget/mds_eng/47032" taget="_blank">2014年産玄米</a></td>
+          <td>岩手県花巻市</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="1.28">1.28±0.51<br/>(0.30)</td>
+          <td>2015-04-08</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_47032');" /><br/>
+           <span style="display:none" id="other_info_47032" >lab:KANEGASAKI radioactivity citizen measurement room
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:1180.00
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_35960" class="mrdata_line">
+          <td>105</td>
+          <td><a href="../mrdatafoodget/mds_eng/35960" taget="_blank">エゴマ(じゅうねん)</a></td>
+          <td>岩手県花巻市</td>
+          <td data-sort-value="0.00">ND<br/>(3.78)</td>
+          <td data-sort-value="0.00">ND<br/>(3.04)</td>
+          <td>2013-09-18</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="19">HpGe</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_35960');" /><br/>
+           <span style="display:none" id="other_info_35960" >lab:NPO Fukushima 30-Years Project
+category:Nuts and seeds&gt;Nuts and seeds&gt;Perilla
+weight:33.60
+remarks:70ml容器測定</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_45852" class="mrdata_line">
+          <td>106</td>
+          <td><a href="../mrdatafoodget/mds_eng/45852" taget="_blank">岩手県 花巻市採取 渡りの鴨 雄と雌</a></td>
+          <td>岩手県花巻市</td>
+          <td data-sort-value="3.73">3.73±1.17<br/>(1.31)</td>
+          <td data-sort-value="9.03">9.03±2.14<br/>(1.38)</td>
+          <td>2014-11-19</td>
+          <td class="mrtime" value="9000">9000</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_45852');" /><br/>
+           <span style="display:none" id="other_info_45852" >lab:Zama Radioactivity Measuring Station
+category:Meats&gt;Poultry&gt;Other poultry
+weight:1013.00
+remarks:羽を除き筋肉部分を（雄と雌）を混合して1013gを1Lマリネリ容器に充填。
+鴨はシベリアから渡ってきておよそ1ヶ月ほどとのこと。Csは存在比率より福島由来と判断。</span>
+                      <a href="http://blogs.yahoo.co.jp/zamasokutei/12213006.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_2958" class="mrdata_line">
+          <td>107</td>
+          <td><a href="../mrdatafoodget/mds_eng/2958" taget="_blank">すきみたら</a></td>
+          <td>岩手県岩手</td>
+          <td data-sort-value="1.60">1.60±0.57<br/>(1.30)</td>
+          <td data-sort-value="3.20">3.20±0.77<br/>(0.87)</td>
+          <td>2013-08-06</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_2958');" /><br/>
+           <span style="display:none" id="other_info_2958" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Seafood&gt;Raw seafood (sea water)&gt;Cod
+weight:927.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_45237" class="mrdata_line">
+          <td>108</td>
+          <td><a href="../mrdatafoodget/mds_eng/45237" taget="_blank">モチキビ</a></td>
+          <td>岩手県岩手郡葛巻町</td>
+          <td data-sort-value="0.00">ND<br/>(0.92)</td>
+          <td data-sort-value="0.00">ND<br/>(1.00)</td>
+          <td>2013-07-10</td>
+          <td class="mrtime" value="64000">64000</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_45237');" /><br/>
+           <span style="display:none" id="other_info_45237" >lab:Mori-no-Sokuteishitsu Namegawa
+category:Cereals&gt;&gt;Other processed products of wheat
+weight:901.00
+remarks:小倉商店</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_45347" class="mrdata_line">
+          <td>109</td>
+          <td><a href="../mrdatafoodget/mds_eng/45347" taget="_blank">co-op低温殺菌牛乳</a></td>
+          <td>岩手県岩手郡葛巻町</td>
+          <td data-sort-value="0.00">ND<br/>(3.51)</td>
+          <td data-sort-value="0.00">ND<br/>(3.80)</td>
+          <td>2013-03-14</td>
+          <td class="mrtime" value="1800">1800</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_45347');" /><br/>
+           <span style="display:none" id="other_info_45347" >lab:Mori-no-Sokuteishitsu Namegawa
+category:Dairy products&gt;Milk and dairy products&gt;Milk
+weight:1026.00
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_21046" class="mrdata_line">
+          <td>110</td>
+          <td><a href="../mrdatafoodget/mds_eng/21046" taget="_blank">市乳(タカナシ低温殺菌/岩手工場/Lot.W15 12.2.28 TM5)</a></td>
+          <td>岩手県岩手郡葛巻町</td>
+          <td data-sort-value="0.00">ND<br/>(0.95)</td>
+          <td data-sort-value="1.90">1.90±0.74<br/>(1.00)</td>
+          <td>2012-02-23</td>
+          <td class="mrtime" value="53000">53000</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_21046');" /><br/>
+           <span style="display:none" id="other_info_21046" >lab:Kodomomirai Radiation Measurement Station for Children and Future (Kodomira RMS)
+category:Dairy products&gt;Milk and dairy products&gt;Milk
+weight:972.00
+remarks:</span>
+                      <a href="http://kodomira.com/measured/food/0223-5-2-53000.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_45459" class="mrdata_line">
+          <td>111</td>
+          <td><a href="../mrdatafoodget/mds_eng/45459" taget="_blank">ペレット_24年度産</a></td>
+          <td>岩手県岩手郡葛巻町</td>
+          <td data-sort-value="0.00">ND<br/>(3.82)</td>
+          <td data-sort-value="8.17">8.17±3.10<br/>(4.20)</td>
+          <td>2012-12-06</td>
+          <td class="mrtime" value="3600">3600</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_45459');" /><br/>
+           <span style="display:none" id="other_info_45459" >lab:Mori-no-Sokuteishitsu Namegawa
+category:Environment&gt;Vegetation&gt;Others
+weight:684.00
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_45363" class="mrdata_line">
+          <td>112</td>
+          <td><a href="../mrdatafoodget/mds_eng/45363" taget="_blank">灰_2012年度産</a></td>
+          <td>岩手県岩手郡葛巻町</td>
+          <td data-sort-value="63.50">63.50±17.10<br/>(11.30)</td>
+          <td data-sort-value="1040.00">1040.00±210.00<br/>(12.30)</td>
+          <td>2013-02-28</td>
+          <td class="mrtime" value="1168">1168</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_45363');" /><br/>
+           <span style="display:none" id="other_info_45363" >lab:Mori-no-Sokuteishitsu Namegawa
+category:Environment&gt;Ash&gt;Plant ash
+weight:417.00
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_2918" class="mrdata_line">
+          <td>113</td>
+          <td><a href="../mrdatafoodget/mds_eng/2918" taget="_blank">小麦粉</a></td>
+          <td>岩手県岩手郡及び紫波郡</td>
+          <td data-sort-value="0.00">ND<br/>(3.90)</td>
+          <td data-sort-value="0.00">ND<br/>(3.50)</td>
+          <td>2013-07-03</td>
+          <td class="mrtime" value="10800">10800</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_2918');" /><br/>
+           <span style="display:none" id="other_info_2918" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Cereals&gt;Wheat and processed products of wheat&gt;Flours
+weight:711.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_3348" class="mrdata_line">
+          <td>114</td>
+          <td><a href="../mrdatafoodget/mds_eng/3348" taget="_blank">市乳(小岩井「農場3.7牛乳特選」/13.1.6/KM AI28)</a></td>
+          <td>岩手県岩手郡雫石町</td>
+          <td data-sort-value="0.00">ND<br/>(0.77)</td>
+          <td data-sort-value="1.20">1.20±0.57<br/>(0.84)</td>
+          <td>2012-12-28</td>
+          <td class="mrtime" value="65000">65000</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_3348');" /><br/>
+           <span style="display:none" id="other_info_3348" >lab:Kodomomirai Radiation Measurement Station for Children and Future (Kodomira RMS)
+category:Dairy products&gt;Milk and dairy products&gt;Milk
+weight:975.00
+remarks:</span>
+                      <a href="http://kodomira.com/measured/food/121228-1-2-65000.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_3754" class="mrdata_line">
+          <td>115</td>
+          <td><a href="../mrdatafoodget/mds_eng/3754" taget="_blank">市乳(小岩井乳業小岩井工場/120111)</a></td>
+          <td>岩手県岩手郡雫石町</td>
+          <td data-sort-value="2.30">2.30±0.92<br/>(1.30)</td>
+          <td data-sort-value="4.00">4.00±1.20<br/>(1.40)</td>
+          <td>2012-01-05</td>
+          <td class="mrtime" value="40000">40000</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_3754');" /><br/>
+           <span style="display:none" id="other_info_3754" >lab:Kodomomirai Radiation Measurement Station for Children and Future (Kodomira RMS)
+category:Dairy products&gt;Milk and dairy products&gt;Milk
+weight:853.00
+remarks:</span>
+                      <a href="http://kodomira.com/measured/food/0105-B-40000.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_21176" class="mrdata_line">
+          <td>116</td>
+          <td><a href="../mrdatafoodget/mds_eng/21176" taget="_blank">市乳(小岩井農場３．７特選)</a></td>
+          <td>岩手県岩手郡雫石町</td>
+          <td data-sort-value="0.00">ND<br/>(2.80)</td>
+          <td data-sort-value="4.50">4.50±2.20<br/>(3.00)</td>
+          <td>2012-01-11</td>
+          <td class="mrtime" value="3600">3600</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_21176');" /><br/>
+           <span style="display:none" id="other_info_21176" >lab:Kodomomirai Radiation Measurement Station for Children and Future (Kodomira RMS)
+category:Dairy products&gt;Other milks&gt;Other milks
+weight:938.00
+remarks:</span>
+                      <a href="http://kodomira.com/measured/food/0111-1-3600.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_47029" class="mrdata_line">
+          <td>117</td>
+          <td><a href="../mrdatafoodget/mds_eng/47029" taget="_blank">2014年産白米</a></td>
+          <td>岩手県岩手郡滝沢村</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.95">0.95±0.49<br/>(0.30)</td>
+          <td>2015-03-31</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_47029');" /><br/>
+           <span style="display:none" id="other_info_47029" >lab:KANEGASAKI radioactivity citizen measurement room
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:1012.00
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_46404" class="mrdata_line">
+          <td>118</td>
+          <td><a href="../mrdatafoodget/mds_eng/46404" taget="_blank">2014年産玄米</a></td>
+          <td>岩手県岩手郡滝沢村</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td data-sort-value="1.36">1.36±0.61<br/>(0.30)</td>
+          <td>2015-03-28</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_46404');" /><br/>
+           <span style="display:none" id="other_info_46404" >lab:KANEGASAKI radioactivity citizen measurement room
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:965.00
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_47030" class="mrdata_line">
+          <td>119</td>
+          <td><a href="../mrdatafoodget/mds_eng/47030" taget="_blank">2014年産もち米</a></td>
+          <td>岩手県岩手郡滝沢村</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.60">0.60±0.43<br/>(0.30)</td>
+          <td>2015-04-02</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_47030');" /><br/>
+           <span style="display:none" id="other_info_47030" >lab:KANEGASAKI radioactivity citizen measurement room
+category:Cereals&gt;Rice and processed products of rice&gt;Glutinous rice
+weight:987.00
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_47037" class="mrdata_line">
+          <td>120</td>
+          <td><a href="../mrdatafoodget/mds_eng/47037" taget="_blank">2015年産菜っ葉</a></td>
+          <td>岩手県岩手郡滝沢村</td>
+          <td data-sort-value="0.00">ND<br/>(0.80)</td>
+          <td data-sort-value="0.00">ND<br/>(0.70)</td>
+          <td>2015-04-14</td>
+          <td class="mrtime" value="21600">21600</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_47037');" /><br/>
+           <span style="display:none" id="other_info_47037" >lab:KANEGASAKI radioactivity citizen measurement room
+category:Vegetables&gt;Leaf vegetables&gt;Other | eafy vegetables
+weight:519.00
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_35217" class="mrdata_line">
+          <td>121</td>
+          <td><a href="../mrdatafoodget/mds_eng/35217" taget="_blank">キャベツ</a></td>
+          <td>岩手県岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(4.13)</td>
+          <td data-sort-value="0.00">ND<br/>(4.62)</td>
+          <td>2012-06-19</td>
+          <td class="mrtime" value="3600">3600</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_35217');" /><br/>
+           <span style="display:none" id="other_info_35217" >lab:NPO Fukushima 30-Years Project
+category:Vegetables&gt;Leaf vegetables&gt;Cabbage
+weight:574.00
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_35364" class="mrdata_line">
+          <td>122</td>
+          <td><a href="../mrdatafoodget/mds_eng/35364" taget="_blank">さばみそ煮 IT16/21</a></td>
+          <td>岩手県岩手県</td>
+          <td data-sort-value="0.78">0.78±0.17<br/>(0.47)</td>
+          <td data-sort-value="1.45">1.45±0.22<br/>(0.56)</td>
+          <td>2012-09-21</td>
+          <td class="mrtime" value="10800">10800</td>
+          <td class="inst" value="19">HpGe</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_35364');" /><br/>
+           <span style="display:none" id="other_info_35364" >lab:NPO Fukushima 30-Years Project
+category:Seafood&gt;Processed products of seafood&gt;Seafood (canned)
+weight:543.80
+remarks:名称：さばみそ煮 原材料名：さば、糖類(砂糖・糖蜜)、みそ、でん粉、食塩、増粘剤(グァー) 製造者：日本水産株式会社 岩手県工場 購入店：ヨークベニマル・野田店 500mlマリネリ容器測定</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_2927" class="mrdata_line">
+          <td>123</td>
+          <td><a href="../mrdatafoodget/mds_eng/2927" taget="_blank">ブルーベリー</a></td>
+          <td>岩手県岩手町</td>
+          <td data-sort-value="0.00">ND<br/>(2.80)</td>
+          <td data-sort-value="0.00">ND<br/>(2.60)</td>
+          <td>2013-07-09</td>
+          <td class="mrtime" value="10800">10800</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_2927');" /><br/>
+           <span style="display:none" id="other_info_2927" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Fruits&gt;Fresh fruits&gt;Blueberry
+weight:997.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_2233" class="mrdata_line">
+          <td>124</td>
+          <td><a href="../mrdatafoodget/mds_eng/2233" taget="_blank">さば</a></td>
+          <td>岩手県岩泉沖</td>
+          <td data-sort-value="0.00">ND<br/>(1.80)</td>
+          <td data-sort-value="0.00">ND<br/>(1.70)</td>
+          <td>2012-07-05</td>
+          <td class="mrtime" value="36000">36000</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_2233');" /><br/>
+           <span style="display:none" id="other_info_2233" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Seafood&gt;Raw seafood (sea water)&gt;Other raw seafood (seawater)
+weight:1050.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_2229" class="mrdata_line">
+          <td>125</td>
+          <td><a href="../mrdatafoodget/mds_eng/2229" taget="_blank">さば</a></td>
+          <td>岩手県岩泉町沖</td>
+          <td data-sort-value="0.00">ND<br/>(1.90)</td>
+          <td data-sort-value="0.00">ND<br/>(1.70)</td>
+          <td>2012-07-04</td>
+          <td class="mrtime" value="36000">36000</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_2229');" /><br/>
+           <span style="display:none" id="other_info_2229" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Seafood&gt;Raw seafood (sea water)&gt;Other raw seafood (seawater)
+weight:1030.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_7731" class="mrdata_line">
+          <td>126</td>
+          <td><a href="../mrdatafoodget/mds_eng/7731" taget="_blank">玄米(自家消費米)</a></td>
+          <td>岩手県気仙郡住田町</td>
+          <td data-sort-value="0.00">ND<br/>(4.20)</td>
+          <td data-sort-value="0.00">ND<br/>(4.90)</td>
+          <td>2012-04-21</td>
+          <td class="mrtime" value="1800">1800</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_7731');" /><br/>
+           <span style="display:none" id="other_info_7731" >lab:Kodomomirai Radiation Measurement Station for Children and Future (Kodomira RMS)
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:910.00
+remarks:</span>
+                      <a href="http://kodomira.com/measured/food/0421-5-1800.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_40113" class="mrdata_line">
+          <td>127</td>
+          <td><a href="../mrdatafoodget/mds_eng/40113" taget="_blank">菌床生しいたけ</a></td>
+          <td>岩手県久慈市</td>
+          <td data-sort-value="0.00">ND<br/>(1.50)</td>
+          <td data-sort-value="4.31">4.31±2.91<br/>(2.00)</td>
+          <td>2014-04-18</td>
+          <td class="mrtime" value="3600">3600</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_40113');" /><br/>
+           <span style="display:none" id="other_info_40113" >lab:Small Flowers Independent Radioaction Measurement Room
+category:Mushrooms&gt;Mushrooms&gt;Shiitake mushroom
+weight:761.00
+remarks:販売：有限会社 越戸きのこ園   購入店：イオンスーパーセンター 鈎取店   広範囲測定プロジェクト</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_1271" class="mrdata_line">
+          <td>128</td>
+          <td><a href="../mrdatafoodget/mds_eng/1271" taget="_blank">時鮭</a></td>
+          <td>岩手県宮古</td>
+          <td data-sort-value="0.00">ND<br/>(9.50)</td>
+          <td data-sort-value="0.00">ND<br/>(9.30)</td>
+          <td>2011-08-07</td>
+          <td class="mrtime" value="5400">5400</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_1271');" /><br/>
+           <span style="display:none" id="other_info_1271" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Seafood&gt;Raw seafood (sea water)&gt;Salmon
+weight:875.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_1270" class="mrdata_line">
+          <td>129</td>
+          <td><a href="../mrdatafoodget/mds_eng/1270" taget="_blank">するめいか</a></td>
+          <td>岩手県宮古</td>
+          <td data-sort-value="0.00">ND<br/>(11.00)</td>
+          <td data-sort-value="0.00">ND<br/>(9.00)</td>
+          <td>2011-08-07</td>
+          <td class="mrtime" value="5400">5400</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_1270');" /><br/>
+           <span style="display:none" id="other_info_1270" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Seafood&gt;Raw seafood (sea water)&gt;Squid
+weight:888.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_1263" class="mrdata_line">
+          <td>130</td>
+          <td><a href="../mrdatafoodget/mds_eng/1263" taget="_blank">たこ</a></td>
+          <td>岩手県宮古</td>
+          <td data-sort-value="0.00">ND<br/>(12.00)</td>
+          <td data-sort-value="0.00">ND<br/>(11.00)</td>
+          <td>2011-08-06</td>
+          <td class="mrtime" value="3600">3600</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_1263');" /><br/>
+           <span style="display:none" id="other_info_1263" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Seafood&gt;Raw seafood (sea water)&gt;Octopus
+weight:844.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_1453" class="mrdata_line">
+          <td>131</td>
+          <td><a href="../mrdatafoodget/mds_eng/1453" taget="_blank">タラ</a></td>
+          <td>岩手県宮古沖</td>
+          <td data-sort-value="30.00">30.00±6.70<br/>(9.60)</td>
+          <td data-sort-value="37.00">37.00±7.90<br/>(6.00)</td>
+          <td>2011-10-13</td>
+          <td class="mrtime" value="6000">6000</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_1453');" /><br/>
+           <span style="display:none" id="other_info_1453" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Seafood&gt;Raw seafood (sea water)&gt;Cod
+weight:890.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_1544" class="mrdata_line">
+          <td>132</td>
+          <td><a href="../mrdatafoodget/mds_eng/1544" taget="_blank">ヤリイカ</a></td>
+          <td>岩手県宮古沖</td>
+          <td data-sort-value="0.00">ND<br/>(9.00)</td>
+          <td data-sort-value="0.00">ND<br/>(8.80)</td>
+          <td>2011-11-10</td>
+          <td class="mrtime" value="4800">4800</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_1544');" /><br/>
+           <span style="display:none" id="other_info_1544" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Seafood&gt;Raw seafood (sea water)&gt;Squid
+weight:923.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_1535" class="mrdata_line">
+          <td>133</td>
+          <td><a href="../mrdatafoodget/mds_eng/1535" taget="_blank">アブラカレイ</a></td>
+          <td>岩手県宮古沖</td>
+          <td data-sort-value="0.00">ND<br/>(9.50)</td>
+          <td data-sort-value="0.00">ND<br/>(9.20)</td>
+          <td>2011-11-08</td>
+          <td class="mrtime" value="5400">5400</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_1535');" /><br/>
+           <span style="display:none" id="other_info_1535" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Seafood&gt;Raw seafood (sea water)&gt;Sole
+weight:858.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_1452" class="mrdata_line">
+          <td>134</td>
+          <td><a href="../mrdatafoodget/mds_eng/1452" taget="_blank">サワラ</a></td>
+          <td>岩手県宮古沖</td>
+          <td data-sort-value="0.00">ND<br/>(8.60)</td>
+          <td data-sort-value="0.00">ND<br/>(8.30)</td>
+          <td>2011-10-13</td>
+          <td class="mrtime" value="6000">6000</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_1452');" /><br/>
+           <span style="display:none" id="other_info_1452" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Seafood&gt;Raw seafood (sea water)&gt;Other raw seafood (seawater)
+weight:912.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_1451" class="mrdata_line">
+          <td>135</td>
+          <td><a href="../mrdatafoodget/mds_eng/1451" taget="_blank">サバ</a></td>
+          <td>岩手県宮古沖</td>
+          <td data-sort-value="0.00">ND<br/>(9.00)</td>
+          <td data-sort-value="0.00">ND<br/>(8.90)</td>
+          <td>2011-10-13</td>
+          <td class="mrtime" value="6000">6000</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_1451');" /><br/>
+           <span style="display:none" id="other_info_1451" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Seafood&gt;Raw seafood (sea water)&gt;Other raw seafood (seawater)
+weight:908.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_1536" class="mrdata_line">
+          <td>136</td>
+          <td><a href="../mrdatafoodget/mds_eng/1536" taget="_blank">どんこ(えぞいそあいなめ）</a></td>
+          <td>岩手県宮古沖</td>
+          <td data-sort-value="0.00">ND<br/>(9.80)</td>
+          <td data-sort-value="0.00">ND<br/>(9.60)</td>
+          <td>2011-11-08</td>
+          <td class="mrtime" value="4800">4800</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_1536');" /><br/>
+           <span style="display:none" id="other_info_1536" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Seafood&gt;Raw seafood (sea water)&gt;Other raw seafood (seawater)
+weight:891.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_2525" class="mrdata_line">
+          <td>137</td>
+          <td><a href="../mrdatafoodget/mds_eng/2525" taget="_blank">サワラ</a></td>
+          <td>岩手県宮古沖漁獲</td>
+          <td data-sort-value="0.00">ND<br/>(4.20)</td>
+          <td data-sort-value="0.00">ND<br/>(3.70)</td>
+          <td>2012-11-10</td>
+          <td class="mrtime" value="5400">5400</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_2525');" /><br/>
+           <span style="display:none" id="other_info_2525" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Seafood&gt;Raw seafood (sea water)&gt;Other raw seafood (seawater)
+weight:1030.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_1783" class="mrdata_line">
+          <td>138</td>
+          <td><a href="../mrdatafoodget/mds_eng/1783" taget="_blank">加熱用かき</a></td>
+          <td>岩手県宮古産</td>
+          <td data-sort-value="0.00">ND<br/>(5.40)</td>
+          <td data-sort-value="0.00">ND<br/>(4.90)</td>
+          <td>2012-02-16</td>
+          <td class="mrtime" value="17006">17006</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_1783');" /><br/>
+           <span style="display:none" id="other_info_1783" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Seafood&gt;Raw seafood (sea water)&gt;Shellfish
+weight:927.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_3069" class="mrdata_line">
+          <td>139</td>
+          <td><a href="../mrdatafoodget/mds_eng/3069" taget="_blank">精白米(自家栽培品)</a></td>
+          <td>岩手県宮古市</td>
+          <td data-sort-value="0.00">ND<br/>(3.90)</td>
+          <td data-sort-value="0.00">ND<br/>(4.20)</td>
+          <td>2012-04-07</td>
+          <td class="mrtime" value="1800">1800</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_3069');" /><br/>
+           <span style="display:none" id="other_info_3069" >lab:Kodomomirai Radiation Measurement Station for Children and Future (Kodomira RMS)
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:946.00
+remarks:</span>
+                      <a href="http://kodomira.com/measured/food/0407-5-1800.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_42104" class="mrdata_line">
+          <td>140</td>
+          <td><a href="../mrdatafoodget/mds_eng/42104" taget="_blank">米　もみ　１ｈ</a></td>
+          <td>岩手県宮古市</td>
+          <td data-sort-value="0.00">ND<br/>(1.90)</td>
+          <td data-sort-value="0.00">ND<br/>(1.40)</td>
+          <td>2013-03-25</td>
+          <td class="mrtime" value="3600">3600</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_42104');" /><br/>
+           <span style="display:none" id="other_info_42104" >lab:Small Flowers Independent Radioaction Measurement Room
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:759.00
+remarks:2012年度産</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_42668" class="mrdata_line">
+          <td>141</td>
+          <td><a href="../mrdatafoodget/mds_eng/42668" taget="_blank">大豆　１ｈ</a></td>
+          <td>岩手県宮古市</td>
+          <td data-sort-value="0.00">ND<br/>(2.60)</td>
+          <td data-sort-value="0.00">ND<br/>(1.40)</td>
+          <td>2013-03-25</td>
+          <td class="mrtime" value="3600">3600</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_42668');" /><br/>
+           <span style="display:none" id="other_info_42668" >lab:Small Flowers Independent Radioaction Measurement Room
+category:Beans&gt;Processed products of soybean&gt;Soybean (dried)
+weight:859.00
+remarks:2012年度産</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_3068" class="mrdata_line">
+          <td>142</td>
+          <td><a href="../mrdatafoodget/mds_eng/3068" taget="_blank">水道水(河川水源)</a></td>
+          <td>岩手県宮古市</td>
+          <td data-sort-value="0.00">ND<br/>(3.70)</td>
+          <td data-sort-value="0.00">ND<br/>(4.00)</td>
+          <td>2012-04-07</td>
+          <td class="mrtime" value="1800">1800</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_3068');" /><br/>
+           <span style="display:none" id="other_info_3068" >lab:Kodomomirai Radiation Measurement Station for Children and Future (Kodomira RMS)
+category:Environment&gt;Drinking water/potable water&gt;Tap water
+weight:1030.00
+remarks:</span>
+                      <a href="http://kodomira.com/measured/food/0407-6-1800.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_2287" class="mrdata_line">
+          <td>143</td>
+          <td><a href="../mrdatafoodget/mds_eng/2287" taget="_blank">するめいか</a></td>
+          <td>岩手県宮古市</td>
+          <td data-sort-value="0.00">ND<br/>(2.50)</td>
+          <td data-sort-value="0.00">ND<br/>(2.20)</td>
+          <td>2012-08-07</td>
+          <td class="mrtime" value="18000">18000</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_2287');" /><br/>
+           <span style="display:none" id="other_info_2287" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Seafood&gt;Raw seafood (sea water)&gt;Squid
+weight:1060.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_1267" class="mrdata_line">
+          <td>144</td>
+          <td><a href="../mrdatafoodget/mds_eng/1267" taget="_blank">チダイ　アラ付き</a></td>
+          <td>岩手県宮古水揚</td>
+          <td data-sort-value="12.00">12.00±4.50<br/>(10.00)</td>
+          <td data-sort-value="13.00">13.00±4.90<br/>(7.00)</td>
+          <td>2011-08-07</td>
+          <td class="mrtime" value="5400">5400</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_1267');" /><br/>
+           <span style="display:none" id="other_info_1267" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Seafood&gt;Raw seafood (sea water)&gt;Sea bream
+weight:719.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_1268" class="mrdata_line">
+          <td>145</td>
+          <td><a href="../mrdatafoodget/mds_eng/1268" taget="_blank">さくらます</a></td>
+          <td>岩手県宮古水揚</td>
+          <td data-sort-value="0.00">ND<br/>(9.60)</td>
+          <td data-sort-value="0.00">ND<br/>(9.50)</td>
+          <td>2011-08-07</td>
+          <td class="mrtime" value="5400">5400</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_1268');" /><br/>
+           <span style="display:none" id="other_info_1268" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Seafood&gt;Raw seafood (fresh water)&gt;Trout
+weight:867.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_46161" class="mrdata_line">
+          <td>146</td>
+          <td><a href="../mrdatafoodget/mds_eng/46161" taget="_blank">2014年産白米</a></td>
+          <td>岩手県金ヶ崎町</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td>2015-02-10</td>
+          <td class="mrtime" value="21600">21600</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_46161');" /><br/>
+           <span style="display:none" id="other_info_46161" >lab:KANEGASAKI radioactivity citizen measurement room
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:978.00
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_2639" class="mrdata_line">
+          <td>147</td>
+          <td><a href="../mrdatafoodget/mds_eng/2639" taget="_blank">もちあわ</a></td>
+          <td>岩手県九戸郡軽米町</td>
+          <td data-sort-value="0.00">ND<br/>(3.60)</td>
+          <td data-sort-value="0.00">ND<br/>(3.20)</td>
+          <td>2012-12-30</td>
+          <td class="mrtime" value="9000">9000</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_2639');" /><br/>
+           <span style="display:none" id="other_info_2639" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Cereals&gt;Rice and processed products of rice&gt;Other processed products of rice
+weight:882.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_2913" class="mrdata_line">
+          <td>148</td>
+          <td><a href="../mrdatafoodget/mds_eng/2913" taget="_blank">アマランサス</a></td>
+          <td>岩手県九戸郡軽米町</td>
+          <td data-sort-value="0.00">ND<br/>(1.60)</td>
+          <td data-sort-value="0.00">ND<br/>(1.50)</td>
+          <td>2013-06-27</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_2913');" /><br/>
+           <span style="display:none" id="other_info_2913" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Nuts and seeds&gt;Nuts and seeds&gt;Other nuts and seeds
+weight:875.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_1897" class="mrdata_line">
+          <td>149</td>
+          <td><a href="../mrdatafoodget/mds_eng/1897" taget="_blank">豚肉</a></td>
+          <td>岩手県九戸郡野田村</td>
+          <td data-sort-value="0.00">ND<br/>(5.40)</td>
+          <td data-sort-value="0.00">ND<br/>(4.80)</td>
+          <td>2012-04-04</td>
+          <td class="mrtime" value="17822">17822</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_1897');" /><br/>
+           <span style="display:none" id="other_info_1897" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Meats&gt;Meat of livestock&gt;Meat of swine, pork
+weight:918.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_42795" class="mrdata_line">
+          <td>150</td>
+          <td><a href="../mrdatafoodget/mds_eng/42795" taget="_blank">干し椎茸　マニアル 水道水で戻したもの</a></td>
+          <td>岩手県九戸郡洋野町</td>
+          <td data-sort-value="1.70">1.70±0.90<br/>(0.60)</td>
+          <td data-sort-value="7.40">7.40±2.20<br/>(0.80)</td>
+          <td>2013-02-13</td>
+          <td class="mrtime" value="10800">10800</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_42795');" /><br/>
+           <span style="display:none" id="other_info_42795" >lab:Small Flowers Independent Radioaction Measurement Room
+category:Mushrooms&gt;Mushrooms&gt;Shiitake mushroom
+weight:1117.00
+remarks:露地　家庭用浄水器使用仙台市水道水で戻したもの</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_39886" class="mrdata_line">
+          <td>151</td>
+          <td><a href="../mrdatafoodget/mds_eng/39886" taget="_blank">わかめ</a></td>
+          <td>岩手県三陸海岸</td>
+          <td data-sort-value="0.00">ND<br/>(2.40)</td>
+          <td data-sort-value="0.00">ND<br/>(2.20)</td>
+          <td>2014-04-27</td>
+          <td class="mrtime" value="3600">3600</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_39886');" /><br/>
+           <span style="display:none" id="other_info_39886" >lab:Hanshin Citizens' Radioactivity Measuring Center
+category:Seaweed&gt;Seaweed&gt;Brown seaweed
+weight:378.00
+remarks:</span>
+                      <a href="http://hanshinshs.web.fc2.com/201404kekka/821wakame_sanriku.pdf" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_2978" class="mrdata_line">
+          <td>152</td>
+          <td><a href="../mrdatafoodget/mds_eng/2978" taget="_blank">海藻</a></td>
+          <td>岩手県三陸産</td>
+          <td data-sort-value="0.00">ND<br/>(1.80)</td>
+          <td data-sort-value="0.00">ND<br/>(1.70)</td>
+          <td>2013-08-28</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_2978');" /><br/>
+           <span style="display:none" id="other_info_2978" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Seaweed&gt;Seaweed&gt;Other Seaweeds
+weight:732.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_32992" class="mrdata_line">
+          <td>153</td>
+          <td><a href="../mrdatafoodget/mds_eng/32992" taget="_blank">有機リンゴ</a></td>
+          <td>岩手県紫波郡紫波町</td>
+          <td data-sort-value="0.00">ND<br/>(1.90)</td>
+          <td data-sort-value="0.00">ND<br/>(2.10)</td>
+          <td>2013-12-03</td>
+          <td class="mrtime" value="10800">10800</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_32992');" /><br/>
+           <span style="display:none" id="other_info_32992" >lab:Hakaru-Sapporo Citizens' Station for Measuring Radioactivity in Sapporo
+category:Fruits&gt;Fresh fruits&gt;Apple
+weight:749.00
+remarks:Marinelli-1l</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_42656" class="mrdata_line">
+          <td>154</td>
+          <td><a href="../mrdatafoodget/mds_eng/42656" taget="_blank">白米</a></td>
+          <td>岩手県紫波郡矢巾町</td>
+          <td data-sort-value="0.00">ND<br/>(2.40)</td>
+          <td data-sort-value="0.00">ND<br/>(1.40)</td>
+          <td>2012-12-20</td>
+          <td class="mrtime" value="1800">1800</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_42656');" /><br/>
+           <span style="display:none" id="other_info_42656" >lab:Small Flowers Independent Radioaction Measurement Room
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:1000.00
+remarks:2012産ヒトメボレ</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_3601" class="mrdata_line">
+          <td>155</td>
+          <td><a href="../mrdatafoodget/mds_eng/3601" taget="_blank">市乳(小岩井乳業「農場便り」120804//KM AK35)</a></td>
+          <td>岩手県雫石町</td>
+          <td data-sort-value="0.00">ND<br/>(1.20)</td>
+          <td data-sort-value="2.10">2.10±0.89<br/>(1.20)</td>
+          <td>2012-08-02</td>
+          <td class="mrtime" value="13194">13194</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_3601');" /><br/>
+           <span style="display:none" id="other_info_3601" >lab:Kodomomirai Radiation Measurement Station for Children and Future (Kodomira RMS)
+category:Dairy products&gt;Milk and dairy products&gt;Milk
+weight:1140.00
+remarks:</span>
+                      <a href="http://kodomira.com/measured/food/0802-2-13194.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_7366" class="mrdata_line">
+          <td>156</td>
+          <td><a href="../mrdatafoodget/mds_eng/7366" taget="_blank">市乳(小岩井「農場3.7牛乳特選」/13.1.6/KM AI28)</a></td>
+          <td>岩手県雫石町</td>
+          <td data-sort-value="0.00">ND<br/>(3.40)</td>
+          <td data-sort-value="3.90">3.90±2.40<br/>(3.70)</td>
+          <td>2012-12-28</td>
+          <td class="mrtime" value="1800">1800</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_7366');" /><br/>
+           <span style="display:none" id="other_info_7366" >lab:Kodomomirai Radiation Measurement Station for Children and Future (Kodomira RMS)
+category:Dairy products&gt;Milk and dairy products&gt;Milk
+weight:975.00
+remarks:</span>
+                      <a href="http://kodomira.com/measured/food/121228-1-1800.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_1806" class="mrdata_line">
+          <td>157</td>
+          <td><a href="../mrdatafoodget/mds_eng/1806" taget="_blank">ヨーグルト</a></td>
+          <td>岩手県雫石町</td>
+          <td data-sort-value="0.00">ND<br/>(9.90)</td>
+          <td data-sort-value="0.00">ND<br/>(9.10)</td>
+          <td>2012-02-28</td>
+          <td class="mrtime" value="5400">5400</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_1806');" /><br/>
+           <span style="display:none" id="other_info_1806" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Dairy products&gt;Milk and dairy products&gt;Yogurt
+weight:902.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_1788" class="mrdata_line">
+          <td>158</td>
+          <td><a href="../mrdatafoodget/mds_eng/1788" taget="_blank">玄米</a></td>
+          <td>岩手県盛岡市</td>
+          <td data-sort-value="0.00">ND<br/>(5.10)</td>
+          <td data-sort-value="0.00">ND<br/>(4.60)</td>
+          <td>2012-02-19</td>
+          <td class="mrtime" value="22800">22800</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_1788');" /><br/>
+           <span style="display:none" id="other_info_1788" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:835.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_1694" class="mrdata_line">
+          <td>159</td>
+          <td><a href="../mrdatafoodget/mds_eng/1694" taget="_blank">大豆</a></td>
+          <td>岩手県盛岡市</td>
+          <td data-sort-value="0.00">ND<br/>(4.90)</td>
+          <td data-sort-value="0.00">ND<br/>(4.60)</td>
+          <td>2011-12-31</td>
+          <td class="mrtime" value="36000">36000</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_1694');" /><br/>
+           <span style="display:none" id="other_info_1694" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Beans&gt;Processed products of soybean&gt;Soybean (dried)
+weight:663.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_3163" class="mrdata_line">
+          <td>160</td>
+          <td><a href="../mrdatafoodget/mds_eng/3163" taget="_blank">わかめ(生)</a></td>
+          <td>岩手県大船渡市</td>
+          <td data-sort-value="0.00">ND<br/>(4.10)</td>
+          <td data-sort-value="0.00">ND<br/>(4.40)</td>
+          <td>2012-02-08</td>
+          <td class="mrtime" value="2400">2400</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_3163');" /><br/>
+           <span style="display:none" id="other_info_3163" >lab:Kodomomirai Radiation Measurement Station for Children and Future (Kodomira RMS)
+category:Seaweed&gt;Seaweed&gt;Brown seaweed
+weight:825.00
+remarks:</span>
+                      <a href="http://kodomira.com/measured/food/0208-2-2400.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_46160" class="mrdata_line">
+          <td>161</td>
+          <td><a href="../mrdatafoodget/mds_eng/46160" taget="_blank">2015年2月採取まだら</a></td>
+          <td>岩手県大船渡市</td>
+          <td data-sort-value="0.00">ND<br/>(0.70)</td>
+          <td data-sort-value="0.95">0.95±0.82<br/>(0.60)</td>
+          <td>2015-02-08</td>
+          <td class="mrtime" value="7200">7200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_46160');" /><br/>
+           <span style="display:none" id="other_info_46160" >lab:KANEGASAKI radioactivity citizen measurement room
+category:Seafood&gt;Raw seafood (sea water)&gt;Cod
+weight:1040.00
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_2392" class="mrdata_line">
+          <td>162</td>
+          <td><a href="../mrdatafoodget/mds_eng/2392" taget="_blank">生こんぶ</a></td>
+          <td>岩手県大船渡市</td>
+          <td data-sort-value="0.00">ND<br/>(3.30)</td>
+          <td data-sort-value="0.00">ND<br/>(3.00)</td>
+          <td>2012-09-27</td>
+          <td class="mrtime" value="8700">8700</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_2392');" /><br/>
+           <span style="display:none" id="other_info_2392" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Seaweed&gt;Seaweed&gt;Kelp
+weight:979.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_2867" class="mrdata_line">
+          <td>163</td>
+          <td><a href="../mrdatafoodget/mds_eng/2867" taget="_blank">塩蔵ワカメ</a></td>
+          <td>岩手県大船渡市岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(3.90)</td>
+          <td data-sort-value="0.00">ND<br/>(3.60)</td>
+          <td>2013-06-06</td>
+          <td class="mrtime" value="10800">10800</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_2867');" /><br/>
+           <span style="display:none" id="other_info_2867" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Seaweed&gt;Seaweed&gt;Brown seaweed
+weight:701.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_39380" class="mrdata_line">
+          <td>164</td>
+          <td><a href="../mrdatafoodget/mds_eng/39380" taget="_blank">りんご・岩手県（2013年）</a></td>
+          <td>岩手県胆沢郡金ケ崎町</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td>2014-04-05</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_39380');" /><br/>
+           <span style="display:none" id="other_info_39380" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Fruits&gt;Fresh fruits&gt;Apple
+weight:909.00
+remarks:</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2014/05/2013_21.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_2640" class="mrdata_line">
+          <td>165</td>
+          <td><a href="../mrdatafoodget/mds_eng/2640" taget="_blank">うるちあわ</a></td>
+          <td>岩手県二戸郡一戸町</td>
+          <td data-sort-value="0.00">ND<br/>(3.20)</td>
+          <td data-sort-value="0.00">ND<br/>(2.90)</td>
+          <td>2012-12-30</td>
+          <td class="mrtime" value="10800">10800</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_2640');" /><br/>
+           <span style="display:none" id="other_info_2640" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:934.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_2643" class="mrdata_line">
+          <td>166</td>
+          <td><a href="../mrdatafoodget/mds_eng/2643" taget="_blank">たかきび</a></td>
+          <td>岩手県二戸郡一戸町</td>
+          <td data-sort-value="0.00">ND<br/>(3.60)</td>
+          <td data-sort-value="0.00">ND<br/>(3.20)</td>
+          <td>2013-01-08</td>
+          <td class="mrtime" value="9000">9000</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_2643');" /><br/>
+           <span style="display:none" id="other_info_2643" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Cereals&gt;&gt;Other processed products of wheat
+weight:869.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_2641" class="mrdata_line">
+          <td>167</td>
+          <td><a href="../mrdatafoodget/mds_eng/2641" taget="_blank">もちきび</a></td>
+          <td>岩手県二戸郡一戸町</td>
+          <td data-sort-value="0.00">ND<br/>(3.40)</td>
+          <td data-sort-value="0.00">ND<br/>(3.10)</td>
+          <td>2013-01-07</td>
+          <td class="mrtime" value="9000">9000</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_2641');" /><br/>
+           <span style="display:none" id="other_info_2641" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Cereals&gt;&gt;Other processed products of wheat
+weight:877.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_35355" class="mrdata_line">
+          <td>168</td>
+          <td><a href="../mrdatafoodget/mds_eng/35355" taget="_blank">とうもろこし</a></td>
+          <td>岩手県二戸市</td>
+          <td data-sort-value="0.00">ND<br/>(3.26)</td>
+          <td data-sort-value="0.00">ND<br/>(3.64)</td>
+          <td>2012-09-19</td>
+          <td class="mrtime" value="3600">3600</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_35355');" /><br/>
+           <span style="display:none" id="other_info_35355" >lab:NPO Fukushima 30-Years Project
+category:Cereals&gt;&gt;Maize(corn)
+weight:715.00
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_35351" class="mrdata_line">
+          <td>169</td>
+          <td><a href="../mrdatafoodget/mds_eng/35351" taget="_blank">キャベツ</a></td>
+          <td>岩手県二戸市</td>
+          <td data-sort-value="0.00">ND<br/>(4.07)</td>
+          <td data-sort-value="0.00">ND<br/>(3.59)</td>
+          <td>2012-09-18</td>
+          <td class="mrtime" value="1800">1800</td>
+          <td class="inst" value="26">FNF-401</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_35351');" /><br/>
+           <span style="display:none" id="other_info_35351" >lab:NPO Fukushima 30-Years Project
+category:Vegetables&gt;Leaf vegetables&gt;Cabbage
+weight:550.00
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_35353" class="mrdata_line">
+          <td>170</td>
+          <td><a href="../mrdatafoodget/mds_eng/35353" taget="_blank">ナス</a></td>
+          <td>岩手県二戸市</td>
+          <td data-sort-value="0.00">ND<br/>(2.94)</td>
+          <td data-sort-value="0.00">ND<br/>(2.59)</td>
+          <td>2012-09-18</td>
+          <td class="mrtime" value="1800">1800</td>
+          <td class="inst" value="26">FNF-401</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_35353');" /><br/>
+           <span style="display:none" id="other_info_35353" >lab:NPO Fukushima 30-Years Project
+category:Vegetables&gt;Fruit vegetable&gt;Aubergines (eggplants)
+weight:775.00
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_35359" class="mrdata_line">
+          <td>171</td>
+          <td><a href="../mrdatafoodget/mds_eng/35359" taget="_blank">ピーマン</a></td>
+          <td>岩手県二戸市</td>
+          <td data-sort-value="0.00">ND<br/>(5.07)</td>
+          <td data-sort-value="0.00">ND<br/>(5.70)</td>
+          <td>2012-09-20</td>
+          <td class="mrtime" value="3600">3600</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_35359');" /><br/>
+           <span style="display:none" id="other_info_35359" >lab:NPO Fukushima 30-Years Project
+category:Vegetables&gt;Fruit vegetable&gt;Bell pepper
+weight:469.00
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_1860" class="mrdata_line">
+          <td>172</td>
+          <td><a href="../mrdatafoodget/mds_eng/1860" taget="_blank">小麦粉</a></td>
+          <td>岩手県二戸市</td>
+          <td data-sort-value="0.00">ND<br/>(5.20)</td>
+          <td data-sort-value="0.00">ND<br/>(4.70)</td>
+          <td>2012-03-24</td>
+          <td class="mrtime" value="30000">30000</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_1860');" /><br/>
+           <span style="display:none" id="other_info_1860" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Cereals&gt;Wheat and processed products of wheat&gt;Flours
+weight:685.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_2274" class="mrdata_line">
+          <td>173</td>
+          <td><a href="../mrdatafoodget/mds_eng/2274" taget="_blank">小麦粉</a></td>
+          <td>岩手県二戸市</td>
+          <td data-sort-value="2.00">2.00±1.80<br/>(1.90)</td>
+          <td data-sort-value="2.70">2.70±0.99<br/>(1.60)</td>
+          <td>2012-07-30</td>
+          <td class="mrtime" value="24000">24000</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_2274');" /><br/>
+           <span style="display:none" id="other_info_2274" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Cereals&gt;Wheat and processed products of wheat&gt;Flours
+weight:720.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_1776" class="mrdata_line">
+          <td>174</td>
+          <td><a href="../mrdatafoodget/mds_eng/1776" taget="_blank">脱脂粉乳</a></td>
+          <td>岩手県二戸市</td>
+          <td data-sort-value="5.80">5.80±3.90<br/>(4.00)</td>
+          <td data-sort-value="11.00">11.00±3.20<br/>(4.30)</td>
+          <td>2012-02-10</td>
+          <td class="mrtime" value="14237">14237</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_1776');" /><br/>
+           <span style="display:none" id="other_info_1776" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Dairy products&gt;Milk and dairy products&gt;Other dairy products
+weight:750.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_33701" class="mrdata_line">
+          <td>175</td>
+          <td><a href="../mrdatafoodget/mds_eng/33701" taget="_blank">小豆・岩手県八幡平市（2013年）地粉うどん・わだち草</a></td>
+          <td>岩手県八幡平市</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td>2013-12-31</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_33701');" /><br/>
+           <span style="display:none" id="other_info_33701" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Beans&gt;Processed products of soybean&gt;Other processed products of soybeans
+weight:901.20
+remarks:http://onomichi-labo.blogspot.jp/2014/02/2013_2.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2014/02/2013_2.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_35538" class="mrdata_line">
+          <td>176</td>
+          <td><a href="../mrdatafoodget/mds_eng/35538" taget="_blank">挽きたて打ちたてそば 賞味期限2013.05 F5V</a></td>
+          <td>岩手県八幡平市</td>
+          <td data-sort-value="0.00">ND<br/>(1.08)</td>
+          <td data-sort-value="1.96">1.96±0.40<br/>(1.05)</td>
+          <td>2012-11-27</td>
+          <td class="mrtime" value="10800">10800</td>
+          <td class="inst" value="19">HpGe</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_35538');" /><br/>
+           <span style="display:none" id="other_info_35538" >lab:NPO Fukushima 30-Years Project
+category:Cereals&gt;&gt;Processed products of buckwheat
+weight:247.00
+remarks:名称：干しそば 原材料名：小麦粉、そば粉、でんぷん、食塩 製造者：株式会社北舘製麺 500ml容器測定</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_29396" class="mrdata_line">
+          <td>177</td>
+          <td><a href="../mrdatafoodget/mds_eng/29396" taget="_blank">小麦粉・地粉(2013年）府金製粉株式会社</a></td>
+          <td>岩手県府金製粉株式会社</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td>2013-10-04</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_29396');" /><br/>
+           <span style="display:none" id="other_info_29396" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Cereals&gt;Wheat and processed products of wheat&gt;Flours
+weight:997.30
+remarks:http://onomichi-labo.blogspot.jp/2013/10/2013_23.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/10/2013_23.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_1560" class="mrdata_line">
+          <td>178</td>
+          <td><a href="../mrdatafoodget/mds_eng/1560" taget="_blank">赤カレイ</a></td>
+          <td>岩手県北三陸沖</td>
+          <td data-sort-value="0.00">ND<br/>(9.20)</td>
+          <td data-sort-value="0.00">ND<br/>(9.00)</td>
+          <td>2011-11-15</td>
+          <td class="mrtime" value="5400">5400</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_1560');" /><br/>
+           <span style="display:none" id="other_info_1560" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Seafood&gt;Raw seafood (sea water)&gt;Sole
+weight:885.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_21134" class="mrdata_line">
+          <td>179</td>
+          <td><a href="../mrdatafoodget/mds_eng/21134" taget="_blank">精白米</a></td>
+          <td>岩手県北上市</td>
+          <td data-sort-value="0.00">ND<br/>(1.10)</td>
+          <td data-sort-value="0.00">ND<br/>(1.20)</td>
+          <td>2012-01-25</td>
+          <td class="mrtime" value="40000">40000</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_21134');" /><br/>
+           <span style="display:none" id="other_info_21134" >lab:Kodomomirai Radiation Measurement Station for Children and Future (Kodomira RMS)
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:864.00
+remarks:</span>
+                      <a href="http://kodomira.com/measured/food/0125-1-2-40000.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_29424" class="mrdata_line">
+          <td>180</td>
+          <td><a href="../mrdatafoodget/mds_eng/29424" taget="_blank">りんご</a></td>
+          <td>岩手県陸前高田市</td>
+          <td data-sort-value="0.00">ND<br/>(2.86)</td>
+          <td data-sort-value="0.00">ND<br/>(3.56)</td>
+          <td>2013-01-21</td>
+          <td class="mrtime" value="10800">10800</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_29424');" /><br/>
+           <span style="display:none" id="other_info_29424" >lab:Takagi Jinzaburo Memorial Chofu Citizens' Center for Radioactivity Measurement
+category:Fruits&gt;Fresh fruits&gt;Apple
+weight:960.00
+remarks:りんご ペースト、測定者・藤川</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_29368" class="mrdata_line">
+          <td>181</td>
+          <td><a href="../mrdatafoodget/mds_eng/29368" taget="_blank">りんご・岩手県陸前高田市・自家産（2013年）</a></td>
+          <td>岩手県陸前高田市</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td data-sort-value="0.00">ND<br/>(0.50)</td>
+          <td>2013-09-23</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_29368');" /><br/>
+           <span style="display:none" id="other_info_29368" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Fruits&gt;Fresh fruits&gt;Apple
+weight:819.40
+remarks:http://onomichi-labo.blogspot.jp/2013/10/2013_12.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/10/2013_12.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_29197" class="mrdata_line">
+          <td>182</td>
+          <td><a href="../mrdatafoodget/mds_eng/29197" taget="_blank">河川水・岩手県陸前高田市・気仙川（2013年）</a></td>
+          <td>岩手県陸前高田市</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td>2013-08-11</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_29197');" /><br/>
+           <span style="display:none" id="other_info_29197" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Environment&gt;Non-potable water&gt;River water
+weight:1003.80
+remarks:http://onomichi-labo.blogspot.jp/2013/08/blog-post_19.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/08/blog-post_19.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_29198" class="mrdata_line">
+          <td>183</td>
+          <td><a href="../mrdatafoodget/mds_eng/29198" taget="_blank">海水・岩手県陸前高田市・広田湾(2013年）</a></td>
+          <td>岩手県陸前高田市</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td>2013-08-11</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_29198');" /><br/>
+           <span style="display:none" id="other_info_29198" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Environment&gt;Non-potable water&gt;Seawater
+weight:1071.00
+remarks:http://onomichi-labo.blogspot.jp/2013/08/blog-post_24.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/08/blog-post_24.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_35724" class="mrdata_line">
+          <td>184</td>
+          <td><a href="../mrdatafoodget/mds_eng/35724" taget="_blank">りんご(ふじ)</a></td>
+          <td>岩手県陸前高田市</td>
+          <td data-sort-value="0.45">0.45±0.12<br/>(0.35)</td>
+          <td data-sort-value="1.05">1.05±0.15<br/>(0.38)</td>
+          <td>2013-03-04</td>
+          <td class="mrtime" value="10800">10800</td>
+          <td class="inst" value="19">HpGe</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_35724');" /><br/>
+           <span style="display:none" id="other_info_35724" >lab:NPO Fukushima 30-Years Project
+category:Fruits&gt;Fresh fruits&gt;Apple
+weight:991.00
+remarks:購入店：採れたてランド</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_35711" class="mrdata_line">
+          <td>185</td>
+          <td><a href="../mrdatafoodget/mds_eng/35711" taget="_blank">干し柿</a></td>
+          <td>岩手県陸前高田市</td>
+          <td data-sort-value="2.35">2.35±0.34<br/>(0.94)</td>
+          <td data-sort-value="4.44">4.44±0.41<br/>(1.00)</td>
+          <td>2013-02-23</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="19">HpGe</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_35711');" /><br/>
+           <span style="display:none" id="other_info_35711" >lab:NPO Fukushima 30-Years Project
+category:Fruits&gt;Processed products of fruits&gt;Dried persimmon
+weight:109.70
+remarks:名称：干し柿 購入店：採れたてランド 70ml容器測定</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_35716" class="mrdata_line">
+          <td>186</td>
+          <td><a href="../mrdatafoodget/mds_eng/35716" taget="_blank">菌床生しいたけ</a></td>
+          <td>岩手県陸前高田市</td>
+          <td data-sort-value="0.78">0.78±0.21<br/>(0.60)</td>
+          <td data-sort-value="1.38">1.38±0.26<br/>(0.67)</td>
+          <td>2013-02-25</td>
+          <td class="mrtime" value="8336">8336</td>
+          <td class="inst" value="19">HpGe</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_35716');" /><br/>
+           <span style="display:none" id="other_info_35716" >lab:NPO Fukushima 30-Years Project
+category:Mushrooms&gt;Mushrooms&gt;Shiitake mushroom
+weight:467.00
+remarks:名称：生しいたけ(袋入) 原産地：陸前高田市 購入店：採れたてランド</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_26779" class="mrdata_line">
+          <td>187</td>
+          <td><a href="../mrdatafoodget/mds_eng/26779" taget="_blank">銀河高原ビール（2012年産）株式会社銀河高原ビール</a></td>
+          <td>岩手県和賀郡</td>
+          <td data-sort-value="0.00">ND<br/>(0.50)</td>
+          <td data-sort-value="0.00">ND<br/>(0.50)</td>
+          <td>2012-12-09</td>
+          <td class="mrtime" value="36000">36000</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_26779');" /><br/>
+           <span style="display:none" id="other_info_26779" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Beverage&gt;Alcoholic beverage&gt;Beer (Including beer-like alcoholic beverage)
+weight:1000.00
+remarks:http://onomichi-labo.blogspot.jp/2013/03/blog-post_23.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/03/blog-post_23.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_34105" class="mrdata_line">
+          <td>188</td>
+          <td><a href="../mrdatafoodget/mds_eng/34105" taget="_blank">牛乳(株式会社湯田牛乳公社)</a></td>
+          <td>岩手県和賀郡西和賀町</td>
+          <td data-sort-value="7.59">7.59±2.65<br/>(3.28)</td>
+          <td data-sort-value="3.21">3.21±2.61<br/>(3.53)</td>
+          <td>2011-12-09</td>
+          <td class="mrtime" value="1800">1800</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_34105');" /><br/>
+           <span style="display:none" id="other_info_34105" >lab:SAVE CHILD Iwate Citizens' Station for Measuring Radioactivity
+category:Dairy products&gt;Milk and dairy products&gt;Milk
+weight:1000.00
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_29495" class="mrdata_line">
+          <td>189</td>
+          <td><a href="../mrdatafoodget/mds_eng/29495" taget="_blank">小麦粉類</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(3.01)</td>
+          <td data-sort-value="0.00">ND<br/>(3.12)</td>
+          <td>2012-12-24</td>
+          <td class="mrtime" value="28800">28800</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_29495');" /><br/>
+           <span style="display:none" id="other_info_29495" >lab:Takagi Jinzaburo Memorial Chofu Citizens' Center for Radioactivity Measurement
+category:Cereals&gt;Wheat and processed products of wheat&gt;Flours
+weight:650.00
+remarks:南部地粉 測定者・藤川</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_29531" class="mrdata_line">
+          <td>190</td>
+          <td><a href="../mrdatafoodget/mds_eng/29531" taget="_blank">鶏肉</a></td>
+          <td>岩手県</td>
+          <td data-sort-value="0.00">ND<br/>(7.17)</td>
+          <td data-sort-value="0.00">ND<br/>(6.37)</td>
+          <td>2012-08-11</td>
+          <td class="mrtime" value="3600">3600</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_29531');" /><br/>
+           <span style="display:none" id="other_info_29531" >lab:Takagi Jinzaburo Memorial Chofu Citizens' Center for Radioactivity Measurement
+category:Meats&gt;Poultry&gt;Chicken meat
+weight:992.00
+remarks:鶏肉　腿肉 夏祭りの焼き鳥用に使う予定</span>
+                   </td>
+      </tr>
+                       
+        </table>
+        
+      </div>
+      <!-- mrdata -->
+    </div><!-- .container -->  
+  </div><!-- #page_content -->  <!-- Footer -->
+<footer>
+	<div class="footer-bg">
+		<div class="container"> 
+			<!-- SNS Section -->
+			<div class="row item-box">
+				<div class="col-lg-8 facebook-box"></div>
+				<div class="col-lg-4 twitter-box"></div>
+			</div>
+			<!-- Site Map Section -->
+			<div class="row sitemap-box clear-link item-box">
+				<div class="col-lg-2 col-sm-6">
+					<ul>
+						<li><a href="../">HOME</a></li>
+						<li><strong>About Minna no Data Site</strong></li>
+						<li><a href="../MDS">About Minna no Data Site</a></li>
+<!--						<li><a href="../MDS/movie.html">みんなのデータサイト紹介動画</a></li>  -->
+						<li><a href="../MDS/beginning.html">Why and how did MDS begin?</a></li>
+						<li><a href="../MDS/organization.html">About the Organization</a></li>
+						<li><a href="../MDS/objectives.html">What are the objectives?</a></li>
+						<li><a href="../MDS/concept.html">Concept</a></li>
+						<li><a href="../MDS/accuracy.html">System to ensure the accuracy of the data</a></li>
+						<li><a href="../MDS/marinelliboy.html">MDS symbol character</a></li>
+						<li><a href="../MDS/howto.html">How to use this site</a></li>
+						<li><a href="../MDS/data.html">Precautions on MDS Data Usage </a></li>
+					</ul>
+				</div>
+				<div class="col-lg-2 col-sm-6">
+					<ul>
+						<li><strong>food data search</strong></li>
+						<li><a href="../#mds_indx_srch">Search TOP</a></li>
+						<li><a href="../seasonal/">Search by Season</a></li>
+						<li><a href="../mrdatafoodcat/">Search by Food Type</a></li>
+						<li><a href="../mrdatafoodloc/">Search by Place</a></li>
+						<li><a href="../mrdatafoodymd/">Search by Date</a></li>
+						<li><a href="../food/howto_search.html">How to Search for Food Data</a></li>
+					</ul>
+				</div>
+				<div class="col-lg-2 col-sm-6">
+					<ul>
+						<li><strong>East Japan Soil Measurement Project</strong></li>
+						<li><a href="../">East Japan Soil Measurement Project TOP</a></li>
+						<li><a href="../soil/soil_outline.html">Outline</a></li>
+						<li><a href="../soil/soil_objectives.html">Objectives</a></li>
+						<li><a href="../soil/soil_method.html">Methodology</a></li>
+						<li><a href="../soil/soil_areas.html">Target Areas</a></li>
+						<li><a href="../soil/soil_support.html">Support Us(soil)</a></li>
+					</ul>
+				</div>
+
+				<div class="col-lg-2 col-sm-6">
+					<ul>
+						<li><strong>Lab Info</strong></li>
+						<li><a href="../labs">Lab Info TOP</a></li>
+					</ul>
+				</div>
+
+				<div class="col-lg-2 col-sm-6">
+					<ul>
+						<li><strong>Basic Knowledge</strong></li>
+						<li><a href="../radinfo/rad_qa.html">Q&amp;A</a></li>
+<!--						<li><a href="../">世界の基準値</a></li> -->
+<!--						<li><a href="../">書籍案内</a></li> -->
+<!--						<li><a href="../">リンク集</a></li> -->
+					</ul>
+				</div>
+
+				<div class="col-lg-2 col-sm-6">
+					<ul>
+						<li><strong>Support Us</strong></li>
+						<li><a href="../support/5supportsway.html">How can I support MDS?</a></li>
+						<li><a href="../support/supportourproject.html">Support Our Site and Project!</a></li>
+					</ul>
+					<ul>
+						<li><a href="../contact"><strong>Contact</strong></a></li>
+						<li><a href="http://www.minnanods.net"><strong>Japanese site</strong></a></li>
+						<li><a href="http://minnanodatasite.blogspot.jp/" target="_blank"><strong>Blog</strong></a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="row item-box copyright-box">
+				<p><img src="../img/common/character_all.png"></p>
+				<p>Copyright &copy; Minna no Data Site 2014</p>
+			</div>
+		</div>
+		<!-- /.footer-bg --> 
+	</div>
+	<!-- /.container --> 
+</footer>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-46552110-1', 'minnanods.net');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

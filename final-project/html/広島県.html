@@ -1,0 +1,3090 @@
+<!DOCTYPE html>          
+  
+<html><!---->
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="放射能測定,市民測定所,市民放射能測定所,市民測定室,測定,放射能,食品測定,セシウム,食品,測定結果" />
+  <meta name="description" content="" />
+  <title>Minna no Data Site | Combined Database of Independent Radioactivity Measurement Labs</title> 
+<!-- Bootstrap Core CSS -->
+<link href="../css/bootstrap.min.css" rel="stylesheet">
+<!-- Custom Fonts -->
+<link href="../font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<!-- Original css -->
+<link href="../add_style.css" rel="stylesheet">
+<!-- bxSlider CSS file -->
+<link href="../jquery-bxslider/jquery.bxslider.css" rel="stylesheet" />
+<link href="../css/custom.css" rel="stylesheet" type="text/css">
+<!-- Select2 CSS file-->
+<link href="../select2-3.5.1/select2.css" rel="stylesheet" />
+<link href="../select2-3.5.1/select2-bootstrap.css" rel="stylesheet" />
+<!-- Trango ACMS CSS file -->
+<link href="../css/custom.css" rel="stylesheet" />
+<!-- Script area --> 
+<!-- jQuery Version 1.11.0 --> 
+<script src="../js/jquery-1.11.0.js"></script> 
+<!-- Bootstrap Core JavaScript --> 
+<script src="../js/bootstrap.min.js"></script> 
+<!-- jQuery library (served from Google) --> 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script> 
+<!-- bxSlider Javascript file --> 
+<script src="../jquery-bxslider/jquery.bxslider.min.js"></script> 
+<!-- Select2 JavaScript -->
+<script src="../select2-3.5.1/select2.min.js"></script> 
+
+<!-- owl carousel  -->
+<link rel="stylesheet" href="../css/owl.carousel.css">
+<link rel="stylesheet" href="../css/owl.theme.css">
+<script type="text/javascript" src="../js/owl.carousel.js"></script>
+
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+</head>
+
+<body class="ctmrdatafoodloc">
+<script src="../js/stupidtable.min.js"></script>
+<script>
+// 年月日でソート
+var stpt_sort_date = function(a,b) {
+  var re = new RegExp('^([0-9]{4})-([0-9]{2})-([0-9]{2})');
+  var reA = re.exec(a);
+  var reB = re.exec(b);
+  if (!reA) return 0;
+  if (!reB) return 0;          
+  // 年の比較
+  if (reA[0] > reB[0]){
+    return 1;
+  }else if( reA[0] < reB[0]) {
+    return -1;
+  }
+  // 月の比較
+  if ( reA[1] > reB[1] ) {
+    return 1;
+  }else if( reA[1] < reB[1] ){
+    return -1;
+  }
+  // 日の比較
+  return reA[2] > reB[2] ? 1 : ( reA[2] < reB[2] ? -1 : 0);
+};
+//
+var stpt_beforetablesort = function (event, data) {
+  // Apply a "disabled" look to the table while sorting.
+  $("table").addClass("disabled");
+}
+// ソート項目名に矢印表示
+var stpt_aftertablesort  = function (event, data) {
+  // Reset loading message.
+  $("table").removeClass("disabled");
+  var th = $(this).find("th");
+  th.find(".arrow").remove();
+  var dir = $.fn.stupidtable.dir;
+  var arrow = data.direction === dir.ASC ? "&uarr;" : "&darr;";
+  th.eq(data.column).append('<span class="arrow">' + arrow +'</span>');
+}
+</script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var table = $('#resulttable').stupidtable({ "date":stpt_sort_date });
+  table.on("beforetablesort", stpt_beforetablesort);
+  table.on("aftertablesort" , stpt_aftertablesort);
+});
+</script>
+<script>
+  function show_other_info(id) {
+    var obj = $('#'+id);
+    var re = /_\d+$/;
+    var title = 'ID' + id.match(re);
+    alert(title + "\n" + obj.text());
+  }
+</script>
+<!-- Header -->
+<div class="container">
+	<div class="row header-bar">
+		<div class="col-lg-5 col-sm-6"><a href="../"><img class="img-responsive img-hover" src="../img/eng/common/logo.png" alt="Minna no Data Site"></a></div>
+		<div class="col-lg-4 col-sm-6 header-item">
+			<div class="header-databox">
+
+			</div>
+		</div>
+	<div class="col-lg-2 col-sm-6 header-item">
+			<ul class="header-linkbox clear-link">
+				<li><a href="../contact"><img src="../img/common/icon_arrow.png">Contact</a></li>
+				<li><a href="http://www.minnanods.net"><img src="../img/common/icon_arrow.png">Japanese Site</a></li>
+				<li><a href="http://minnanodatasite.blogspot.jp/" target="_blank"><img src="../img/common/icon_arrow.png">Blog(jp)</a></li>
+			</ul>
+		</div>
+
+	</div>
+	<!-- /.row header-bar --> 
+</div>
+<!-- /.container --> 
+
+<!-- Navigation -->
+<nav class="navbar navbar-default" role="navigation">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span> <span class="icon-bar"></span><span class="icon-bar"></span></button>
+		</div>
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav navbar-default-bg">
+				<li class="dropdown"><a href="../MDS/about.html" class="dropdown-toggle" data-toggle="dropdown">About MDS<b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li> <a href="../">Home</a> </li>					
+						<li> <a href="../MDS">About Minna no Data Site</a> </li>					
+						<li> <a href="../MDS/beginning.html">Why and how did MDS begin?</a> </li>					
+						<li> <a href="../MDS/organization.html">Organization</a> </li>
+						<li> <a href="../MDS/objectives.html">objectives of MDS</a> </li>
+						<li> <a href="../MDS/concept.html">Concept</a> </li>
+						<li> <a href="../MDS/accuracy.html">Accuracy of the data</a> </li>
+						<li><a href="../MDS/howto.html">How to use</a></li>
+						<li> <a href="../MDS/data.html">Data Usage</a> </li>
+					</ul>
+				</li>
+
+
+				<li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">Searching Food Data<b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="../#mds_indx_srch">Food Search TOP</a> </li>
+						<li><a href="../seasonal">Search by Seasonal Food</a> </li>
+						<li><a href="../mrdatafoodcat/">Search by Category</a></li>
+						<li><a href="../mrdatafoodloc/">Search by Place</a></li>
+						<li><a href="../mrdatafoodymd/">Search by Date</a></li>
+						<li><a href="../food/foodsearch.html">How to Search the MDS </a></li>
+					</ul>
+				</li>
+
+				<li><a href="../soil">East Japan Soil Measurement Project</a></li>
+
+				<li><a href="../labs/">Lab Info</a></li>
+
+				<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Rad Info<b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="../radinfo/rad_qa.html">Q&amp;A</a></li>
+				<!--		<li><a href="#">判断基準値</a></li>   -->
+				<!--		<li><a href="#">データ分析、解説</a></li>   -->
+				<!--		<li><a href="#">書籍案内</a></li>        -->
+				<!--		<li><a href="#">リンク集</a></li>   -->
+					</ul>
+				</li>
+
+
+				<li class="dropdown"><a href="../support" class="dropdown-toggle" data-toggle="dropdown">Support Us<b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="../support/5supportsway.html">How can I support MDS?</a></li>
+						<li><a href="../support/supportourproject.html">Support Our Site and Project!</a></li>
+					</ul>
+				</li>
+
+				
+				
+				<li class="sp-list">
+					<p><a href="../contact">Contact</a></p>
+					<p><a href="http://minnanods.net/">Japanese Site</a></p>
+					<p><a href="http://minnanodatasite.blogspot.jp/" target="_blank">Blog(jp)</a></p>
+				</li>
+			</ul>
+		</div>
+		<!-- /.navbar-collapse --> 
+	</div>
+	<!-- /.container --> 
+</nav>
+  <div id="page_content">  <div class="container"><p><span style="color: #ff0000;"><strong><span style="font-size: medium;">&nbsp;</span></strong></span></p>  </div><div class="container">
+<ul id="topicpath">
+  <li><a href="../">toppage</a>&gt;&nbsp;</li>        <li>  <a href="../mrdatafoodloc">search by place</a>
+&gt;&nbsp;</li>
+          <li></li>
+    </ul><!-- #topicPath -->
+</div>
+<div class="container">
+<div id="google_translate_element"></div><script>
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'ja',
+    layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL
+  }, 'google_translate_element');
+}
+</script><script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</div>    <div class="container">
+      <h4> File Made：2015-06-05 15:05:10</h4>
+      <!-- mrdata -->
+      <div class="mrdata item-box table-responsive">
+        
+Filter by Lab
+<select id="selected_sokuteisyo" name="selected_sokuteisyo" onchange="filterSokuteisyo($('#selected_sokuteisyo').val()); return false;">
+  <option value="0">All</option>
+  <option value="1">NPO Fukushima 30-Years Project</option>
+  <option value="10">Kodomomirai Radiation Measurement Station for Children and Future (Kodomira RMS)</option>
+  <option value="11">Small Flowers Independent Radioaction Measurement Room</option>
+  <option value="12">Hakaru-Sapporo Citizens' Station for Measuring Radioactivity in Sapporo</option>
+  <option value="13">Chikurin Radioactivity Monitoring Center for Citizens (Chikurin RMCC)</option>
+  <option value="15">Albireo West-Tokyo Radioactivity Measuring Station by Citizens</option>
+  <option value="18">NPO Asunaro Radiation Measurement Room (Asunaro Lab)</option>
+  <option value="19">Takagi Jinzaburo Memorial Chofu Citizens' Center for Radioactivity Measurement</option>
+  <option value="20">JCF-Team Metoba</option>
+  <option value="21">Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)</option>
+  <option value="23">Machida Citizens’ Radioactivity Measuring Office Hakaroom</option>
+  <option value="24">MINAMI-HUKUZAKI-TOCHI Co., Ltd. Radioactivity Measuring Room</option>
+  <option value="25">Radioactivity Measurement Request Place in Onomichi</option>
+  <option value="26">SAVE CHILD Iwate Citizens' Station for Measuring Radioactivity</option>
+  <option value="27">Zama Radioactivity Measuring Station</option>
+  <option value="28">Higashirinkan Radioactivity Measuring Chamber</option>
+  <option value="29">Citizens' Radioactivity Measuring Station Tsukuba</option>
+  <option value="30">Mori-no-Sokuteishitsu Namegawa</option>
+  <option value="31">Hanshin Citizens' Radioactivity Measuring Center</option>
+  <option value="32">HAKARUCHA，Toyama Radioactivity Measuring Civic Organization,</option>
+  <option value="33">=In Preparation=Citizens' Radiation Measurement Laboratory Kyushu (Q Bq)</option>
+  <option value="34">Citizens' Radioactivity Measuring Station KYOTO</option>
+  <option value="35">KANEGASAKI radioactivity citizen measurement room</option>
+  <option value="36">Kakuda Citizens Radioactivity Measurement Lab</option>
+  <option value="37">Teto Teto</option>
+  <option value="38">Citizen's Radioactivity Measuring Station in Nara</option>
+  <option value="39">kyoto.kussunn lab</option>
+</select>
+Filter by Inst.
+  <select id="selected_inst" name="selected_inst" onchange="filterInst($('#selected_inst').val()); return false;">
+  <option value="0">All</option>
+    <option value="11" >LB200</option>
+    <option value="15" >AT1320A</option>
+    <option value="19" >HpGe</option>
+    <option value="26" >FNF-401</option>
+    <option value="27" >AT1320C</option>
+    <option value="31" >CSK3i</option>
+    <option value="32" >ALOKA  CAN-OSP-NAI</option>
+    <option value="33" >PGT-N</option>
+    <option value="35" >PGT-P</option>
+    <option value="36" >InterWiner</option>
+    <option value="41" >EMF211</option>
+    <option value="68" >CSK-3i-X</option>
+    <option value="74" >FNF-401</option>
+</select>
+
+<script type="text/javascript" >
+//![CDATA[
+  var gl_tableid = 0;
+  var gl_sokuteisyoid = 0;
+  var gl_instid = 0;
+  var gl_prefid = 0;
+
+  // SELECTに選択肢追加
+  function add_option2select(selectid, value, name) {
+     var exist_flg = 0;
+     var id = '#'+selectid;
+     $(id+' option').each(
+       function (index) {
+         if ($(this).val() == value) {
+            exist_flg = 1 ;
+         }
+       }
+     );
+     if (!exist_flg) {
+       var option = '<option value="'+value+'">'+name+'</option>';
+       $(id).append(option);
+     }
+  }
+  // 産地(テーブル)の表示制御
+  function filterTable(tableid) {
+    gl_tableid = tableid;
+  　table_display_filter();
+  }
+  // 測定所による表示制御
+  function filterSokuteisyo(sokuteisyoid) {
+    gl_sokuteisyoid = sokuteisyoid;
+    line_display_filter();
+  }
+  // 測定器による表示制御
+  function filterInst(instid) {
+    gl_instid = instid;
+    line_display_filter();
+  }
+  // 県による表示制御
+  function filterPref(prefid) {
+    gl_prefid = prefid;
+    line_display_filter();
+  }
+  // 産地(テーブル)の表示非表示
+  function table_display_filter() {
+    var tableid = 'mrdata_table_' + gl_tableid;
+    $('.resulttable').each( function( index ) {
+      var obj = $(this);
+      if ( obj.attr('id') == tableid) {
+        obj.css("display", "");
+      }else if ( gl_tableid == '0' ) {
+        obj.css("display", "");
+      }else{
+        obj.css("display", "none");
+      }
+      // 表示する行がひとつもない
+      if (!is_display_line(obj)){
+        obj.css("display", "none");
+      }         
+    });
+  }
+  // 一行の表示非表示
+  function line_display_filter() {
+    $('.mrdata_line').each( function( index ) {
+      var obj = $(this);
+      if (is_display_sokuteisyo(obj) && is_display_inst(obj) && is_display_pref(obj)) {
+        obj.css("display", "");
+      }else{
+        obj.css("display", "none");
+      }
+    });
+    table_display_filter();  
+  }
+  // 表示非表示チェック
+  function is_display_line(tbl) {
+    var display = 0;
+    tbl.find('.mrdata_line').each( function(index) {
+      var obj = $(this);
+      if (obj.css('display') != "none") {
+        display = 1;
+      }
+    });
+    return display;
+  }
+  // 表示非表示チェック(測定所)
+  function is_display_sokuteisyo (parent) {
+    var obj = parent.find('.sokuteisyo');
+    if (gl_sokuteisyoid == 0 || obj.attr('value') == gl_sokuteisyoid) {
+      return 1;
+    }else{
+      return 0;
+    }
+  }
+  // 表示非表示チェック(測定器)
+  function is_display_inst (parent) {
+    var obj = parent.find('.inst');
+    if (gl_instid < 0) {
+      var id = gl_instid * -1;
+      if (obj.attr('value') == id) {
+        return 0;
+      }else{
+        return 1;
+      }
+    }else if (gl_instid == 0 || obj.attr('value') == gl_instid) {
+      return 1;
+    }else{
+      return 0;
+    }
+  }
+  // 表示非表示チェック(県)
+  function is_display_pref (parent) {
+    var obj = parent.find('.pref');
+    if (gl_prefid == 0 || obj.attr('value') == gl_prefid) {
+      return 1;
+    }else{
+      return 0;
+    }
+  }
+  // i131の表示
+  function filter_i131 (elm) {
+    var msg = "I131の数値について：\n\n"
+                 + "・天然放射性核種　Pb214のガンマ線（351.92kev)の寄与である可能性がある。\n\n"
+                 + "・1460.80keV(K40)の後方散乱が低エネルギ側のI131の領域に少し掛かり、あたかも I-131が存在するような結果出力になることがある。";
+    var status = $(elm).attr('status');
+    if (status == 'display_none') 
+        alert(msg);
+    $('.i131').each( function( index ) {
+            var obj = $(this);
+            if ( status == 'display_none' ) {
+                obj.css("display", "");
+            }else{
+                obj.css("display", "none");
+            }
+        });
+    if ( status == 'display_none')
+        status = 'display';
+    else
+        status = 'display_none';
+    $(elm).attr('status', status );
+  }
+//]]
+</script>
+<br />
+        <p>If you click column header (bold row),data will be sorted.</p>
+       <table id="resulttable"  class="table table-striped table-bordered">
+
+               <thead>
+        <tr>
+          <th data-sort="int"></th>
+          <th data-sort="string">Name</th>
+          <th data-sort="string">Place</th>
+          <th data-sort="float">Cs-134<br>(MDA)</th>
+          <th data-sort="float">Cs-137<br>(MDA)</th>
+          <th data-sort="date">Date</th>
+          <th data-sort="int">Time</th>
+          <th data-sort="string">Instrument</th>
+          <th>misc.</th>
+        </tr>
+      </thead>
+                        <tr id="mrdata_30099" class="mrdata_line">
+          <td>1</td>
+          <td><a href="../mrdatafoodget/mds_eng/30099" taget="_blank">白米・広島県（2013年）</a></td>
+          <td>広島県</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td>2013-11-16</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_30099');" /><br/>
+           <span style="display:none" id="other_info_30099" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:1015.50
+remarks:http://onomichi-labo.blogspot.jp/2013/12/2013_20.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/12/2013_20.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_26797" class="mrdata_line">
+          <td>2</td>
+          <td><a href="../mrdatafoodget/mds_eng/26797" taget="_blank">パールライス（2010年産）尾道市農業協同組合</a></td>
+          <td>広島県</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td data-sort-value="0.00">ND<br/>(0.50)</td>
+          <td>2013-01-15</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_26797');" /><br/>
+           <span style="display:none" id="other_info_26797" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Cereals&gt;Rice and processed products of rice&gt;Glutinous rice
+weight:993.00
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_43083" class="mrdata_line">
+          <td>3</td>
+          <td><a href="../mrdatafoodget/mds_eng/43083" taget="_blank">米ぬか・広島県・島根県混合（2013年と推測・生産年不明）</a></td>
+          <td>広島県</td>
+          <td data-sort-value="0.00">ND<br/>(0.60)</td>
+          <td data-sort-value="0.00">ND<br/>(0.50)</td>
+          <td>2014-07-20</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_43083');" /><br/>
+           <span style="display:none" id="other_info_43083" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Cereals&gt;Rice and processed products of rice&gt;Rice bran
+weight:620.20
+remarks:</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2014/09/2013.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_26777" class="mrdata_line">
+          <td>4</td>
+          <td><a href="../mrdatafoodget/mds_eng/26777" taget="_blank">全粒粉（2012年産）おやつとやまねこ</a></td>
+          <td>広島県</td>
+          <td data-sort-value="0.00">ND<br/>(0.80)</td>
+          <td data-sort-value="0.00">ND<br/>(0.90)</td>
+          <td>2012-12-02</td>
+          <td class="mrtime" value="36000">36000</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_26777');" /><br/>
+           <span style="display:none" id="other_info_26777" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Cereals&gt;Wheat and processed products of wheat&gt;Flours
+weight:893.00
+remarks:http://onomichi-labo.blogspot.jp/2013/03/blog-post_16.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/03/blog-post_16.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_26801" class="mrdata_line">
+          <td>5</td>
+          <td><a href="../mrdatafoodget/mds_eng/26801" taget="_blank">三島のゆかり・しそごはん用（2012年産）三島食品株式会社</a></td>
+          <td>広島県</td>
+          <td data-sort-value="0.00">ND<br/>(0.70)</td>
+          <td data-sort-value="0.00">ND<br/>(0.80)</td>
+          <td>2013-01-21</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_26801');" /><br/>
+           <span style="display:none" id="other_info_26801" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Vegetables&gt;Leaf vegetables&gt;Other | eafy vegetables
+weight:605.00
+remarks:http://onomichi-labo.blogspot.jp/2013/03/blog-post_13.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/03/blog-post_13.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_3215" class="mrdata_line">
+          <td>6</td>
+          <td><a href="../mrdatafoodget/mds_eng/3215" taget="_blank">ミカン</a></td>
+          <td>広島県</td>
+          <td data-sort-value="0.00">ND<br/>(3.40)</td>
+          <td data-sort-value="0.00">ND<br/>(3.70)</td>
+          <td>2011-12-15</td>
+          <td class="mrtime" value="3600">3600</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_3215');" /><br/>
+           <span style="display:none" id="other_info_3215" >lab:Kodomomirai Radiation Measurement Station for Children and Future (Kodomira RMS)
+category:Fruits&gt;Fresh fruits&gt;Citrus fruits
+weight:816.00
+remarks:</span>
+                      <a href="http://kodomira.com/measured/food/1215-1-3600.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_28714" class="mrdata_line">
+          <td>7</td>
+          <td><a href="../mrdatafoodget/mds_eng/28714" taget="_blank">梅・広島県三原市（2013年産）</a></td>
+          <td>広島県</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td>2013-06-16</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_28714');" /><br/>
+           <span style="display:none" id="other_info_28714" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Fruits&gt;Fresh fruits&gt;Ume, Japanese plum
+weight:1006.00
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_26871" class="mrdata_line">
+          <td>8</td>
+          <td><a href="../mrdatafoodget/mds_eng/26871" taget="_blank">ひろしまのみかん濃縮還元・果汁100％（2013年産）株式会社ヒロシマ・コープ</a></td>
+          <td>広島県</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td>2013-04-27</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_26871');" /><br/>
+           <span style="display:none" id="other_info_26871" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Fruits&gt;Fruit juice, fruit drinks&gt;Mandarin orange and other citrus fruits juice
+weight:1048.00
+remarks:http://onomichi-labo.blogspot.jp/2013/04/100.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/04/100.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_26880" class="mrdata_line">
+          <td>9</td>
+          <td><a href="../mrdatafoodget/mds_eng/26880" taget="_blank">ブナシメジ（2013年産）ホクト株式会社</a></td>
+          <td>広島県</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td>2013-05-13</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_26880');" /><br/>
+           <span style="display:none" id="other_info_26880" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Mushrooms&gt;Mushrooms&gt;Shimeji mushroom
+weight:1030.00
+remarks:http://onomichi-labo.blogspot.jp/2013/05/blog-post_20.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/05/blog-post_20.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_44578" class="mrdata_line">
+          <td>10</td>
+          <td><a href="../mrdatafoodget/mds_eng/44578" taget="_blank">ブナシメジ（ぶなしめじ）・広島県（2014年）ホクト株式会社</a></td>
+          <td>広島県</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td>2014-08-23</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_44578');" /><br/>
+           <span style="display:none" id="other_info_44578" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Mushrooms&gt;Mushrooms&gt;Shimeji mushroom
+weight:1002.60
+remarks:</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2014/10/2014_5.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_27791" class="mrdata_line">
+          <td>11</td>
+          <td><a href="../mrdatafoodget/mds_eng/27791" taget="_blank">乾燥しいたけ（スライス）</a></td>
+          <td>広島県</td>
+          <td data-sort-value="0.00">ND<br/>(4.90)</td>
+          <td data-sort-value="8.50">8.50±6.80<br/>(5.10)</td>
+          <td>2012-11-20</td>
+          <td class="mrtime" value="28800">28800</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_27791');" /><br/>
+           <span style="display:none" id="other_info_27791" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Mushrooms&gt;Mushrooms&gt;Shiitake mushroom
+weight:202.00
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_21041" class="mrdata_line">
+          <td>12</td>
+          <td><a href="../mrdatafoodget/mds_eng/21041" taget="_blank">生牡蠣</a></td>
+          <td>広島県</td>
+          <td data-sort-value="0.00">ND<br/>(2.20)</td>
+          <td data-sort-value="0.00">ND<br/>(2.40)</td>
+          <td>2012-02-25</td>
+          <td class="mrtime" value="4500">4500</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_21041');" /><br/>
+           <span style="display:none" id="other_info_21041" >lab:Kodomomirai Radiation Measurement Station for Children and Future (Kodomira RMS)
+category:Seafood&gt;Raw seafood (sea water)&gt;Shellfish
+weight:1050.00
+remarks:</span>
+                      <a href="http://kodomira.com/measured/food/0225-6-4500.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_46095" class="mrdata_line">
+          <td>13</td>
+          <td><a href="../mrdatafoodget/mds_eng/46095" taget="_blank">生牡蠣・広島県海域（2015年）株式会社広島漁商業・加工者：大冷フーズ株式会社</a></td>
+          <td>広島県</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td>2015-02-06</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_46095');" /><br/>
+           <span style="display:none" id="other_info_46095" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Seafood&gt;Raw seafood (sea water)&gt;Shellfish
+weight:959.20
+remarks:</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2015/02/2015.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_46094" class="mrdata_line">
+          <td>14</td>
+          <td><a href="../mrdatafoodget/mds_eng/46094" taget="_blank">生かき（牡蠣）・広島県海域三津湾(2014年）マルショウ水産</a></td>
+          <td>広島県</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td>2014-01-31</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_46094');" /><br/>
+           <span style="display:none" id="other_info_46094" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Seafood&gt;Raw seafood (sea water)&gt;Shellfish
+weight:936.20
+remarks:</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2014/02/2013.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_32965" class="mrdata_line">
+          <td>15</td>
+          <td><a href="../mrdatafoodget/mds_eng/32965" taget="_blank">鶏肉・国産（加工地：広島県広島市安佐南区）（2013年）株式会社フレスタ</a></td>
+          <td>広島県</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td>2013-12-19</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_32965');" /><br/>
+           <span style="display:none" id="other_info_32965" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Meats&gt;Poultry&gt;Chicken meat
+weight:1013.80
+remarks:http://onomichi-labo.blogspot.jp/2014/01/2013_15.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2014/01/2013_15.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_26772" class="mrdata_line">
+          <td>16</td>
+          <td><a href="../mrdatafoodget/mds_eng/26772" taget="_blank">広島の卵（2012年産）全国農業協同組合広島県本部</a></td>
+          <td>広島県</td>
+          <td data-sort-value="0.00">ND<br/>(0.90)</td>
+          <td data-sort-value="0.00">ND<br/>(1.10)</td>
+          <td>2012-11-25</td>
+          <td class="mrtime" value="36000">36000</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_26772');" /><br/>
+           <span style="display:none" id="other_info_26772" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Eggs&gt;Eggs&gt;Chicken eggs
+weight:885.00
+remarks:http://onomichi-labo.blogspot.jp/2013/02/blog-post_18.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/02/blog-post_18.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_26768" class="mrdata_line">
+          <td>17</td>
+          <td><a href="../mrdatafoodget/mds_eng/26768" taget="_blank">久保雅彦の低温殺菌牛乳（2012年産）</a></td>
+          <td>広島県</td>
+          <td data-sort-value="0.00">ND<br/>(0.90)</td>
+          <td data-sort-value="0.00">ND<br/>(1.00)</td>
+          <td>2012-11-21</td>
+          <td class="mrtime" value="28800">28800</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_26768');" /><br/>
+           <span style="display:none" id="other_info_26768" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Dairy products&gt;Milk and dairy products&gt;Milk
+weight:1040.00
+remarks:http://onomichi-labo.blogspot.jp/2013/02/blog-post_25.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/02/blog-post_25.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_30079" class="mrdata_line">
+          <td>18</td>
+          <td><a href="../mrdatafoodget/mds_eng/30079" taget="_blank">チチヤス牛乳・広島県、島根県、九州地区、北海道等（2013年）チチヤス株式会社</a></td>
+          <td>広島県</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td>2013-11-02</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_30079');" /><br/>
+           <span style="display:none" id="other_info_30079" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Dairy products&gt;Milk and dairy products&gt;Milk
+weight:1032.30
+remarks:http://onomichi-labo.blogspot.jp/2013/11/2013_28.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/11/2013_28.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_26829" class="mrdata_line">
+          <td>19</td>
+          <td><a href="../mrdatafoodget/mds_eng/26829" taget="_blank">山陽牛乳・トップバリュ（2013年産）山陽乳業株式会社</a></td>
+          <td>広島県</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td>2013-03-26</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_26829');" /><br/>
+           <span style="display:none" id="other_info_26829" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Dairy products&gt;Milk and dairy products&gt;Milk
+weight:1027.00
+remarks:http://onomichi-labo.blogspot.jp/2013/03/blog-post_27.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/03/blog-post_27.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_41111" class="mrdata_line">
+          <td>20</td>
+          <td><a href="../mrdatafoodget/mds_eng/41111" taget="_blank">牛乳</a></td>
+          <td>広島県</td>
+          <td data-sort-value="0.00">ND<br/>(1.76)</td>
+          <td data-sort-value="0.00">ND<br/>(1.57)</td>
+          <td>2014-07-28</td>
+          <td class="mrtime" value="54000">54000</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_41111');" /><br/>
+           <span style="display:none" id="other_info_41111" >lab:JCF-Team Metoba
+category:Dairy products&gt;Milk and dairy products&gt;Milk
+weight:920.00
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_34118" class="mrdata_line">
+          <td>21</td>
+          <td><a href="../mrdatafoodget/mds_eng/34118" taget="_blank">牛乳（ひろしまのおいしい牛乳）広島県（2014年）チチヤス株式会社</a></td>
+          <td>広島県</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td>2014-02-23</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_34118');" /><br/>
+           <span style="display:none" id="other_info_34118" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Dairy products&gt;Milk and dairy products&gt;Milk
+weight:1034.40
+remarks:http://onomichi-labo.blogspot.jp/2014/03/2014_21.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2014/03/2014_21.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_46409" class="mrdata_line">
+          <td>22</td>
+          <td><a href="../mrdatafoodget/mds_eng/46409" taget="_blank">ヨーグルト</a></td>
+          <td>広島県</td>
+          <td data-sort-value="0.00">ND<br/>(3.30)</td>
+          <td data-sort-value="0.00">ND<br/>(3.10)</td>
+          <td>2015-01-08</td>
+          <td class="mrtime" value="7200">7200</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_46409');" /><br/>
+           <span style="display:none" id="other_info_46409" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Dairy products&gt;Milk and dairy products&gt;Yogurt
+weight:1036.70
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_47169" class="mrdata_line">
+          <td>23</td>
+          <td><a href="../mrdatafoodget/mds_eng/47169" taget="_blank">合わせ味噌（無添加）・広島県産（米・大麦）（2015年）株式会社ますやみそ</a></td>
+          <td>広島県</td>
+          <td data-sort-value="0.00">ND<br/>(0.20)</td>
+          <td data-sort-value="0.00">ND<br/>(0.20)</td>
+          <td>2015-03-22</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_47169');" /><br/>
+           <span style="display:none" id="other_info_47169" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Seasonings and spices&gt;Seasonings&gt;Miso
+weight:1242.80
+remarks:</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2015/05/2015_23.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_7589" class="mrdata_line">
+          <td>24</td>
+          <td><a href="../mrdatafoodget/mds_eng/7589" taget="_blank">ダシ汁(広島県産煮干し/自家製)</a></td>
+          <td>広島県</td>
+          <td data-sort-value="0.00">ND<br/>(2.20)</td>
+          <td data-sort-value="0.00">ND<br/>(2.40)</td>
+          <td>2012-06-22</td>
+          <td class="mrtime" value="5400">5400</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_7589');" /><br/>
+           <span style="display:none" id="other_info_7589" >lab:Kodomomirai Radiation Measurement Station for Children and Future (Kodomira RMS)
+category:Seasonings and spices&gt;Seasonings&gt;Soup stock
+weight:965.00
+remarks:</span>
+                      <a href="http://kodomira.com/measured/food/0622-2-5400.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_40151" class="mrdata_line">
+          <td>25</td>
+          <td><a href="../mrdatafoodget/mds_eng/40151" taget="_blank">浄水（店舗設置水）・広島県（2014年）株式会社ユアーズ</a></td>
+          <td>広島県</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td>2014-06-03</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_40151');" /><br/>
+           <span style="display:none" id="other_info_40151" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Environment&gt;Drinking water/potable water&gt;Other waters
+weight:970.20
+remarks:</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2014/07/2014_13.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_39323" class="mrdata_line">
+          <td>26</td>
+          <td><a href="../mrdatafoodget/mds_eng/39323" taget="_blank">ラドン温泉・広島県（2014年）</a></td>
+          <td>広島県</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td>2014-02-25</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_39323');" /><br/>
+           <span style="display:none" id="other_info_39323" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Environment&gt;Non-potable water&gt;Other waters
+weight:1023.60
+remarks:</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2014/05/2014_10.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_26828" class="mrdata_line">
+          <td>27</td>
+          <td><a href="../mrdatafoodget/mds_eng/26828" taget="_blank">牛糞堆肥（2013年産）なかやま牧場</a></td>
+          <td>広島県</td>
+          <td data-sort-value="0.00">ND<br/>(0.90)</td>
+          <td data-sort-value="0.00">ND<br/>(0.90)</td>
+          <td>2013-03-25</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_26828');" /><br/>
+           <span style="display:none" id="other_info_26828" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Environment&gt;Agricultural materials&gt;Compost
+weight:511.00
+remarks:http://onomichi-labo.blogspot.jp/2013/03/blog-post_26.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/03/blog-post_26.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_39085" class="mrdata_line">
+          <td>28</td>
+          <td><a href="../mrdatafoodget/mds_eng/39085" taget="_blank">サンライム（カキ副産石灰４６号）・広島県（2013年）丸栄株式会社・海田工場</a></td>
+          <td>広島県</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.20)</td>
+          <td>2014-03-17</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_39085');" /><br/>
+           <span style="display:none" id="other_info_39085" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Environment&gt;Agricultural materials&gt;Others
+weight:1119.30
+remarks:http://onomichi-labo.blogspot.jp/2014/04/2013_10.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2014/04/2013_10.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_46386" class="mrdata_line">
+          <td>29</td>
+          <td><a href="../mrdatafoodget/mds_eng/46386" taget="_blank">うるち米</a></td>
+          <td>広島県</td>
+          <td data-sort-value="0.00">ND<br/>(1.56)</td>
+          <td data-sort-value="0.00">ND<br/>(1.38)</td>
+          <td>2014-10-31</td>
+          <td class="mrtime" value="48000">48000</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_46386');" /><br/>
+           <span style="display:none" id="other_info_46386" >lab:Takagi Jinzaburo Memorial Chofu Citizens' Center for Radioactivity Measurement
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:1030.00
+remarks:測定者、藤川</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_2799" class="mrdata_line">
+          <td>30</td>
+          <td><a href="../mrdatafoodget/mds_eng/2799" taget="_blank">菌床生しいたけ（Ｃラボ市場調査）</a></td>
+          <td>広島県</td>
+          <td data-sort-value="0.00">ND<br/>(1.60)</td>
+          <td data-sort-value="0.00">ND<br/>(1.50)</td>
+          <td>2013-04-18</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_2799');" /><br/>
+           <span style="display:none" id="other_info_2799" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Mushrooms&gt;Mushrooms&gt;Shiitake mushroom
+weight:841.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_2823" class="mrdata_line">
+          <td>31</td>
+          <td><a href="../mrdatafoodget/mds_eng/2823" taget="_blank">菌床生しいたけ（Ｃラボ市場調査）</a></td>
+          <td>広島県</td>
+          <td data-sort-value="0.00">ND<br/>(1.60)</td>
+          <td data-sort-value="0.00">ND<br/>(1.50)</td>
+          <td>2013-05-07</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_2823');" /><br/>
+           <span style="display:none" id="other_info_2823" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Mushrooms&gt;Mushrooms&gt;Shiitake mushroom
+weight:846.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_41909" class="mrdata_line">
+          <td>32</td>
+          <td><a href="../mrdatafoodget/mds_eng/41909" taget="_blank">生しいたけ</a></td>
+          <td>広島県</td>
+          <td data-sort-value="0.00">ND<br/>(1.20)</td>
+          <td data-sort-value="0.00">ND<br/>(1.50)</td>
+          <td>2014-07-07</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_41909');" /><br/>
+           <span style="display:none" id="other_info_41909" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Mushrooms&gt;Mushrooms&gt;Shiitake mushroom
+weight:850.00
+remarks:測定誤差は3σ表示</span>
+                      <a href="http://wp.me/P1E17Z-C9" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_40125" class="mrdata_line">
+          <td>33</td>
+          <td><a href="../mrdatafoodget/mds_eng/40125" taget="_blank">白米（あきろまん）広島県（2013年）</a></td>
+          <td>広島県安芸高田市</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td>2014-06-01</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_40125');" /><br/>
+           <span style="display:none" id="other_info_40125" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:1002.60
+remarks:</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2014/07/2014_10.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_29196" class="mrdata_line">
+          <td>34</td>
+          <td><a href="../mrdatafoodget/mds_eng/29196" taget="_blank">むぎ味噌無添加・広島県産（大豆・大麦）（2013年）株式会社ますやみそ</a></td>
+          <td>広島県株式会社ますやみそ</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td>2013-09-11</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_29196');" /><br/>
+           <span style="display:none" id="other_info_29196" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Seasonings and spices&gt;Seasonings&gt;Miso
+weight:1165.50
+remarks:http://onomichi-labo.blogspot.jp/2013/09/2013_27.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/09/2013_27.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_29195" class="mrdata_line">
+          <td>35</td>
+          <td><a href="../mrdatafoodget/mds_eng/29195" taget="_blank">明治ブルガリアヨーグルトプレーン・広島工場製造（2013年）株式会社明治</a></td>
+          <td>広島県株式会社明治</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td data-sort-value="0.00">ND<br/>(0.50)</td>
+          <td>2013-09-10</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_29195');" /><br/>
+           <span style="display:none" id="other_info_29195" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Dairy products&gt;Milk and dairy products&gt;Yogurt
+weight:873.20
+remarks:http://onomichi-labo.blogspot.jp/2013/09/2013_26.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/09/2013_26.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_29401" class="mrdata_line">
+          <td>36</td>
+          <td><a href="../mrdatafoodget/mds_eng/29401" taget="_blank">玄米・広島県呉市安浦町（2013年）女子畑ブランド米創出プロジェクト実行委員会</a></td>
+          <td>広島県呉市</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td>2013-10-20</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_29401');" /><br/>
+           <span style="display:none" id="other_info_29401" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:1026.70
+remarks:http://onomichi-labo.blogspot.jp/2013/10/2013_26.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/10/2013_26.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_30081" class="mrdata_line">
+          <td>37</td>
+          <td><a href="../mrdatafoodget/mds_eng/30081" taget="_blank">白米・広島県呉市安浦町（2013年）女子畑ブランド米創出プロジェクト実行委員会</a></td>
+          <td>広島県呉市</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td>2013-11-03</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_30081');" /><br/>
+           <span style="display:none" id="other_info_30081" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:1057.40
+remarks:http://onomichi-labo.blogspot.jp/2013/11/2013_30.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/11/2013_30.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_33699" class="mrdata_line">
+          <td>38</td>
+          <td><a href="../mrdatafoodget/mds_eng/33699" taget="_blank">アカシタビラメ・広島県呉市（2013年）株式会社ビジョナリー・オーシャン</a></td>
+          <td>広島県呉市</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td>2013-12-29</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_33699');" /><br/>
+           <span style="display:none" id="other_info_33699" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Seafood&gt;Raw seafood (sea water)&gt;Flounder
+weight:1088.20
+remarks:http://onomichi-labo.blogspot.jp/2014/01/2013_31.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2014/01/2013_31.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_29376" class="mrdata_line">
+          <td>39</td>
+          <td><a href="../mrdatafoodget/mds_eng/29376" taget="_blank">メバル・広島県呉市音戸町（2013年）</a></td>
+          <td>広島県呉市</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td>2013-09-27</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_29376');" /><br/>
+           <span style="display:none" id="other_info_29376" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Seafood&gt;Raw seafood (sea water)&gt;Other raw seafood (seawater)
+weight:1022.30
+remarks:http://onomichi-labo.blogspot.jp/2013/10/2013_16.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/10/2013_16.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_45299" class="mrdata_line">
+          <td>40</td>
+          <td><a href="../mrdatafoodget/mds_eng/45299" taget="_blank">いりこ_粉末</a></td>
+          <td>広島県呉市</td>
+          <td data-sort-value="0.00">ND<br/>(5.45)</td>
+          <td data-sort-value="0.00">ND<br/>(5.93)</td>
+          <td>2013-05-01</td>
+          <td class="mrtime" value="7200">7200</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_45299');" /><br/>
+           <span style="display:none" id="other_info_45299" >lab:Mori-no-Sokuteishitsu Namegawa
+category:Seafood&gt;Processed products of seafood&gt;Seafood (salted and dried)
+weight:360.00
+remarks:川口商店</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_45600" class="mrdata_line">
+          <td>41</td>
+          <td><a href="../mrdatafoodget/mds_eng/45600" taget="_blank">いりこ_広島県音戸産_賞味期限12.12.19</a></td>
+          <td>広島県呉市</td>
+          <td data-sort-value="0.00">ND<br/>(6.75)</td>
+          <td data-sort-value="0.00">ND<br/>(7.45)</td>
+          <td>2012-09-28</td>
+          <td class="mrtime" value="3600">3600</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_45600');" /><br/>
+           <span style="display:none" id="other_info_45600" >lab:Mori-no-Sokuteishitsu Namegawa
+category:Seafood&gt;Processed products of seafood&gt;Seafood (salted and dried)
+weight:445.00
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_45402" class="mrdata_line">
+          <td>42</td>
+          <td><a href="../mrdatafoodget/mds_eng/45402" taget="_blank">いりこ_瀬戸内海</a></td>
+          <td>広島県呉市</td>
+          <td data-sort-value="0.00">ND<br/>(7.20)</td>
+          <td data-sort-value="0.00">ND<br/>(7.88)</td>
+          <td>2013-01-24</td>
+          <td class="mrtime" value="3600">3600</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_45402');" /><br/>
+           <span style="display:none" id="other_info_45402" >lab:Mori-no-Sokuteishitsu Namegawa
+category:Seafood&gt;Processed products of seafood&gt;Seafood (salted and dried)
+weight:378.00
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_45401" class="mrdata_line">
+          <td>43</td>
+          <td><a href="../mrdatafoodget/mds_eng/45401" taget="_blank">ちりめん_瀬戸内海</a></td>
+          <td>広島県呉市</td>
+          <td data-sort-value="0.00">ND<br/>(9.40)</td>
+          <td data-sort-value="0.00">ND<br/>(10.20)</td>
+          <td>2013-01-24</td>
+          <td class="mrtime" value="3450">3450</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_45401');" /><br/>
+           <span style="display:none" id="other_info_45401" >lab:Mori-no-Sokuteishitsu Namegawa
+category:Seafood&gt;Processed products of seafood&gt;Seafood (salted and dried)
+weight:300.00
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_45300" class="mrdata_line">
+          <td>44</td>
+          <td><a href="../mrdatafoodget/mds_eng/45300" taget="_blank">ちりめん</a></td>
+          <td>広島県呉市</td>
+          <td data-sort-value="0.00">ND<br/>(12.20)</td>
+          <td data-sort-value="0.00">ND<br/>(13.20)</td>
+          <td>2013-05-01</td>
+          <td class="mrtime" value="1800">1800</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_45300');" /><br/>
+           <span style="display:none" id="other_info_45300" >lab:Mori-no-Sokuteishitsu Namegawa
+category:Seafood&gt;Processed products of seafood&gt;Seafood (salted and dried)
+weight:315.00
+remarks:川口商店</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_30098" class="mrdata_line">
+          <td>45</td>
+          <td><a href="../mrdatafoodget/mds_eng/30098" taget="_blank">粉炭（備木柴）・広島県呉市（グリンピアせとうち）（2013年）安芸森林ボランティア</a></td>
+          <td>広島県呉市</td>
+          <td data-sort-value="0.00">ND<br/>(2.50)</td>
+          <td data-sort-value="0.00">ND<br/>(2.60)</td>
+          <td>2013-11-15</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_30098');" /><br/>
+           <span style="display:none" id="other_info_30098" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Environment&gt;Charcoal&gt;Wood Charcoal
+weight:472.50
+remarks:http://onomichi-labo.blogspot.jp/2013/12/2013_19.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/12/2013_19.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_27129" class="mrdata_line">
+          <td>46</td>
+          <td><a href="../mrdatafoodget/mds_eng/27129" taget="_blank">H23年度産玄米</a></td>
+          <td>広島県広島県</td>
+          <td data-sort-value="0.00">ND<br/>(3.96)</td>
+          <td data-sort-value="0.00">ND<br/>(4.35)</td>
+          <td>2011-11-27</td>
+          <td class="mrtime" value="1800">1800</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_27129');" /><br/>
+           <span style="display:none" id="other_info_27129" >lab:NPO Fukushima 30-Years Project
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:875.00
+remarks:【栽培情報】 かん水： 天水</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_40103" class="mrdata_line">
+          <td>47</td>
+          <td><a href="../mrdatafoodget/mds_eng/40103" taget="_blank">大根・広島県（2014年）</a></td>
+          <td>広島県広島市安芸区</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td>2014-05-30</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_40103');" /><br/>
+           <span style="display:none" id="other_info_40103" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Vegetables&gt;Root crop&gt;Daikon/Japanese radish
+weight:1046.20
+remarks:</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2014/07/2014_6.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_40124" class="mrdata_line">
+          <td>48</td>
+          <td><a href="../mrdatafoodget/mds_eng/40124" taget="_blank">人参・広島県（2014年）</a></td>
+          <td>広島県広島市安芸区</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td>2014-05-31</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_40124');" /><br/>
+           <span style="display:none" id="other_info_40124" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Vegetables&gt;Root crop&gt;Carrot
+weight:712.30
+remarks:</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2014/07/2014_9.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_35045" class="mrdata_line">
+          <td>49</td>
+          <td><a href="../mrdatafoodget/mds_eng/35045" taget="_blank">たもぎ茸(黄色いキノコ)</a></td>
+          <td>広島県広島市安芸区</td>
+          <td data-sort-value="0.00">ND<br/>(3.24)</td>
+          <td data-sort-value="0.00">ND<br/>(3.59)</td>
+          <td>2012-03-01</td>
+          <td class="mrtime" value="1800">1800</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_35045');" /><br/>
+           <span style="display:none" id="other_info_35045" >lab:NPO Fukushima 30-Years Project
+category:Mushrooms&gt;Mushrooms&gt;Mushroom (cultivated)
+weight:982.00
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_30071" class="mrdata_line">
+          <td>50</td>
+          <td><a href="../mrdatafoodget/mds_eng/30071" taget="_blank">湧水・景浦名水・広島県広島市安芸区阿戸町景浦・串掛林道（2013年）</a></td>
+          <td>広島県広島市安芸区</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td>2013-10-26</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_30071');" /><br/>
+           <span style="display:none" id="other_info_30071" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Environment&gt;Drinking water/potable water&gt;a mountain stream
+weight:1037.90
+remarks:http://onomichi-labo.blogspot.jp/2013/11/2013_18.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/11/2013_18.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_30075" class="mrdata_line">
+          <td>51</td>
+          <td><a href="../mrdatafoodget/mds_eng/30075" taget="_blank">景浦名水付近の杉の枝と葉・広島県広島市安芸区阿戸町景浦・串掛林道（2013年）</a></td>
+          <td>広島県広島市安芸区</td>
+          <td data-sort-value="0.00">ND<br/>(2.10)</td>
+          <td data-sort-value="0.00">ND<br/>(3.10)</td>
+          <td>2013-10-29</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_30075');" /><br/>
+           <span style="display:none" id="other_info_30075" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Environment&gt;Agricultural materials&gt;Others
+weight:155.40
+remarks:http://onomichi-labo.blogspot.jp/2013/11/2013_24.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/11/2013_24.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_40240" class="mrdata_line">
+          <td>52</td>
+          <td><a href="../mrdatafoodget/mds_eng/40240" taget="_blank">米ぬか（にこまる）・広島県（2013年）</a></td>
+          <td>広島県三原市</td>
+          <td data-sort-value="0.00">ND<br/>(0.60)</td>
+          <td data-sort-value="0.00">ND<br/>(0.60)</td>
+          <td>2014-06-08</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_40240');" /><br/>
+           <span style="display:none" id="other_info_40240" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Cereals&gt;Rice and processed products of rice&gt;Rice bran
+weight:556.30
+remarks:</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2014/07/2013_26.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_46532" class="mrdata_line">
+          <td>53</td>
+          <td><a href="../mrdatafoodget/mds_eng/46532" taget="_blank">うどん（乾麺）ふくさやか・広島県（2015年）坂本農場</a></td>
+          <td>広島県三原市</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td>2015-03-07</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_46532');" /><br/>
+           <span style="display:none" id="other_info_46532" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Cereals&gt;Wheat and processed products of wheat&gt;Udon noodle
+weight:882.30
+remarks:</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2015/05/2015_8.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_34071" class="mrdata_line">
+          <td>54</td>
+          <td><a href="../mrdatafoodget/mds_eng/34071" taget="_blank">さつまいも・広島県三原市大和町（2013年）</a></td>
+          <td>広島県三原市</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td>2014-01-10</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_34071');" /><br/>
+           <span style="display:none" id="other_info_34071" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Potatoes&gt;Processed products of potatoes&gt;Sweet potatoes
+weight:1000.00
+remarks:http://onomichi-labo.blogspot.jp/2014/02/2013_10.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2014/02/2013_10.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_46343" class="mrdata_line">
+          <td>55</td>
+          <td><a href="../mrdatafoodget/mds_eng/46343" taget="_blank">ジャガイモ（じゃがいも）・広島県（2015年）ゆうきの環かざぐるま</a></td>
+          <td>広島県三原市</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td>2015-02-18</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_46343');" /><br/>
+           <span style="display:none" id="other_info_46343" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Potatoes&gt;Processed products of potatoes&gt;Potatoes
+weight:742.80
+remarks:</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2015/03/2015_31.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_41395" class="mrdata_line">
+          <td>56</td>
+          <td><a href="../mrdatafoodget/mds_eng/41395" taget="_blank">梅・広島県（2014年）</a></td>
+          <td>広島県三原市</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td>2014-07-05</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_41395');" /><br/>
+           <span style="display:none" id="other_info_41395" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Fruits&gt;Fresh fruits&gt;Ume, Japanese plum
+weight:972.90
+remarks:</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2014/08/2014_21.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_40176" class="mrdata_line">
+          <td>57</td>
+          <td><a href="../mrdatafoodget/mds_eng/40176" taget="_blank">タコ（たこ・タコ）・広島県三原市沖（2014年）三原市漁業協同組合</a></td>
+          <td>広島県三原市</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td>2014-07-14</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_40176');" /><br/>
+           <span style="display:none" id="other_info_40176" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Seafood&gt;Raw seafood (sea water)&gt;Octopus
+weight:961.10
+remarks:</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2014/07/2014_14.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_29139" class="mrdata_line">
+          <td>58</td>
+          <td><a href="../mrdatafoodget/mds_eng/29139" taget="_blank">玄米（にこまる）広島県三原市（2012年産）</a></td>
+          <td>広島県三原市</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td>2013-07-02</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_29139');" /><br/>
+           <span style="display:none" id="other_info_29139" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:1007.40
+remarks:http://onomichi-labo.blogspot.jp/2013/07/blog-post_20.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/07/blog-post_20.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_33007" class="mrdata_line">
+          <td>59</td>
+          <td><a href="../mrdatafoodget/mds_eng/33007" taget="_blank">玄米・広島県三次市産（2013年）</a></td>
+          <td>広島県三次市</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td>2013-12-23</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_33007');" /><br/>
+           <span style="display:none" id="other_info_33007" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:1030.50
+remarks:http://onomichi-labo.blogspot.jp/2014/01/2013_22.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2014/01/2013_22.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_44574" class="mrdata_line">
+          <td>60</td>
+          <td><a href="../mrdatafoodget/mds_eng/44574" taget="_blank">猪肉（野生）・広島県（2014年）</a></td>
+          <td>広島県三次市</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td>2014-08-22</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_44574');" /><br/>
+           <span style="display:none" id="other_info_44574" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Meats&gt;Meat of livestock&gt;Boar meat
+weight:1051.00
+remarks:セシウム137のみ3σ（精度99.7％）では「＜0.3Bq/kg」、1σ（精度68.3％）では「0.156±0.116Bq/kg」→微量存在と判断</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2014/10/2014_4.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_44566" class="mrdata_line">
+          <td>61</td>
+          <td><a href="../mrdatafoodget/mds_eng/44566" taget="_blank">鹿肉（野生）・広島県（2014年）</a></td>
+          <td>広島県三次市</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.31">0.31±0.31<br/>(0.20)</td>
+          <td>2014-08-19</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_44566');" /><br/>
+           <span style="display:none" id="other_info_44566" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Meats&gt;Meat of livestock&gt;Deer meat
+weight:1141.60
+remarks:</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2014/10/2014_2.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_29392" class="mrdata_line">
+          <td>62</td>
+          <td><a href="../mrdatafoodget/mds_eng/29392" taget="_blank">はぶ草茶・広島県三次市（2013年）</a></td>
+          <td>広島県三次市</td>
+          <td data-sort-value="0.00">ND<br/>(2.50)</td>
+          <td data-sort-value="0.00">ND<br/>(3.00)</td>
+          <td>2013-09-30</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_29392');" /><br/>
+           <span style="display:none" id="other_info_29392" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Beverage&gt;Tea and other beverages&gt;Other teas
+weight:144.10
+remarks:http://onomichi-labo.blogspot.jp/2013/10/2013_21.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/10/2013_21.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_29399" class="mrdata_line">
+          <td>63</td>
+          <td><a href="../mrdatafoodget/mds_eng/29399" taget="_blank">活性炭肥料（錦炭くん）・広島県三次市（2013年）</a></td>
+          <td>広島県三次市</td>
+          <td data-sort-value="0.00">ND<br/>(5.70)</td>
+          <td data-sort-value="0.00">ND<br/>(5.40)</td>
+          <td>2013-10-05</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_29399');" /><br/>
+           <span style="display:none" id="other_info_29399" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Environment&gt;Agricultural materials&gt;Others
+weight:470.10
+remarks:http://onomichi-labo.blogspot.jp/2013/10/2013_24.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/10/2013_24.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_30077" class="mrdata_line">
+          <td>64</td>
+          <td><a href="../mrdatafoodget/mds_eng/30077" taget="_blank">芝生・広島県三次市（2013年）</a></td>
+          <td>広島県三次市</td>
+          <td data-sort-value="0.00">ND<br/>(2.90)</td>
+          <td data-sort-value="0.00">ND<br/>(3.40)</td>
+          <td>2013-11-01</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_30077');" /><br/>
+           <span style="display:none" id="other_info_30077" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Environment&gt;Vegetation&gt;Others
+weight:1014.70
+remarks:http://onomichi-labo.blogspot.jp/2013/11/2013_26.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/11/2013_26.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_28703" class="mrdata_line">
+          <td>65</td>
+          <td><a href="../mrdatafoodget/mds_eng/28703" taget="_blank">白米・広島県三次市（2012年産）株式会社ライスファーム藤原</a></td>
+          <td>広島県三次市</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td>2013-06-09</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_28703');" /><br/>
+           <span style="display:none" id="other_info_28703" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:1008.00
+remarks:http://onomichi-labo.blogspot.jp/2013/06/blog-post_19.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/06/blog-post_19.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_26879" class="mrdata_line">
+          <td>66</td>
+          <td><a href="../mrdatafoodget/mds_eng/26879" taget="_blank">たけのこ・広島県三次市（2013年産）</a></td>
+          <td>広島県三次市</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td>2013-05-12</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_26879');" /><br/>
+           <span style="display:none" id="other_info_26879" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Vegetables&gt;Stem vegetables&gt;Bamboo shoot
+weight:1057.00
+remarks:http://onomichi-labo.blogspot.jp/2013/05/blog-post_19.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/05/blog-post_19.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_39849" class="mrdata_line">
+          <td>67</td>
+          <td><a href="../mrdatafoodget/mds_eng/39849" taget="_blank">生しいたけ</a></td>
+          <td>広島県山県郡</td>
+          <td data-sort-value="0.00">ND<br/>(0.60)</td>
+          <td data-sort-value="1.60">1.60±0.83<br/>(0.50)</td>
+          <td>2014-04-08</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_39849');" /><br/>
+           <span style="display:none" id="other_info_39849" >lab:Hanshin Citizens' Radioactivity Measuring Center
+category:Mushrooms&gt;Mushrooms&gt;Shiitake mushroom
+weight:625.00
+remarks:しいたけプロジェクト検体</span>
+                      <a href="http://hanshinshs.web.fc2.com/201404kekka/763siitake_hirosima.pdf" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_47090" class="mrdata_line">
+          <td>68</td>
+          <td><a href="../mrdatafoodget/mds_eng/47090" taget="_blank">玄米・広島県山県郡北広島町（2014年）</a></td>
+          <td>広島県山県郡北広島町</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td>2015-03-17</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_47090');" /><br/>
+           <span style="display:none" id="other_info_47090" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:942.10
+remarks:</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2015/05/2014_21.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_1994" class="mrdata_line">
+          <td>69</td>
+          <td><a href="../mrdatafoodget/mds_eng/1994" taget="_blank">原木しいたけ</a></td>
+          <td>広島県山県郡北広島町</td>
+          <td data-sort-value="0.00">ND<br/>(7.20)</td>
+          <td data-sort-value="0.00">ND<br/>(6.50)</td>
+          <td>2012-05-02</td>
+          <td class="mrtime" value="5400">5400</td>
+          <td class="inst" value="32">ALOKA  CAN-OSP-NAI</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_1994');" /><br/>
+           <span style="display:none" id="other_info_1994" >lab:Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.)
+category:Mushrooms&gt;Mushrooms&gt;Shiitake mushroom
+weight:792.00
+remarks:</span>
+                      <a href="http://tokainet.wordpress.com/setup/" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_29192" class="mrdata_line">
+          <td>70</td>
+          <td><a href="../mrdatafoodget/mds_eng/29192" taget="_blank">ショージ広島県産おいしい牛乳（2013年産）山陽乳業株式会社</a></td>
+          <td>広島県山陽乳業株式会社</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td>2013-09-07</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_29192');" /><br/>
+           <span style="display:none" id="other_info_29192" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Dairy products&gt;Milk and dairy products&gt;Milk
+weight:1028.50
+remarks:http://onomichi-labo.blogspot.jp/2013/09/2013_22.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/09/2013_22.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_34123" class="mrdata_line">
+          <td>71</td>
+          <td><a href="../mrdatafoodget/mds_eng/34123" taget="_blank">豆乳・広島県庄原市（2013年）株式会社夢石庵・農業法人夢ファーム永末</a></td>
+          <td>広島県庄原市</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td>2014-03-06</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_34123');" /><br/>
+           <span style="display:none" id="other_info_34123" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Beans&gt;Processed products of soybean&gt;Soy milk
+weight:1048.60
+remarks:http://onomichi-labo.blogspot.jp/2014/03/2013_29.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2014/03/2013_29.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_30084" class="mrdata_line">
+          <td>72</td>
+          <td><a href="../mrdatafoodget/mds_eng/30084" taget="_blank">ワラ（牧草）・広島県庄原市（2013年）ふくふく牧場</a></td>
+          <td>広島県庄原市</td>
+          <td data-sort-value="0.00">ND<br/>(2.10)</td>
+          <td data-sort-value="0.00">ND<br/>(2.40)</td>
+          <td>2013-11-14</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_30084');" /><br/>
+           <span style="display:none" id="other_info_30084" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Environment&gt;Agricultural materials&gt;Others
+weight:156.40
+remarks:http://onomichi-labo.blogspot.jp/2013/12/2013_4.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/12/2013_4.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_35896" class="mrdata_line">
+          <td>73</td>
+          <td><a href="../mrdatafoodget/mds_eng/35896" taget="_blank">H24年度産コシヒカリ精米</a></td>
+          <td>広島県庄原市</td>
+          <td data-sort-value="0.00">ND<br/>(0.43)</td>
+          <td data-sort-value="0.00">ND<br/>(0.42)</td>
+          <td>2013-07-25</td>
+          <td class="mrtime" value="10800">10800</td>
+          <td class="inst" value="19">HpGe</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_35896');" /><br/>
+           <span style="display:none" id="other_info_35896" >lab:NPO Fukushima 30-Years Project
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:903.00
+remarks:販売者：庄原農業協同組合 購入店：生協ひろしま</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_43081" class="mrdata_line">
+          <td>74</td>
+          <td><a href="../mrdatafoodget/mds_eng/43081" taget="_blank">有機栽培生芋こんにゃく</a></td>
+          <td>広島県神石郡</td>
+          <td data-sort-value="0.00">ND<br/>(1.00)</td>
+          <td data-sort-value="0.00">ND<br/>(0.90)</td>
+          <td>2014-07-31</td>
+          <td class="mrtime" value="3600">3600</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_43081');" /><br/>
+           <span style="display:none" id="other_info_43081" >lab:Hanshin Citizens' Radioactivity Measuring Center
+category:Potatoes&gt;Processed products of potatoes&gt;Konnyaku potatoes, Konnyaku /Yam Cake
+weight:877.00
+remarks:製造者：有限会社大矢商店
+神戸市北区淡河町神影909</span>
+                      <a href="http://hanshinshs.web.fc2.com/201407kekka/1029yuuki_konnyaku.pdf" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_26815" class="mrdata_line">
+          <td>75</td>
+          <td><a href="../mrdatafoodget/mds_eng/26815" taget="_blank">原木しいたけ（2013年産）</a></td>
+          <td>広島県神石郡</td>
+          <td data-sort-value="0.00">ND<br/>(1.20)</td>
+          <td data-sort-value="0.00">ND<br/>(1.50)</td>
+          <td>2013-02-18</td>
+          <td class="mrtime" value="108000">108000</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_26815');" /><br/>
+           <span style="display:none" id="other_info_26815" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Mushrooms&gt;Mushrooms&gt;Shiitake mushroom
+weight:220.00
+remarks:http://onomichi-labo.blogspot.jp/2013/02/blog-post_19.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/02/blog-post_19.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_26785" class="mrdata_line">
+          <td>76</td>
+          <td><a href="../mrdatafoodget/mds_eng/26785" taget="_blank">しゃも地鶏（2012年産）</a></td>
+          <td>広島県神石郡</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td data-sort-value="0.00">ND<br/>(0.50)</td>
+          <td>2012-12-23</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_26785');" /><br/>
+           <span style="display:none" id="other_info_26785" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Meats&gt;Poultry&gt;Other poultry
+weight:1034.00
+remarks:http://onomichi-labo.blogspot.jp/2013/03/blog-post_9.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/03/blog-post_9.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_35331" class="mrdata_line">
+          <td>77</td>
+          <td><a href="../mrdatafoodget/mds_eng/35331" taget="_blank">なす</a></td>
+          <td>広島県神石郡神石高原町</td>
+          <td data-sort-value="0.00">ND<br/>(4.22)</td>
+          <td data-sort-value="0.00">ND<br/>(4.74)</td>
+          <td>2012-08-29</td>
+          <td class="mrtime" value="3600">3600</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_35331');" /><br/>
+           <span style="display:none" id="other_info_35331" >lab:NPO Fukushima 30-Years Project
+category:Vegetables&gt;Fruit vegetable&gt;Aubergines (eggplants)
+weight:558.00
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_26775" class="mrdata_line">
+          <td>78</td>
+          <td><a href="../mrdatafoodget/mds_eng/26775" taget="_blank">コシヒカリ（2012年産）尾道市農業協同組合</a></td>
+          <td>広島県世羅郡</td>
+          <td data-sort-value="0.00">ND<br/>(0.70)</td>
+          <td data-sort-value="0.00">ND<br/>(0.80)</td>
+          <td>2012-11-29</td>
+          <td class="mrtime" value="36000">36000</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_26775');" /><br/>
+           <span style="display:none" id="other_info_26775" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:1001.00
+remarks:http://onomichi-labo.blogspot.jp/2013/03/blog-post_31.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/03/blog-post_31.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_26774" class="mrdata_line">
+          <td>79</td>
+          <td><a href="../mrdatafoodget/mds_eng/26774" taget="_blank">コシヒカリ（2012年産）尾道市農業協同組合</a></td>
+          <td>広島県世羅郡</td>
+          <td data-sort-value="0.00">ND<br/>(0.80)</td>
+          <td data-sort-value="0.00">ND<br/>(1.00)</td>
+          <td>2012-11-27</td>
+          <td class="mrtime" value="36000">36000</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_26774');" /><br/>
+           <span style="display:none" id="other_info_26774" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:1044.00
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_26766" class="mrdata_line">
+          <td>80</td>
+          <td><a href="../mrdatafoodget/mds_eng/26766" taget="_blank">コシヒカリ（2011年産）尾道市農業協同組合</a></td>
+          <td>広島県世羅郡</td>
+          <td data-sort-value="0.00">ND<br/>(1.10)</td>
+          <td data-sort-value="0.00">ND<br/>(1.10)</td>
+          <td>2012-11-19</td>
+          <td class="mrtime" value="28800">28800</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_26766');" /><br/>
+           <span style="display:none" id="other_info_26766" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:916.00
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_26872" class="mrdata_line">
+          <td>81</td>
+          <td><a href="../mrdatafoodget/mds_eng/26872" taget="_blank">生しいたけ・原木（2013年産）尾道市農業協同組合</a></td>
+          <td>広島県世羅郡</td>
+          <td data-sort-value="0.00">ND<br/>(0.60)</td>
+          <td data-sort-value="0.90">0.90±0.80<br/>(0.70)</td>
+          <td>2013-05-01</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_26872');" /><br/>
+           <span style="display:none" id="other_info_26872" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Mushrooms&gt;Mushrooms&gt;Shiitake mushroom
+weight:619.00
+remarks:http://onomichi-labo.blogspot.jp/2013/05/blog-post_2.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/05/blog-post_2.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_26800" class="mrdata_line">
+          <td>82</td>
+          <td><a href="../mrdatafoodget/mds_eng/26800" taget="_blank">もみじたまご・楡の木ファーム（2013年産）ゆう食品</a></td>
+          <td>広島県世羅郡</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td>2013-01-20</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_26800');" /><br/>
+           <span style="display:none" id="other_info_26800" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Eggs&gt;Eggs&gt;Chicken eggs
+weight:1078.00
+remarks:http://onomichi-labo.blogspot.jp/2013/03/blog-post_17.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/03/blog-post_17.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_26860" class="mrdata_line">
+          <td>83</td>
+          <td><a href="../mrdatafoodget/mds_eng/26860" taget="_blank">堆肥（2013年産）サンアンドホープ</a></td>
+          <td>広島県世羅郡</td>
+          <td data-sort-value="0.00">ND<br/>(0.70)</td>
+          <td data-sort-value="0.00">ND<br/>(0.80)</td>
+          <td>2013-04-19</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_26860');" /><br/>
+           <span style="display:none" id="other_info_26860" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Environment&gt;Agricultural materials&gt;Compost
+weight:595.00
+remarks:http://onomichi-labo.blogspot.jp/2013/05/blog-post_4.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/05/blog-post_4.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_47015" class="mrdata_line">
+          <td>84</td>
+          <td><a href="../mrdatafoodget/mds_eng/47015" taget="_blank">玄米（特別栽培米）コシヒカリ・広島県（2014年）尾道市農業協同組合</a></td>
+          <td>広島県世羅郡世羅町</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td>2015-03-01</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_47015');" /><br/>
+           <span style="display:none" id="other_info_47015" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:888.50
+remarks:</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2015/05/2014_13.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_30095" class="mrdata_line">
+          <td>85</td>
+          <td><a href="../mrdatafoodget/mds_eng/30095" taget="_blank">玄米・広島県世羅郡世羅町（2013年）</a></td>
+          <td>広島県世羅郡世羅町</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td>2013-11-12</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_30095');" /><br/>
+           <span style="display:none" id="other_info_30095" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:1019.30
+remarks:http://onomichi-labo.blogspot.jp/2013/12/2013_16.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/12/2013_16.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_40212" class="mrdata_line">
+          <td>86</td>
+          <td><a href="../mrdatafoodget/mds_eng/40212" taget="_blank">白米（コシヒカリ）・広島県（2013年）株式会社オクモト</a></td>
+          <td>広島県世羅郡世羅町</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td>2014-06-04</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_40212');" /><br/>
+           <span style="display:none" id="other_info_40212" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:991.70
+remarks:</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2014/07/2013.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_40098" class="mrdata_line">
+          <td>87</td>
+          <td><a href="../mrdatafoodget/mds_eng/40098" taget="_blank">豆腐・広島県（2014年）株式会社東洋食品</a></td>
+          <td>広島県世羅郡世羅町</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td>2014-05-29</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_40098');" /><br/>
+           <span style="display:none" id="other_info_40098" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Beans&gt;Processed products of soybean&gt;Tofu/Bean Curd
+weight:1059.60
+remarks:</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2014/07/2014_5.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_29205" class="mrdata_line">
+          <td>88</td>
+          <td><a href="../mrdatafoodget/mds_eng/29205" taget="_blank">緑茶（かりがね茶）・広島県世羅郡世羅町及び鹿児島県(2013年）JA尾道市西大田製茶工場</a></td>
+          <td>広島県世羅郡世羅町</td>
+          <td data-sort-value="0.00">ND<br/>(0.50)</td>
+          <td data-sort-value="0.00">ND<br/>(0.60)</td>
+          <td>2013-08-19</td>
+          <td class="mrtime" value="259200">259200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_29205');" /><br/>
+           <span style="display:none" id="other_info_29205" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Beverage&gt;Tea and other beverages&gt;Green tea
+weight:428.90
+remarks:http://onomichi-labo.blogspot.jp/2013/08/ja.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/08/ja.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_46402" class="mrdata_line">
+          <td>89</td>
+          <td><a href="../mrdatafoodget/mds_eng/46402" taget="_blank">牛糞堆肥・広島県（2015年）農事組合法人太平牧場</a></td>
+          <td>広島県世羅郡世羅町</td>
+          <td data-sort-value="0.00">ND<br/>(0.50)</td>
+          <td data-sort-value="0.00">ND<br/>(0.50)</td>
+          <td>2015-02-20</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_46402');" /><br/>
+           <span style="display:none" id="other_info_46402" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Environment&gt;Agricultural materials&gt;Compost
+weight:656.10
+remarks:</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2015/04/2015_3.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_46420" class="mrdata_line">
+          <td>90</td>
+          <td><a href="../mrdatafoodget/mds_eng/46420" taget="_blank">鶏糞堆肥・広島県（2015年）農事組合法人世羅ファーム</a></td>
+          <td>広島県世羅郡世羅町</td>
+          <td data-sort-value="0.00">ND<br/>(0.60)</td>
+          <td data-sort-value="0.00">ND<br/>(0.60)</td>
+          <td>2015-02-21</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_46420');" /><br/>
+           <span style="display:none" id="other_info_46420" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Environment&gt;Agricultural materials&gt;Compost
+weight:817.20
+remarks:</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2015/04/2015_4.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_45873" class="mrdata_line">
+          <td>91</td>
+          <td><a href="../mrdatafoodget/mds_eng/45873" taget="_blank">玄米・広島県世羅郡世羅町（2014年産）尾道市農業協同組合</a></td>
+          <td>広島県世羅郡世羅町</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td>2014-12-01</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_45873');" /><br/>
+           <span style="display:none" id="other_info_45873" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:919.90
+remarks:</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2014/12/2014.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_40222" class="mrdata_line">
+          <td>92</td>
+          <td><a href="../mrdatafoodget/mds_eng/40222" taget="_blank">生しいたけ（菌床）MDS用（2014年）広島県・3</a></td>
+          <td>広島県世羅郡世羅町</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td>2014-07-23</td>
+          <td class="mrtime" value="36000">36000</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_40222');" /><br/>
+           <span style="display:none" id="other_info_40222" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Mushrooms&gt;Mushrooms&gt;Shiitake mushroom
+weight:1044.70
+remarks:広範囲単品測定プロジェクト</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2014/07/22014_23.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_39405" class="mrdata_line">
+          <td>93</td>
+          <td><a href="../mrdatafoodget/mds_eng/39405" taget="_blank">生しいたけ（菌床）MDS用（2014年）広島県世羅郡世羅町・1</a></td>
+          <td>広島県世羅郡世羅町</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td>2014-05-26</td>
+          <td class="mrtime" value="36000">36000</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_39405');" /><br/>
+           <span style="display:none" id="other_info_39405" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Mushrooms&gt;Mushrooms&gt;Shiitake mushroom
+weight:935.10
+remarks:広範囲単品測定プロジェクト</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2014/05/12014_26.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_29377" class="mrdata_line">
+          <td>94</td>
+          <td><a href="../mrdatafoodget/mds_eng/29377" taget="_blank">生しいたけ・広島県（2013年）生活協同組合ひろしま</a></td>
+          <td>広島県生活協同組合ひろしま</td>
+          <td data-sort-value="0.00">ND<br/>(0.60)</td>
+          <td data-sort-value="2.88">2.88±1.21<br/>(1.20)</td>
+          <td>2013-09-26</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_29377');" /><br/>
+           <span style="display:none" id="other_info_29377" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Mushrooms&gt;Mushrooms&gt;Shiitake mushroom
+weight:574.50
+remarks:http://onomichi-labo.blogspot.jp/2013/10/2013_17.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/10/2013_17.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_34062" class="mrdata_line">
+          <td>95</td>
+          <td><a href="../mrdatafoodget/mds_eng/34062" taget="_blank">玄米・広島県東広島市黒瀬町（2013年）</a></td>
+          <td>広島県東広島市</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td>2014-01-07</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_34062');" /><br/>
+           <span style="display:none" id="other_info_34062" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:989.50
+remarks:http://onomichi-labo.blogspot.jp/2014/02/2013_6.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2014/02/2013_6.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_34061" class="mrdata_line">
+          <td>96</td>
+          <td><a href="../mrdatafoodget/mds_eng/34061" taget="_blank">発芽ごはん（自然農法）・広島県東広島市福富町（2013年）門永農園</a></td>
+          <td>広島県東広島市</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td>2013-01-06</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_34061');" /><br/>
+           <span style="display:none" id="other_info_34061" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:1029.90
+remarks:http://onomichi-labo.blogspot.jp/2014/02/2013_5.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2014/02/2013_5.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_46329" class="mrdata_line">
+          <td>97</td>
+          <td><a href="../mrdatafoodget/mds_eng/46329" taget="_blank">おから（オカラ）・広島県（2014年）堆肥類</a></td>
+          <td>広島県東広島市</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td>2015-02-16</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_46329');" /><br/>
+           <span style="display:none" id="other_info_46329" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Beans&gt;Processed products of soybean&gt;Other processed products of soybeans
+weight:882.20
+remarks:</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2015/03/2014_23.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_33702" class="mrdata_line">
+          <td>98</td>
+          <td><a href="../mrdatafoodget/mds_eng/33702" taget="_blank">生味噌・広島県東広島市（2013年）福富町農産加工センター</a></td>
+          <td>広島県東広島市</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td>2014-01-04</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_33702');" /><br/>
+           <span style="display:none" id="other_info_33702" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Seasonings and spices&gt;Seasonings&gt;Miso
+weight:984.00
+remarks:http://onomichi-labo.blogspot.jp/2014/02/2013_3.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2014/02/2013_3.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_46339" class="mrdata_line">
+          <td>99</td>
+          <td><a href="../mrdatafoodget/mds_eng/46339" taget="_blank">卵の殻・広島県（2015年）</a></td>
+          <td>広島県東広島市</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td>2015-02-17</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_46339');" /><br/>
+           <span style="display:none" id="other_info_46339" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Environment&gt;Agricultural materials&gt;Others
+weight:761.80
+remarks:</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2015/03/2015_28.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_26809" class="mrdata_line">
+          <td>100</td>
+          <td><a href="../mrdatafoodget/mds_eng/26809" taget="_blank">生かき（2013年産）広島かき</a></td>
+          <td>広島県東広島市</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td data-sort-value="0.00">ND<br/>(0.50)</td>
+          <td>2013-02-07</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_26809');" /><br/>
+           <span style="display:none" id="other_info_26809" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Seafood&gt;Raw seafood (sea water)&gt;Shellfish
+weight:448.00
+remarks:http://onomichi-labo.blogspot.jp/2013/02/blog-post_9.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/02/blog-post_9.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_28407" class="mrdata_line">
+          <td>101</td>
+          <td><a href="../mrdatafoodget/mds_eng/28407" taget="_blank">バーク堆肥（2013年産）広島県</a></td>
+          <td>広島県東広島市</td>
+          <td data-sort-value="3.00">3.00±1.00<br/>(0.40)</td>
+          <td data-sort-value="3.30">3.30±1.20<br/>(0.50)</td>
+          <td>2013-06-03</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_28407');" /><br/>
+           <span style="display:none" id="other_info_28407" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Environment&gt;Agricultural materials&gt;Compost
+weight:866.00
+remarks:http://onomichi-labo.blogspot.jp/2013/06/blog-post_17.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/06/blog-post_17.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_26841" class="mrdata_line">
+          <td>102</td>
+          <td><a href="../mrdatafoodget/mds_eng/26841" taget="_blank">堆肥（2013年産）</a></td>
+          <td>広島県東広島市</td>
+          <td data-sort-value="0.00">ND<br/>(0.50)</td>
+          <td data-sort-value="0.00">ND<br/>(0.80)</td>
+          <td>2013-04-05</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_26841');" /><br/>
+           <span style="display:none" id="other_info_26841" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Environment&gt;Agricultural materials&gt;Compost
+weight:807.00
+remarks:http://onomichi-labo.blogspot.jp/2013/04/blog-post_15.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/04/blog-post_15.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_3373" class="mrdata_line">
+          <td>103</td>
+          <td><a href="../mrdatafoodget/mds_eng/3373" taget="_blank">加糖ヨーグルト(チチヤスヨーグルト低糖/12.12.29)</a></td>
+          <td>広島県廿日市市</td>
+          <td data-sort-value="0.00">ND<br/>(1.60)</td>
+          <td data-sort-value="0.00">ND<br/>(1.80)</td>
+          <td>2012-12-15</td>
+          <td class="mrtime" value="10800">10800</td>
+          <td class="inst" value="15">AT1320A</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_3373');" /><br/>
+           <span style="display:none" id="other_info_3373" >lab:Kodomomirai Radiation Measurement Station for Children and Future (Kodomira RMS)
+category:Dairy products&gt;Milk and dairy products&gt;Yogurt
+weight:994.00
+remarks:</span>
+                      <a href="http://kodomira.com/measured/food/121215-5-10800.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_34114" class="mrdata_line">
+          <td>104</td>
+          <td><a href="../mrdatafoodget/mds_eng/34114" taget="_blank">白米（五分付）・広島県尾道市（2013年）</a></td>
+          <td>広島県尾道市</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td>2014-02-14</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_34114');" /><br/>
+           <span style="display:none" id="other_info_34114" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:1029.90
+remarks:http://onomichi-labo.blogspot.jp/2014/03/2013_16.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2014/03/2013_16.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_45914" class="mrdata_line">
+          <td>105</td>
+          <td><a href="../mrdatafoodget/mds_eng/45914" taget="_blank">巻き寿司・加工地：広島県（2014年）</a></td>
+          <td>広島県尾道市</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td>2014-11-22</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_45914');" /><br/>
+           <span style="display:none" id="other_info_45914" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Cereals&gt;Rice and processed products of rice&gt;Other processed products of rice
+weight:962.80
+remarks:</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2014/12/2014_14.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_39288" class="mrdata_line">
+          <td>106</td>
+          <td><a href="../mrdatafoodget/mds_eng/39288" taget="_blank">たけのこ（孟宗竹）MDS用（2014年）広島県尾道市・5</a></td>
+          <td>広島県尾道市</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td>2014-05-03</td>
+          <td class="mrtime" value="36000">36000</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_39288');" /><br/>
+           <span style="display:none" id="other_info_39288" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Vegetables&gt;Stem vegetables&gt;Bamboo shoot
+weight:910.40
+remarks:広範囲単品測定プロジェクト</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2014/05/52014.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_39293" class="mrdata_line">
+          <td>107</td>
+          <td><a href="../mrdatafoodget/mds_eng/39293" taget="_blank">たけのこ（孟宗竹）MDS用（2014年）広島県尾道市・6</a></td>
+          <td>広島県尾道市</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td>2014-05-03</td>
+          <td class="mrtime" value="36000">36000</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_39293');" /><br/>
+           <span style="display:none" id="other_info_39293" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Vegetables&gt;Stem vegetables&gt;Bamboo shoot
+weight:845.80
+remarks:広範囲単品測定プロジェクト</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2014/05/62014.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_39253" class="mrdata_line">
+          <td>108</td>
+          <td><a href="../mrdatafoodget/mds_eng/39253" taget="_blank">たけのこ（孟宗竹）MDS用（2014年）広島県尾道市・1</a></td>
+          <td>広島県尾道市</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td>2014-04-28</td>
+          <td class="mrtime" value="36000">36000</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_39253');" /><br/>
+           <span style="display:none" id="other_info_39253" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Vegetables&gt;Stem vegetables&gt;Bamboo shoot
+weight:999.40
+remarks:広範囲単品測定プロジェクト</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2014/04/2014_28.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_39283" class="mrdata_line">
+          <td>109</td>
+          <td><a href="../mrdatafoodget/mds_eng/39283" taget="_blank">たけのこ（孟宗竹）MDS用（2014年）広島県尾道市・4</a></td>
+          <td>広島県尾道市</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td>2014-05-01</td>
+          <td class="mrtime" value="36000">36000</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_39283');" /><br/>
+           <span style="display:none" id="other_info_39283" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Vegetables&gt;Stem vegetables&gt;Bamboo shoot
+weight:929.40
+remarks:広範囲単品測定プロジェクト</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2014/05/42014.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_39276" class="mrdata_line">
+          <td>110</td>
+          <td><a href="../mrdatafoodget/mds_eng/39276" taget="_blank">たけのこ（孟宗竹）MDS用（2014年）広島県尾道市・3</a></td>
+          <td>広島県尾道市</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td>2014-04-30</td>
+          <td class="mrtime" value="36000">36000</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_39276');" /><br/>
+           <span style="display:none" id="other_info_39276" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Vegetables&gt;Stem vegetables&gt;Bamboo shoot
+weight:1000.80
+remarks:広範囲単品測定プロジェクト</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2014/04/32014.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_39265" class="mrdata_line">
+          <td>111</td>
+          <td><a href="../mrdatafoodget/mds_eng/39265" taget="_blank">たけのこ（孟宗竹）MDS用（2014年）広島県尾道市・2</a></td>
+          <td>広島県尾道市</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td>2014-04-29</td>
+          <td class="mrtime" value="36000">36000</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_39265');" /><br/>
+           <span style="display:none" id="other_info_39265" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Vegetables&gt;Stem vegetables&gt;Bamboo shoot
+weight:1000.20
+remarks:広範囲単品測定プロジェクト</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2014/04/22014.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_29395" class="mrdata_line">
+          <td>112</td>
+          <td><a href="../mrdatafoodget/mds_eng/29395" taget="_blank">マスクメロン・広島県尾道市因島（2013年）熊八屋</a></td>
+          <td>広島県尾道市</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td>2013-10-03</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_29395');" /><br/>
+           <span style="display:none" id="other_info_29395" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Fruits&gt;Fresh fruits&gt;Mellon
+weight:1007.50
+remarks:http://onomichi-labo.blogspot.jp/2013/10/2013_22.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/10/2013_22.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_34125" class="mrdata_line">
+          <td>113</td>
+          <td><a href="../mrdatafoodget/mds_eng/34125" taget="_blank">干しシイタケ（椎茸）・広島県（2013年）向島洋らんセンター（尾道市）</a></td>
+          <td>広島県尾道市</td>
+          <td data-sort-value="0.00">ND<br/>(0.90)</td>
+          <td data-sort-value="0.00">ND<br/>(0.80)</td>
+          <td>2014-03-09</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_34125');" /><br/>
+           <span style="display:none" id="other_info_34125" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Mushrooms&gt;Processed products of Mushrooms&gt;Shiitake mushrooms (dried)
+weight:362.60
+remarks:http://onomichi-labo.blogspot.jp/2014/03/2013_31.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2014/03/2013_31.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_46248" class="mrdata_line">
+          <td>114</td>
+          <td><a href="../mrdatafoodget/mds_eng/46248" taget="_blank">猪肉・広島県尾道市向島町（2014年）</a></td>
+          <td>広島県尾道市</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td>2015-01-30</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_46248');" /><br/>
+           <span style="display:none" id="other_info_46248" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Meats&gt;Meat of livestock&gt;Boar meat
+weight:981.30
+remarks:</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2015/03/2014.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_29217" class="mrdata_line">
+          <td>115</td>
+          <td><a href="../mrdatafoodget/mds_eng/29217" taget="_blank">井戸水・広島県尾道市 (2013年）</a></td>
+          <td>広島県尾道市</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.50)</td>
+          <td>2013-08-29</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_29217');" /><br/>
+           <span style="display:none" id="other_info_29217" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Environment&gt;Drinking water/potable water&gt;Well water
+weight:1004.20
+remarks:http://onomichi-labo.blogspot.jp/2013/08/blog-post_30.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/08/blog-post_30.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_26798" class="mrdata_line">
+          <td>116</td>
+          <td><a href="../mrdatafoodget/mds_eng/26798" taget="_blank">白米（2012年産）自家産</a></td>
+          <td>広島県尾道市</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td data-sort-value="0.00">ND<br/>(0.50)</td>
+          <td>2013-01-19</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_26798');" /><br/>
+           <span style="display:none" id="other_info_26798" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:1015.00
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_26767" class="mrdata_line">
+          <td>117</td>
+          <td><a href="../mrdatafoodget/mds_eng/26767" taget="_blank">玄米（2012年産）自家産</a></td>
+          <td>広島県尾道市</td>
+          <td data-sort-value="0.00">ND<br/>(0.90)</td>
+          <td data-sort-value="0.00">ND<br/>(0.90)</td>
+          <td>2012-11-20</td>
+          <td class="mrtime" value="57600">57600</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_26767');" /><br/>
+           <span style="display:none" id="other_info_26767" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:1005.00
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_26799" class="mrdata_line">
+          <td>118</td>
+          <td><a href="../mrdatafoodget/mds_eng/26799" taget="_blank">白米（2012年産）自家産</a></td>
+          <td>広島県尾道市</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td data-sort-value="0.00">ND<br/>(0.50)</td>
+          <td>2013-01-20</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_26799');" /><br/>
+           <span style="display:none" id="other_info_26799" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:986.00
+remarks:</span>
+                   </td>
+      </tr>
+                           <tr id="mrdata_26810" class="mrdata_line">
+          <td>119</td>
+          <td><a href="../mrdatafoodget/mds_eng/26810" taget="_blank">米ぬか（2012年産）尾道市農業協同組合</a></td>
+          <td>広島県尾道市</td>
+          <td data-sort-value="0.00">ND<br/>(1.20)</td>
+          <td data-sort-value="0.00">ND<br/>(1.60)</td>
+          <td>2013-02-10</td>
+          <td class="mrtime" value="43201">43201</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_26810');" /><br/>
+           <span style="display:none" id="other_info_26810" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Cereals&gt;Rice and processed products of rice&gt;Rice bran
+weight:381.00
+remarks:http://onomichi-labo.blogspot.jp/2013/02/blog-post_11.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/02/blog-post_11.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_26780" class="mrdata_line">
+          <td>120</td>
+          <td><a href="../mrdatafoodget/mds_eng/26780" taget="_blank">黒豆・自家製豆（2012年産）</a></td>
+          <td>広島県尾道市</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td>2012-12-13</td>
+          <td class="mrtime" value="126000">126000</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_26780');" /><br/>
+           <span style="display:none" id="other_info_26780" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Beans&gt;Processed products of soybean&gt;Soybean (dried)
+weight:744.00
+remarks:http://onomichi-labo.blogspot.jp/2013/03/blog-post_7428.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/03/blog-post_7428.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_26778" class="mrdata_line">
+          <td>121</td>
+          <td><a href="../mrdatafoodget/mds_eng/26778" taget="_blank">キャベツ（2012年産）尾道市農業協同組合</a></td>
+          <td>広島県尾道市</td>
+          <td data-sort-value="0.00">ND<br/>(0.70)</td>
+          <td data-sort-value="0.00">ND<br/>(0.80)</td>
+          <td>2012-12-02</td>
+          <td class="mrtime" value="36000">36000</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_26778');" /><br/>
+           <span style="display:none" id="other_info_26778" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Vegetables&gt;Leaf vegetables&gt;Cabbage
+weight:993.00
+remarks:http://onomichi-labo.blogspot.jp/2013/02/blog-post_21.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/02/blog-post_21.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_26808" class="mrdata_line">
+          <td>122</td>
+          <td><a href="../mrdatafoodget/mds_eng/26808" taget="_blank">白菜（2013年産）自家産</a></td>
+          <td>広島県尾道市</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td data-sort-value="0.00">ND<br/>(0.50)</td>
+          <td>2013-02-06</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_26808');" /><br/>
+           <span style="display:none" id="other_info_26808" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Vegetables&gt;Leaf vegetables&gt;Chinese cabbage
+weight:433.00
+remarks:http://onomichi-labo.blogspot.jp/2013/02/blog-post_8.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/02/blog-post_8.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_28409" class="mrdata_line">
+          <td>123</td>
+          <td><a href="../mrdatafoodget/mds_eng/28409" taget="_blank">たけのこ・広島県尾道市（2013年産）ええじゃん尾道</a></td>
+          <td>広島県尾道市</td>
+          <td data-sort-value="0.00">ND<br/>(0.70)</td>
+          <td data-sort-value="0.00">ND<br/>(0.80)</td>
+          <td>2013-06-04</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_28409');" /><br/>
+           <span style="display:none" id="other_info_28409" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Vegetables&gt;Stem vegetables&gt;Bamboo shoot
+weight:492.00
+remarks:http://onomichi-labo.blogspot.jp/2013/06/blog-post_5.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/06/blog-post_5.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_39392" class="mrdata_line">
+          <td>124</td>
+          <td><a href="../mrdatafoodget/mds_eng/39392" taget="_blank">たけのこ（ハチク）MDS用（2014年）広島県尾道市・7</a></td>
+          <td>広島県尾道市</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td>2014-05-24</td>
+          <td class="mrtime" value="36000">36000</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_39392');" /><br/>
+           <span style="display:none" id="other_info_39392" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Vegetables&gt;Stem vegetables&gt;Bamboo shoot
+weight:859.00
+remarks:広範囲単品測定プロジェクト</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2014/05/72014.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_39400" class="mrdata_line">
+          <td>125</td>
+          <td><a href="../mrdatafoodget/mds_eng/39400" taget="_blank">たけのこ（ハチク）MDS用（2014年）広島県尾道市・8</a></td>
+          <td>広島県尾道市</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td>2014-05-25</td>
+          <td class="mrtime" value="36000">36000</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_39400');" /><br/>
+           <span style="display:none" id="other_info_39400" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Vegetables&gt;Stem vegetables&gt;Bamboo shoot
+weight:894.20
+remarks:広範囲単品測定プロジェクト</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2014/05/82014.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_26776" class="mrdata_line">
+          <td>126</td>
+          <td><a href="../mrdatafoodget/mds_eng/26776" taget="_blank">ブルーベリー（2012年産）河野園芸</a></td>
+          <td>広島県尾道市</td>
+          <td data-sort-value="0.00">ND<br/>(1.40)</td>
+          <td data-sort-value="0.00">ND<br/>(1.60)</td>
+          <td>2012-12-01</td>
+          <td class="mrtime" value="36000">36000</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_26776');" /><br/>
+           <span style="display:none" id="other_info_26776" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Fruits&gt;Fresh fruits&gt;Blueberry
+weight:509.00
+remarks:http://onomichi-labo.blogspot.jp/2013/03/blog-post_7.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/03/blog-post_7.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_28412" class="mrdata_line">
+          <td>127</td>
+          <td><a href="../mrdatafoodget/mds_eng/28412" taget="_blank">梅・広島県尾道市（2013年産）ええじゃん尾道</a></td>
+          <td>広島県尾道市</td>
+          <td data-sort-value="0.00">ND<br/>(0.50)</td>
+          <td data-sort-value="0.00">ND<br/>(0.70)</td>
+          <td>2013-06-06</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_28412');" /><br/>
+           <span style="display:none" id="other_info_28412" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Fruits&gt;Fresh fruits&gt;Ume, Japanese plum
+weight:620.00
+remarks:http://onomichi-labo.blogspot.jp/2013/06/blog-post_7.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/06/blog-post_7.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_26870" class="mrdata_line">
+          <td>128</td>
+          <td><a href="../mrdatafoodget/mds_eng/26870" taget="_blank">タイ（天然）（2013年産）株式会社ハローズ</a></td>
+          <td>広島県尾道市</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td data-sort-value="0.00">ND<br/>(0.50)</td>
+          <td>2013-04-26</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_26870');" /><br/>
+           <span style="display:none" id="other_info_26870" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Seafood&gt;Raw seafood (sea water)&gt;Sea bream
+weight:912.00
+remarks:http://onomichi-labo.blogspot.jp/2013/04/blog-post_27.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/04/blog-post_27.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_26787" class="mrdata_line">
+          <td>129</td>
+          <td><a href="../mrdatafoodget/mds_eng/26787" taget="_blank">寒ブリ（2012年産）</a></td>
+          <td>広島県尾道市</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td data-sort-value="0.00">ND<br/>(0.50)</td>
+          <td>2012-12-30</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_26787');" /><br/>
+           <span style="display:none" id="other_info_26787" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Seafood&gt;Raw seafood (sea water)&gt;Other raw seafood (seawater)
+weight:907.00
+remarks:http://onomichi-labo.blogspot.jp/2013/02/blog-post_20.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/02/blog-post_20.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_26807" class="mrdata_line">
+          <td>130</td>
+          <td><a href="../mrdatafoodget/mds_eng/26807" taget="_blank">混合削りぶし（さば・むろあじ）（2012年産）株式会社まるじょう</a></td>
+          <td>広島県尾道市</td>
+          <td data-sort-value="0.00">ND<br/>(1.60)</td>
+          <td data-sort-value="0.00">ND<br/>(2.10)</td>
+          <td>2013-02-05</td>
+          <td class="mrtime" value="86400">86400</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_26807');" /><br/>
+           <span style="display:none" id="other_info_26807" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Seafood&gt;Processed products of seafood&gt;Dried bonito
+weight:83.00
+remarks:http://onomichi-labo.blogspot.jp/2013/02/blog-post_7.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/02/blog-post_7.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_26816" class="mrdata_line">
+          <td>131</td>
+          <td><a href="../mrdatafoodget/mds_eng/26816" taget="_blank">猪肉（2013年産）尾道市向島町（野生）</a></td>
+          <td>広島県尾道市</td>
+          <td data-sort-value="0.00">ND<br/>(0.60)</td>
+          <td data-sort-value="1.10">1.10±0.90<br/>(0.70)</td>
+          <td>2013-02-21</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_26816');" /><br/>
+           <span style="display:none" id="other_info_26816" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Meats&gt;Meat of livestock&gt;Boar meat
+weight:666.00
+remarks:http://onomichi-labo.blogspot.jp/2013/03/blog-post_4.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/03/blog-post_4.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_26791" class="mrdata_line">
+          <td>132</td>
+          <td><a href="../mrdatafoodget/mds_eng/26791" taget="_blank">ほんだし・いりこだし・和風だしの素・風味調味料（煮干し）（2012年産）味の素株式会社</a></td>
+          <td>広島県尾道市</td>
+          <td data-sort-value="0.00">ND<br/>(0.90)</td>
+          <td data-sort-value="0.00">ND<br/>(1.10)</td>
+          <td>2013-01-05</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_26791');" /><br/>
+           <span style="display:none" id="other_info_26791" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Seasonings and spices&gt;Seasonings&gt;Other seasonings
+weight:424.00
+remarks:http://onomichi-labo.blogspot.jp/2013/02/blog-post_24.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/02/blog-post_24.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_29188" class="mrdata_line">
+          <td>133</td>
+          <td><a href="../mrdatafoodget/mds_eng/29188" taget="_blank">レモン（皮付）無農薬有機農法・広島県尾道市瀬戸田町（2013年産）</a></td>
+          <td>広島県尾道市瀬戸田町</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td>2013-08-09</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_29188');" /><br/>
+           <span style="display:none" id="other_info_29188" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Fruits&gt;Fresh fruits&gt;Citrus fruits
+weight:971.20
+remarks:http://onomichi-labo.blogspot.jp/2013/08/blog-post_9.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/08/blog-post_9.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_26769" class="mrdata_line">
+          <td>134</td>
+          <td><a href="../mrdatafoodget/mds_eng/26769" taget="_blank">府中味噌（合わせ味噌）（2012年産）金光味噌株式会社</a></td>
+          <td>広島県府中市</td>
+          <td data-sort-value="0.00">ND<br/>(0.80)</td>
+          <td data-sort-value="0.00">ND<br/>(0.90)</td>
+          <td>2012-11-22</td>
+          <td class="mrtime" value="36000">36000</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_26769');" /><br/>
+           <span style="display:none" id="other_info_26769" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Seasonings and spices&gt;Seasonings&gt;Miso
+weight:1182.00
+remarks:http://onomichi-labo.blogspot.jp/2013/02/blog-post_17.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/02/blog-post_17.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_46287" class="mrdata_line">
+          <td>135</td>
+          <td><a href="../mrdatafoodget/mds_eng/46287" taget="_blank">玄米（無農薬・無施肥）あさひ米・広島県（2014年）びんご自然栽培研究会</a></td>
+          <td>広島県福山市</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td>2015-03-09</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_46287');" /><br/>
+           <span style="display:none" id="other_info_46287" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:903.90
+remarks:</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2015/03/2014_12.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_40243" class="mrdata_line">
+          <td>136</td>
+          <td><a href="../mrdatafoodget/mds_eng/40243" taget="_blank">上乾ちりめん（天日干しらす）・広島県福山市鞆の浦沖（走島産）（2014年）</a></td>
+          <td>広島県福山市</td>
+          <td data-sort-value="0.00">ND<br/>(0.50)</td>
+          <td data-sort-value="0.00">ND<br/>(0.40)</td>
+          <td>2014-07-26</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_40243');" /><br/>
+           <span style="display:none" id="other_info_40243" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Seafood&gt;Processed products of seafood&gt;Seafood (salted and dried)
+weight:611.30
+remarks:</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2014/07/2014_27.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_47081" class="mrdata_line">
+          <td>137</td>
+          <td><a href="../mrdatafoodget/mds_eng/47081" taget="_blank">しいたけ廃菌床（オガクズ）・広島県（2015年）</a></td>
+          <td>広島県福山市</td>
+          <td data-sort-value="0.00">ND<br/>(0.70)</td>
+          <td data-sort-value="1.07">1.07±0.88<br/>(0.70)</td>
+          <td>2015-03-14</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_47081');" /><br/>
+           <span style="display:none" id="other_info_47081" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Environment&gt;Agricultural materials&gt;Compost
+weight:406.40
+remarks:</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2015/05/2015_15.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_26805" class="mrdata_line">
+          <td>138</td>
+          <td><a href="../mrdatafoodget/mds_eng/26805" taget="_blank">節分大豆（福豆）（2012年産）株式会社小林製菓</a></td>
+          <td>広島県福山市</td>
+          <td data-sort-value="0.00">ND<br/>(1.20)</td>
+          <td data-sort-value="0.00">ND<br/>(1.30)</td>
+          <td>2013-02-03</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_26805');" /><br/>
+           <span style="display:none" id="other_info_26805" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Beans&gt;Processed products of soybean&gt;Soybean (dried)
+weight:381.00
+remarks:http://onomichi-labo.blogspot.jp/2013/02/4320012-318.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/02/4320012-318.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_26773" class="mrdata_line">
+          <td>139</td>
+          <td><a href="../mrdatafoodget/mds_eng/26773" taget="_blank">みかん（2012年産）</a></td>
+          <td>広島県福山市</td>
+          <td data-sort-value="0.00">ND<br/>(0.80)</td>
+          <td data-sort-value="0.00">ND<br/>(1.00)</td>
+          <td>2012-11-26</td>
+          <td class="mrtime" value="36000">36000</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_26773');" /><br/>
+           <span style="display:none" id="other_info_26773" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Fruits&gt;Fresh fruits&gt;Citrus fruits
+weight:1024.00
+remarks:http://onomichi-labo.blogspot.jp/2013/03/blog-post_5.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/03/blog-post_5.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_29152" class="mrdata_line">
+          <td>140</td>
+          <td><a href="../mrdatafoodget/mds_eng/29152" taget="_blank">上乾ちりめん・天日干しらす・広島県福山市走島産（2013年産）広島県福山市鞆の浦沖合い</a></td>
+          <td>広島県福山市</td>
+          <td data-sort-value="0.00">ND<br/>(0.60)</td>
+          <td data-sort-value="0.00">ND<br/>(0.80)</td>
+          <td>2013-07-25</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_29152');" /><br/>
+           <span style="display:none" id="other_info_29152" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Seafood&gt;Processed products of seafood&gt;Seafood (salted and dried)
+weight:549.30
+remarks:http://onomichi-labo.blogspot.jp/2013/07/blog-post_27.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/07/blog-post_27.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_28411" class="mrdata_line">
+          <td>141</td>
+          <td><a href="../mrdatafoodget/mds_eng/28411" taget="_blank">本みりん（2013年産）株式会社岡本亀太郎本店</a></td>
+          <td>広島県福山市</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td>2013-06-06</td>
+          <td class="mrtime" value="43200">43200</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_28411');" /><br/>
+           <span style="display:none" id="other_info_28411" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Seasonings and spices&gt;Seasonings&gt;Other seasonings
+weight:1164.00
+remarks:http://onomichi-labo.blogspot.jp/2013/06/blog-post_9.html</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2013/06/blog-post_9.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_40178" class="mrdata_line">
+          <td>142</td>
+          <td><a href="../mrdatafoodget/mds_eng/40178" taget="_blank">生しいたけ（菌床）MDS用（2014年）広島県大崎上島町・2</a></td>
+          <td>広島県豊田郡大崎上島町</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td data-sort-value="0.00">ND<br/>(0.30)</td>
+          <td>2014-07-15</td>
+          <td class="mrtime" value="36000">36000</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_40178');" /><br/>
+           <span style="display:none" id="other_info_40178" >lab:Radioactivity Measurement Request Place in Onomichi
+category:Mushrooms&gt;Mushrooms&gt;Shiitake mushroom
+weight:958.30
+remarks:広範囲単品測定プロジェクト</span>
+                      <a href="http://onomichi-labo.blogspot.jp/2014/07/22014.html" target="_blank">related page</a>
+                   </td>
+      </tr>
+                           <tr id="mrdata_39848" class="mrdata_line">
+          <td>143</td>
+          <td><a href="../mrdatafoodget/mds_eng/39848" taget="_blank">玄米</a></td>
+          <td>広島県北部</td>
+          <td data-sort-value="0.00">ND<br/>(1.40)</td>
+          <td data-sort-value="0.00">ND<br/>(1.30)</td>
+          <td>2014-04-08</td>
+          <td class="mrtime" value="1800">1800</td>
+          <td class="inst" value="31">CSK3i</td>
+          <td>
+           <input type="button" value="Show" onclick="show_other_info('other_info_39848');" /><br/>
+           <span style="display:none" id="other_info_39848" >lab:Hanshin Citizens' Radioactivity Measuring Center
+category:Cereals&gt;Rice and processed products of rice&gt;Non-glutinous rice
+weight:945.00
+remarks:</span>
+                      <a href="http://hanshinshs.web.fc2.com/201404kekka/761genmai_hirosima.pdf" target="_blank">related page</a>
+                   </td>
+      </tr>
+                       
+        </table>
+        
+      </div>
+      <!-- mrdata -->
+    </div><!-- .container -->  
+  </div><!-- #page_content -->  <!-- Footer -->
+<footer>
+	<div class="footer-bg">
+		<div class="container"> 
+			<!-- SNS Section -->
+			<div class="row item-box">
+				<div class="col-lg-8 facebook-box"></div>
+				<div class="col-lg-4 twitter-box"></div>
+			</div>
+			<!-- Site Map Section -->
+			<div class="row sitemap-box clear-link item-box">
+				<div class="col-lg-2 col-sm-6">
+					<ul>
+						<li><a href="../">HOME</a></li>
+						<li><strong>About Minna no Data Site</strong></li>
+						<li><a href="../MDS">About Minna no Data Site</a></li>
+<!--						<li><a href="../MDS/movie.html">みんなのデータサイト紹介動画</a></li>  -->
+						<li><a href="../MDS/beginning.html">Why and how did MDS begin?</a></li>
+						<li><a href="../MDS/organization.html">About the Organization</a></li>
+						<li><a href="../MDS/objectives.html">What are the objectives?</a></li>
+						<li><a href="../MDS/concept.html">Concept</a></li>
+						<li><a href="../MDS/accuracy.html">System to ensure the accuracy of the data</a></li>
+						<li><a href="../MDS/marinelliboy.html">MDS symbol character</a></li>
+						<li><a href="../MDS/howto.html">How to use this site</a></li>
+						<li><a href="../MDS/data.html">Precautions on MDS Data Usage </a></li>
+					</ul>
+				</div>
+				<div class="col-lg-2 col-sm-6">
+					<ul>
+						<li><strong>food data search</strong></li>
+						<li><a href="../#mds_indx_srch">Search TOP</a></li>
+						<li><a href="../seasonal/">Search by Season</a></li>
+						<li><a href="../mrdatafoodcat/">Search by Food Type</a></li>
+						<li><a href="../mrdatafoodloc/">Search by Place</a></li>
+						<li><a href="../mrdatafoodymd/">Search by Date</a></li>
+						<li><a href="../food/howto_search.html">How to Search for Food Data</a></li>
+					</ul>
+				</div>
+				<div class="col-lg-2 col-sm-6">
+					<ul>
+						<li><strong>East Japan Soil Measurement Project</strong></li>
+						<li><a href="../">East Japan Soil Measurement Project TOP</a></li>
+						<li><a href="../soil/soil_outline.html">Outline</a></li>
+						<li><a href="../soil/soil_objectives.html">Objectives</a></li>
+						<li><a href="../soil/soil_method.html">Methodology</a></li>
+						<li><a href="../soil/soil_areas.html">Target Areas</a></li>
+						<li><a href="../soil/soil_support.html">Support Us(soil)</a></li>
+					</ul>
+				</div>
+
+				<div class="col-lg-2 col-sm-6">
+					<ul>
+						<li><strong>Lab Info</strong></li>
+						<li><a href="../labs">Lab Info TOP</a></li>
+					</ul>
+				</div>
+
+				<div class="col-lg-2 col-sm-6">
+					<ul>
+						<li><strong>Basic Knowledge</strong></li>
+						<li><a href="../radinfo/rad_qa.html">Q&amp;A</a></li>
+<!--						<li><a href="../">世界の基準値</a></li> -->
+<!--						<li><a href="../">書籍案内</a></li> -->
+<!--						<li><a href="../">リンク集</a></li> -->
+					</ul>
+				</div>
+
+				<div class="col-lg-2 col-sm-6">
+					<ul>
+						<li><strong>Support Us</strong></li>
+						<li><a href="../support/5supportsway.html">How can I support MDS?</a></li>
+						<li><a href="../support/supportourproject.html">Support Our Site and Project!</a></li>
+					</ul>
+					<ul>
+						<li><a href="../contact"><strong>Contact</strong></a></li>
+						<li><a href="http://www.minnanods.net"><strong>Japanese site</strong></a></li>
+						<li><a href="http://minnanodatasite.blogspot.jp/" target="_blank"><strong>Blog</strong></a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="row item-box copyright-box">
+				<p><img src="../img/common/character_all.png"></p>
+				<p>Copyright &copy; Minna no Data Site 2014</p>
+			</div>
+		</div>
+		<!-- /.footer-bg --> 
+	</div>
+	<!-- /.container --> 
+</footer>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-46552110-1', 'minnanods.net');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

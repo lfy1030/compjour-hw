@@ -29,9 +29,10 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li><a href="http://minnanodata.hikari-project.com/">Home</a></li>
-            <li class="active"><a href="#">Table</a></li>
-            <li><a href="#contact">Vis 2</a></li>
+             <li><a href="http://minnanodata.hikari-project.com/">Home</a></li>
+            <li><a href="http://minnanodata.hikari-project.com/vis1.html">By Food Category</a></li>
+            <li><a href="http://minnanodata.hikari-project.com/vis2.html">By Prefecture</a></li>
+            <li class="active"><a href="http://minnanodata.hikari-project.com/table.html">Table</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -48,25 +49,27 @@
         <table id="table"
                data-toggle="table"
                data-url="https://api.github.com/users/wenzhixin/repos?type=owner&sort=full_name&direction=asc&per_page=100&page=1"
+               this does work = "http://minnanodata.hikari-project.com/data.json"
                data-height="460"
                data-sort-name="pref"
                data-sort-order="asc">
         <thead>
             <tr>
-                <th data-field="pref" data-sortable="true">Prefecture</th>
+                <th data-field="id" data-sortable="true">Prefecture</th>
                 <th data-field="name" data-sortable="true">Item</th>
-                <th data-field="loc" data-sortable="true">Location</th>
-                <th data-field="cs134" data-sortable="true">Cs-134</th>
-                <th data-field="cs134mda" data-sortable="true">Cs-134 MDA</th>
-                <th data-field="cs137" data-sortable="true">Cs-137</th>
-                <th data-field="cs137mda" data-sortable="true">Cs-137 MDA</th>
-                <th data-field="date" data-sortable="true">Date</th>
-                <th data-field="time" data-sortable="true">Time</th>
-                <th data-field="inst" data-sortable="true">Instrument</th>
-                <th data-field="lab" data-sortable="true">Lab</th>
-                <th data-field="cat1" data-sortable="true">Cat 1</th>
-                <th data-field="cat2" data-sortable="true">Cat 2</th>
-                <th data-field="cat3" data-sortable="true">Cat 3</th>
+                <th data-field="url" data-sortable="true">Location</th>
+                <th data-field="Cs-134" data-sortable="true">Cs-134</th>
+                <th data-field="Cs-134 MDA" data-sortable="true">Cs-134 MDA</th>
+                <th data-field="Cs-137" data-sortable="true">Cs-137</th>
+                <th data-field="Cs-137 MDA" data-sortable="true">Cs-137 MDA</th>
+                <th data-field="Date" data-sortable="true">Date</th>
+                <th data-field="Time Measures (sec)" data-sortable="true">Time</th>
+                <th data-field="Instrument" data-sortable="true">Instrument</th>
+                <th data-field="Lab" data-sortable="true">Lab</th>
+                <th data-field="Cat 1" data-sortable="true">Cat 1</th>
+                <th data-field="Cat 2" data-sortable="true">Cat 2</th>
+                <th data-field="Cat 3" data-sortable="true">Cat 3</th>
+
             </tr>
         </thead>
 

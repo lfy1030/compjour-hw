@@ -1,0 +1,121 @@
+Prefecture,Name,Location,Cs-134,Cs-134 MDA,Cs-137,Cs-137 MDA,Date,Time Measures (sec),Instrument,Lab,Cat 1,Cat 2,Cat 3
+不明,生薬煎出液(混合構成不明),不明,ND,3.20,ND,3.50,2012-11-03,1800,AT1320A,Kodomomirai Radiation Measurement Station for Children and Future (Kodomira RMS),Others,Others,Others
+不明,おから原料の猫の砂,不明,ND,2.20,ND,2.40,2012-08-29,10800,AT1320A,Hakaru-Sapporo Citizens' Station for Measuring Radioactivity in Sapporo,Others,Others,Others
+不明,ベビー飲料,不明不明・水は長野県,ND,4.80,ND,4.30,2012-05-15,6600,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+兵庫県,ジョイコンパクト,兵庫県神戸市東灘区,ND,0.60,ND,0.60,2015-04-07,21600,CSK3i,Hanshin Citizens' Radioactivity Measuring Center,Others,Others,Others
+兵庫県,P&Gボールド,兵庫県神戸市東灘区,ND,0.60,ND,0.60,2015-04-07,21600,CSK3i,Hanshin Citizens' Radioactivity Measuring Center,Others,Others,Others
+兵庫県,わらっと納豆・藁筒,兵庫県姫路市,ND,2.90,ND,2.90,2015-04-20,43200,CSK3i,Hanshin Citizens' Radioactivity Measuring Center,Others,Others,Others
+千葉県,サバ,千葉県,ND,0.40,ND,0.40,2015-02-10,21600,CSK3i,Hanshin Citizens' Radioactivity Measuring Center,Others,Others,Others
+千葉県,ピーナッツクリーム,千葉県,ND,2.40,ND,2.20,2015-02-05,1440,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+千葉県,大豆戻し汁,千葉県香取郡神崎町,3.90±2.00,2.80,4.40±2.20,3.00,2012-02-09,3600,AT1320A,Kodomomirai Radiation Measurement Station for Children and Future (Kodomira RMS),Others,Others,Others
+千葉県,モイストイージーフェイス,千葉県成田市,ND,0.90,ND,0.90,2015-04-03,21600,CSK3i,Hanshin Citizens' Radioactivity Measuring Center,Others,Others,Others
+千葉県,洗濯のしゃぼん無香料,千葉県船橋市,ND,0.70,ND,0.70,2014-11-30,7200,CSK3i,Hanshin Citizens' Radioactivity Measuring Center,Others,Others,Others
+国産,経木,国産,ND,1.00,ND,1.00,2015-03-11,43200,CSK3i,Hanshin Citizens' Radioactivity Measuring Center,Others,Others,Others
+国産,エパデールS900,国産,ND,1.41,ND,1.72,2013-04-15,54000,HpGe,NPO Fukushima 30-Years Project,Others,Others,Others
+国産,味の素『エレンタール 成分栄養剤』 製造No  1D229 使用期限 2012.6,国産,ND,2.10,ND,2.30,2012-07-06,10800,AT1320A,Hakaru-Sapporo Citizens' Station for Measuring Radioactivity in Sapporo,Others,Others,Others
+国産,ラコールNF配合経腸溶液　製造番号 X1109161 使用期限 2012.10,国産,ND,1.50,ND,1.60,2012-07-08,9403,AT1320A,Hakaru-Sapporo Citizens' Station for Measuring Radioactivity in Sapporo,Others,Others,Others
+国産,ベビー飲料 りんご＆もも,国産りんご:青森･海外　もも:山形･海外　水:青森,ND,4.70,ND,4.20,2012-05-15,6600,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+埼玉県,シイタケ戻し汁(シイタケ10g使用/RO水/原木シイタケ),埼玉県,1.30±0.57,0.82,3.10±0.84,0.90,2013-05-16,65000,AT1320A,Kodomomirai Radiation Measurement Station for Children and Future (Kodomira RMS),Others,Others,Others
+埼玉県,シイタケ戻し汁(乾燥シイタケ100g1週間1l水で),埼玉県,3.80±1.80,2.70,9.70±2.80,2.90,2013-05-23,3600,AT1320A,Kodomomirai Radiation Measurement Station for Children and Future (Kodomira RMS),Others,Others,Others
+埼玉県,原木干ししいたけ戻し汁,埼玉県比企郡滑川町,29.00±6.70,3.93,32.00±7.80,4.28,2012-08-31,1800,AT1320A,Mori-no-Sokuteishitsu Namegawa,Others,Others,Others
+大阪府,飲料水(「赤ちゃんの純水」/アカチャンホンポ/140903AOK1),大阪府,ND,0.74,ND,0.81,2013-06-02,65000,AT1320A,Kodomomirai Radiation Measurement Station for Children and Future (Kodomira RMS),Others,Others,Others
+宮城県,炭クッキー,宮城県伊具郡丸森町,ND,4.50,ND,2.50,2012-10-10,1800,CSK3i,Small Flowers Independent Radioaction Measurement Room,Others,Others,Others
+宮城県,フン　いのしし糞,宮城県仙台市太白区,53.10±14.90,2.70,160.00±40.70,6.80,2014-05-24,1800,CSK3i,Small Flowers Independent Radioaction Measurement Room,Others,Others,Others
+宮城県,糞　イノシシ,宮城県仙台市太白区,81.30±27.40,8.40,238.00±68.70,17.30,2014-05-08,1800,CSK3i,Small Flowers Independent Radioaction Measurement Room,Others,Others,Others
+宮城県,糞　カモシカ,宮城県仙台市太白区,59.30±20.80,6.90,212.00±59.70,13.80,2014-05-08,1800,CSK3i,Small Flowers Independent Radioaction Measurement Room,Others,Others,Others
+宮城県,蜂の巣　モンスズメバチ２ｈ,宮城県仙台市太白区,ND,20.40,37.10±30.20,27.00,2013-06-27,7200,CSK3i,Small Flowers Independent Radioaction Measurement Room,Others,Others,Others
+宮城県,コゴミ茹で汁,宮城県大崎市,1.80±0.65,0.87,2.80±0.82,0.94,2013-05-11,62000,AT1320A,Kodomomirai Radiation Measurement Station for Children and Future (Kodomira RMS),Others,Others,Others
+富山県,ペレット燃料,富山県富山市,ND,2.60,ND,2.50,2015-03-11,3600,CSK-3i-X,"HAKARUCHA，Toyama Radioactivity Measuring Civic Organization,",Others,Others,Others
+岐阜県,はちみつ,岐阜県加茂郡白川町,ND,1.70,ND,1.60,2014-10-28,43200,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+岐阜県,ペレット燃料（ホワイトペレット）,岐阜県高山市,ND,1.80,12.80±4.41,1.80,2015-03-15,10800,CSK-3i-X,"HAKARUCHA，Toyama Radioactivity Measuring Civic Organization,",Others,Others,Others
+岩手県,メビウス・たばこ,岩手県,ND,2.10,ND,2.10,2014-11-08,43200,CSK3i,Hanshin Citizens' Radioactivity Measuring Center,Others,Others,Others
+岩手県,経腸栄養剤ラコール,岩手県,ND,4.60,ND,4.50,2011-12-29,18000,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県,ND,3.40,ND,3.20,2014-09-04,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県,ND,3.30,ND,3.00,2015-01-15,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県,ND,3.10,ND,2.80,2015-01-15,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県あま市,ND,3.00,ND,1.20,2014-09-24,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県あま市,ND,3.10,ND,2.80,2014-12-12,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県あま市,ND,1.60,ND,1.40,2014-10-20,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県あま市,ND,1.30,ND,1.20,2014-11-13,43200,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県あま市,ND,3.10,ND,2.80,2015-01-29,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県みよし市,ND,3.30,ND,3.00,2014-12-23,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県みよし市,ND,3.20,ND,2.90,2014-10-24,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県みよし市,ND,3.00,ND,2.70,2014-09-24,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県みよし市,ND,3.20,ND,2.90,2014-11-19,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県みよし市,ND,3.10,ND,2.80,2015-01-29,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県みよし市,ND,3.30,ND,3.00,2015-05-29,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,シジミエキス（原液）,愛知県愛知県側木曽川流域(弥富・愛西・津島市),ND,4.50,ND,4.00,2014-10-16,5400,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県岡崎市,ND,3.30,ND,3.00,2014-12-05,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県岡崎市,ND,2.00,ND,1.80,2014-09-05,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県岡崎市,ND,3.50,ND,3.20,2014-11-05,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県岡崎市,ND,3.10,ND,2.80,2014-10-10,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県岡崎市,ND,3.00,ND,2.70,2014-10-17,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県岡崎市,ND,3.00,ND,2.80,2014-12-03,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県岡崎市,ND,2.90,ND,2.70,2014-12-11,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県岡崎市,ND,3.10,ND,2.80,2015-02-11,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県岡崎市,ND,3.20,ND,2.90,2015-02-12,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県岡崎市,ND,3.20,ND,2.90,2015-02-18,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県岡崎市,ND,3.30,ND,3.00,2015-02-20,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県岡崎市,ND,3.30,ND,3.00,2014-10-10,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県岡崎市,ND,2.00,ND,1.80,2014-10-22,43200,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県岡崎市,ND,3.10,ND,2.70,2015-01-21,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県岡崎市,ND,3.30,ND,3.00,2014-09-05,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県岡崎市,ND,3.20,ND,2.90,2015-01-23,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県岡崎市,ND,3.40,ND,3.10,2014-09-10,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県岡崎市,ND,3.30,ND,3.00,2015-01-28,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県岡崎市,ND,3.10,ND,2.80,2014-11-14,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県岡崎市,ND,2.00,ND,1.80,2014-11-12,43200,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県岡崎市,ND,2.80,ND,2.50,2015-05-21,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県海部郡大治町,ND,2.90,ND,2.60,2014-09-11,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県海部郡大治町,ND,2.90,ND,2.70,2014-11-12,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県海部郡大治町,ND,2.90,ND,2.70,2014-12-03,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県海部郡大治町,ND,3.00,ND,2.80,2014-10-17,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県海部郡大治町,ND,2.80,ND,2.60,2015-01-22,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県海部郡大治町,ND,2.70,ND,2.40,2015-05-20,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,ダニ退治 ヒノキマット,愛知県江南市,ND,2.60,ND,2.30,2014-07-27,25800,CSK3i,Hanshin Citizens' Radioactivity Measuring Center,Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県小牧市,ND,3.60,ND,3.30,2014-09-25,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県小牧市,ND,3.50,ND,3.20,2014-12-16,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県小牧市,ND,3.10,ND,2.70,2015-01-29,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県小牧市,ND,3.10,ND,2.90,2014-11-19,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県小牧市,ND,3.20,ND,2.90,2014-10-22,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県小牧市,ND,2.90,ND,2.60,2015-05-21,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県大府市,ND,3.00,ND,2.70,2015-02-04,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県大府市,ND,3.00,ND,2.70,2014-10-30,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県大府市,ND,3.30,ND,3.00,2014-11-29,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県大府市,ND,3.20,ND,2.90,2014-09-04,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県大府市,ND,3.20,ND,2.90,2014-10-01,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県大府市,ND,3.20,ND,2.90,2015-01-15,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県大府市,ND,2.80,ND,2.50,2015-05-28,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県尾張旭市,ND,2.50,ND,2.30,2014-10-23,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県尾張旭市,ND,3.00,ND,2.70,2014-11-26,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県尾張旭市,ND,3.00,ND,2.70,2015-02-06,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県尾張旭市,ND,3.00,ND,2.70,2014-10-03,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県豊田市,ND,3.40,ND,3.10,2014-11-07,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県豊田市,ND,2.40,ND,3.20,2014-09-11,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県豊田市,ND,3.00,ND,2.70,2015-02-12,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県豊田市,ND,1.60,ND,1.50,2014-11-27,43200,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県豊田市,ND,3.30,ND,3.00,2015-05-22,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県名古屋市昭和区,ND,3.10,ND,2.90,2014-12-19,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県名古屋市昭和区,ND,3.30,ND,3.10,2014-10-02,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県名古屋市昭和区,ND,3.30,ND,3.00,2014-11-28,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県名古屋市昭和区,ND,2.90,ND,2.60,2014-10-29,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,愛知県私立幼稚園連盟給食影膳調査,愛知県名古屋市昭和区,ND,3.20,ND,2.90,2015-02-05,10800,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,シジミエキス（粒）,愛知県木曽川流域　弥富市、愛西市　津島市,ND,5.30,ND,4.70,2014-10-15,5400,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+愛知県,米ぬか,愛知県弥富市,ND,3.40,ND,3.00,2014-11-07,43200,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+東京都,マルツエキス スティック,東京都千代田区,ND,0.40,ND,0.40,2015-03-25,43200,CSK3i,Hanshin Citizens' Radioactivity Measuring Center,Others,Others,Others
+東京都,マルツエキス,東京都千代田区,ND,0.90,ND,0.90,2015-03-18,7200,CSK3i,Hanshin Citizens' Radioactivity Measuring Center,Others,Others,Others
+東京都,CONBO11歳以上,東京都品川区,ND,0.80,ND,0.80,2015-04-06,28800,CSK3i,Hanshin Citizens' Radioactivity Measuring Center,Others,Others,Others
+栃木県,経木,栃木県,ND,1.30,5.34±2.41,1.30,2015-03-09,21600,CSK3i,Hanshin Citizens' Radioactivity Measuring Center,Others,Others,Others
+海外,約15分燃焼の小さいサイズお線香,海外,ND,0.70,ND,0.70,2015-04-06,43200,CSK3i,Hanshin Citizens' Radioactivity Measuring Center,Others,Others,Others
+海外,ビィ・ナチュラルアダルト小粒・オーストラリア（2014年）株式会社ビィ・ナチュラル,海外オーストラリア,ND,0.50,ND,0.40,2014-03-17,43200,CSK3i,Radioactivity Measurement Request Place in Onomichi,Others,Others,Others
+熊本県,木酢液,熊本県,ND,2.44,ND,2.63,2013-02-01,3600,AT1320A,Citizens' Radioactivity Measuring Station Tsukuba,Others,Others,Others
+熊本県,お香,熊本県阿蘇郡西原村,ND,4.67,ND,5.13,2013-04-06,3600,AT1320A,Citizens' Radioactivity Measuring Station Tsukuba,Others,Others,Others
+石川県,牡蠣エキス（原液）,石川県七尾市,ND,2.80,ND,2.40,2015-04-24,14400,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+神奈川県,花王 歯磨き粉 クリアクリーン WQ363074,神奈川県,ND,0.81,ND,0.86,2014-12-12,12600,AT1320A,Zama Radioactivity Measuring Station,Others,Others,Others
+神奈川県,薬草煎汁,神奈川県相模原市緑区,ND,0.91,ND,0.99,2012-07-26,51146,AT1320A,Kodomomirai Radiation Measurement Station for Children and Future (Kodomira RMS),Others,Others,Others
+茨城県,頭髪,茨城県結城市,ND,7.78,ND,8.49,2012-09-26,16200,AT1320A,Citizens' Radioactivity Measuring Station Tsukuba,Others,Others,Others
+長野県,米（もみ）,長野県,ND,2.25,ND,1.99,2014-06-19,54000,ALOKA  CAN-OSP-NAI,JCF-Team Metoba,Others,Others,Others
+静岡県,経木,静岡県,ND,1.00,ND,1.00,2015-03-15,43200,CSK3i,Hanshin Citizens' Radioactivity Measuring Center,Others,Others,Others
+高知県,にがり(天日),高知県幡多郡黒潮町,ND,9.50,ND,9.30,2011-11-12,4200,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+高知県,ニガリ,高知県幡多郡黒潮町,ND,10.00,ND,9.70,2011-11-12,3600,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
+鳥取県,すいかエキス（濃縮）,鳥取県東伯郡北栄町,ND,4.50,ND,3.90,2014-10-16,5400,ALOKA  CAN-OSP-NAI,Tokai No Nukes Network for Future Generations Citizens' Radiation Measuring Center (C Lab.),Others,Others,Others
